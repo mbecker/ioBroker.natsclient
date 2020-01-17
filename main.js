@@ -29,6 +29,37 @@ class Natsclient extends utils.Adapter {
 	}
 
 	/**
+	 * Get all deives from enum.antsclient to subscribe to
+	 * @param {()}
+	 * @returns {JSON}
+	 */
+	async getSubscribedDevices() {
+		const subscribedDevices = []; // The devices from the enum.natsclient to subscribe
+		this.getEnum("natsclient", (err, result, _enum)  => {
+			// this.log.info("--- getEnum ROOMS ---");
+			// this.log.info(JSON.stringify(err));
+			// this.log.info(JSON.stringify(result));
+			// this.log.info(JSON.stringify(_enum));
+			if(err !== null) {
+				return this.log.warn("getEnum('natsclient') error: " + err);
+			}
+
+			// const _result = result["enum.natsclient"]; // Getting the enum "enum.natsclient"; creating temp variable _result to loop throug
+			for(const _key in result) {
+				// this.log.info("-----");
+				// this.log.info(JSON.stringify(result[_key]["common"]));
+				const _enum = result[_key]; // Temporary variable for enum object in enum.natsclient
+				if(typeof _enum["common"] !== "undefined" && typeof _enum["common"]["members"] !== "undefined" && _enum["common"]["members"].length > 0) {
+					// this.log.info("Devices: " + _enum["common"]["members"]);
+					const devices = _enum["common"]["members"];
+					devices.forEach(device => subscribedDevices.push(device));
+				}
+			}
+			return subscribedDevices;
+		});
+	}
+
+	/**
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	async onReady() {
@@ -47,45 +78,10 @@ class Natsclient extends utils.Adapter {
 			await this.setStateAsync("info.connection", true);
 		}
 
-		this.getEnums("natsclient", (err, res) => {
-			if (res) {
-				
-				this.log.info("--- ROOMS ---");
-				this.log.info(JSON.stringify(res));
+		const subscribedDevices = await this.getSubscribedDevices();
+		this.log.info("--- subscribed devices ---");
+		this.log.info(JSON.stringify(subscribedDevices));
 
-				// const _result = res["enum.rooms"];
-				// for ( let room in _result) {
-				// 	this.log.info(room);
-				// }
-			} else if (err) {
-				this.log.warn("No room set for device in objects enumeration.")
-			}
-		});
-
-		const subscribedDevices = []; // The devices from the enum.natsclient to subscribe
-		this.getEnum("natsclient", (err, result, _enum)  => {
-			this.log.info("--- getEnum ROOMS ---");
-			this.log.info(JSON.stringify(err));
-			this.log.info(JSON.stringify(result));
-			this.log.info(JSON.stringify(_enum));
-			if(err !== null) {
-				return this.log.warn("getEnum('natsclient') error: " + err);
-			}
-
-			// const _result = result["enum.natsclient"]; // Getting the enum "enum.natsclient"; creating temp variable _result to loop throug
-			for(const _key in result) {
-				this.log.info("-----");
-				this.log.info(JSON.stringify(result[_key]["common"]));
-				const _enum = result[_key]; // Temporary variable for enum object in enum.natsclient
-				if(typeof _enum["common"] !== "undefined" && typeof _enum["common"]["members"] !== "undefined" && _enum["common"]["members"].length > 0) {
-					this.log.info("Devices: " + _enum["common"]["members"]);
-					const devices = _enum["common"]["members"];
-					devices.forEach(device => subscribedDevices.push(device));
-				}
-			}
-		});
-
-		this.log.info("Subscribed devices: " + subscribedDevices);
 
 		/*
 		For every state in the system there has to be also an object of type state
