@@ -28,6 +28,7 @@ class Natsclient extends utils.Adapter {
 
     // Custom class parmeters
     this.subscribedDevices = {};
+    this.adaptername = "natsclient"; // TODO: Replace with option for enum[this.option("enumname")]
   }
 
   /**
@@ -36,13 +37,13 @@ class Natsclient extends utils.Adapter {
    */
   async getSubscribedDevices() {
     return new Promise(resolve => {
-      this.getEnum("natsclient", (err, result, _enum) => {
+      this.getEnum(this.adaptername, (err, result, _enum) => {
         // this.log.info("--- getEnum ROOMS ---");
         // this.log.info(JSON.stringify(err));
         // this.log.info(JSON.stringify(result));
         // this.log.info(JSON.stringify(_enum));
         if (err !== null) {
-          return this.log.warn("getEnum('natsclient') error: " + err);
+          return this.log.warn("getEnum('" + this.adaptername + "') error: " + err);
         }
 
         // const _result = result["enum.natsclient"]; // Getting the enum "enum.natsclient"; creating temp variable _result to loop throug
@@ -61,7 +62,7 @@ class Natsclient extends utils.Adapter {
           ) {
             // this.log.info("Devices: " + _enum["common"]["members"]);
             const devices = _enum["common"]["members"];
-            devices.forEach(device => this.subscribedDevices[_key].push(device));
+            devices.forEach(device => this.subscribedDevices[_key].push(device.replace("enum." + this.adaptername, "")));
           }
         }
         resolve()
