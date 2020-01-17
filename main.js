@@ -67,6 +67,19 @@ class Natsclient extends utils.Adapter {
 			this.log.info(JSON.stringify(err));
 			this.log.info(JSON.stringify(result));
 			this.log.info(JSON.stringify(_enum));
+			if(err !== null) {
+				return this.log.warn("getEnum('natsclient') error: " + err);
+			}
+
+			const _result = result["enum.natsclient"]; // Getting the enum "enum.natsclient"; creating temp variable _result to loop throug
+			for(const _enum in _result) {
+				if(typeof _enum["common"] !== "undefined" && typeof _enum["common"]["members"] !== "undefined" && _enum["common"]["members"].length > 0) {
+					this.log.info("Devices: " + _enum["common"]["members"])
+				}
+			}
+
+
+
 		});
 
 		/*
