@@ -92,7 +92,10 @@ class Natsclient extends utils.Adapter {
 
     await this.getSubscribedDevices();
     this.log.info("--- subscribed devices ---");
-    this.log.info(JSON.stringify(this.subscribedDevices));
+    for(const _key in this.subscribedDevices) {
+      this.log.info("- " + _key);
+      this.subscribedDevices[_key].forEach(_device => this.log.info("-- " + _device));
+    }
 
     /*
 		For every state in the system there has to be also an object of type state
