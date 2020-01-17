@@ -1,0 +1,101 @@
+{
+	"common": {
+		"name": "natsclient",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "natsclient",
+		"titleLang": {
+			"en": "natsclient",
+			"de": "natsclient",
+			"ru": "natsclient",
+			"pt": "natsclient",
+			"nl": "natsclient",
+			"fr": "natsclient",
+			"it": "natsclient",
+			"es": "natsclient",
+			"pl": "natsclient",
+			"zh-cn": "natsclient"
+		},
+		"desc": {
+			"en": "nats client adapter",
+			"de": "nats client adapter",
+			"ru": "клиентский адаптер нац",
+			"pt": "adaptador cliente nats",
+			"nl": "nats client-adapter",
+			"fr": "adaptateur client nats",
+			"it": "adattatore client nats",
+			"es": "adaptador de cliente nats",
+			"pl": "adapter klienta nats",
+			"zh-cn": "nats客户端适配器"
+		},
+		"authors": [
+			"Mats Becker <mats.becker@gmail.com>"
+		],
+		"keywords": [
+			"nats",
+			"streaming",
+			"asynchronus",
+			"client",
+			"connect",
+			"connection"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "main.js",
+		"icon": "nats-logo.png",
+		"enabled": true,
+		"extIcon": "https://nats.io/img/large-logo.png",
+		"readme": "https://github.com/mbecker/ioBroker.natsclient/blob/master/README.md",
+		"loglevel": "info",
+		"mode": "daemon",
+		"type": "protocols",
+		"compact": true,
+		"materialize": true,
+		"dependencies": [
+			{
+				"js-controller": ">=1.4.2"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "Device or service connected",
+				"type": "boolean",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
+		}
+	]
+}
