@@ -97,6 +97,19 @@
 				"def": false
 			},
 			"native": {}
+		},
+		{
+			"_id": "info.server",
+			"type": "state",
+			"common": {
+				"role": "text",
+				"name": "Name of the server the nats client connected is",
+				"type": "string",
+				"read": true,
+				"write": false,
+				"def": false
+			},
+			"native": {}
 		}
 	]
 }

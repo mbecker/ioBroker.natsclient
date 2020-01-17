@@ -7,6 +7,7 @@
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
+const NATS = require("nats");
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -66,7 +67,7 @@ class Natsclient extends utils.Adapter {
             devices.forEach(_device => this.subscribedDevices[_keyName].push(_device));
           }
         }
-        resolve()
+        resolve();
       });
     });
   }
@@ -79,20 +80,34 @@ class Natsclient extends utils.Adapter {
 
     // Reset the connection indicator during startup
     this.setState("info.connection", false, true);
+    this.setState("info.server", "", true);
 
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // this.config:
     this.log.info("config option1: " + this.config.option1);
     this.log.info("config option2: " + this.config.option2);
-    this.log.info("config natsconnection: " + this.config.natsconnection);
 
-    if (this.config.natsconnection.length > 0) {
-      await this.setStateAsync("info.connection", true);
-    }
+    /*
+     * NATS Config
+     */
+    const natsServers = [this.config.natsconnection]; // TODO: Create array string in optopns to have multiple nats connection string adresses
+    let nc = NATS.connect({ servers: natsServers, json: true }); // TODO: json bool value as option
+    // currentServer is the URL of the connected server.
+
+    nc.on("connect", () => {
+      this.log.info("Connected to " + nc.currentServer.url.host);
+      this.setState("info.connection", true);
+
+      nc.on("error", err => {
+        this.log.warn(err);
+        this.setState("info.connection", false);
+        this.setState("info.server", "");
+      });
+    });
 
     await this.getSubscribedDevices();
     this.log.info("--- subscribed devices ---");
-    for(const _key in this.subscribedDevices) {
+    for (const _key in this.subscribedDevices) {
       this.log.info("- " + _key);
       this.subscribedDevices[_key].forEach(_device => this.log.info("-- " + _device));
     }
