@@ -47,6 +47,19 @@ class Natsclient extends utils.Adapter {
 			await this.setStateAsync("info.connection", true);
 		}
 
+		this..getEnums('rooms', (err, res) => {
+			if (res) {
+				let _result = res['enum.rooms'];
+				this.log.info("--- ROOMS ---")
+				this.log.info(JSON.stringify(res))
+				for ( let room in _result) {
+					this.log.info(room)
+				}
+			} else if (err) {
+				this.log.warn('No room set for device in objects enumeration.')
+			}
+		});
+
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
