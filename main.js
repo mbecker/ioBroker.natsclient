@@ -79,7 +79,7 @@ class Natsclient extends utils.Adapter {
 
 		const subscribedDevices = this.getSubscribedDevices();
 		this.log.info("--- subscribed devices ---");
-		this.log.info(subscribedDevices);
+		this.log.info(JSON.stringify(subscribedDevices));
 
 
 		/*
