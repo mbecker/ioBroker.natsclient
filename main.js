@@ -32,8 +32,8 @@ class Natsclient extends utils.Adapter {
 	 * Get all deives from enum.antsclient to subscribe to
 	 * @returns {JSON}
 	 */
-	async getSubscribedDevices() {		
-		return this.getEnum("natsclient", (err, result, _enum)  => {
+	getSubscribedDevices() {		
+		this.getEnum("natsclient", (err, result, _enum)  => {
 			const subscribedDevices = {}; // The devices from the enum.natsclient to subscribe
 			// this.log.info("--- getEnum ROOMS ---");
 			// this.log.info(JSON.stringify(err));
