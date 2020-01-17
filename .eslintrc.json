@@ -8,9 +8,9 @@
 	"rules": {
 		"indent": [
 			"error",
-			"tab",
+			"spaces",
 			{
-				"SwitchCase": 1
+				"SwitchCase": 2
 			}
 		],
 		"no-console": "off",

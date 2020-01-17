@@ -90,7 +90,7 @@ class Natsclient extends utils.Adapter {
 
     await this.getSubscribedDevices();
     this.log.info("--- subscribed devices ---");
-    this.log.info(this.subscribedDevices);
+    this.log.info(JSON.stringify(this.subscribedDevices));
 
     /*
 		For every state in the system there has to be also an object of type state
