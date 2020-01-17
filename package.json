@@ -55,7 +55,8 @@
     "test:unit": "mocha test/unit --exit",
     "test:integration": "mocha test/integration --exit",
     "test": "npm run test:js && npm run test:package",
-    "lint": "eslint"
+    "lint": "eslint",
+    "upload": "iobroker upload natsclient"
   },
   "bugs": {
     "url": "https://github.com/mbecker/ioBroker.natsclient/issues"
