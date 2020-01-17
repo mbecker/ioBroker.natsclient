@@ -63,6 +63,7 @@ class Natsclient extends utils.Adapter {
 		});
 
 		this.getEnum("natsclient", (err, result, _enum)  => {
+			const subscribedDevices = []; // The devices from the enum.natsclient to subscribe
 			this.log.info("--- getEnum ROOMS ---");
 			this.log.info(JSON.stringify(err));
 			this.log.info(JSON.stringify(result));
@@ -78,10 +79,12 @@ class Natsclient extends utils.Adapter {
 				const _enum = result[_key]; // Temporary variable for enum object in enum.natsclient
 				if(typeof _enum["common"] !== "undefined" && typeof _enum["common"]["members"] !== "undefined" && _enum["common"]["members"].length > 0) {
 					this.log.info("Devices: " + _enum["common"]["members"]);
+					const devices = _enum["common"]["members"];
+					devices.forEach(device => subscribedDevices.push(device));
 				}
 			}
 
-
+			this.log.info("Subescribed devices: " + subscribedDevices);
 
 		});
 
