@@ -62,6 +62,13 @@ class Natsclient extends utils.Adapter {
 			}
 		});
 
+		this.getEnum("natsclient", (err, result, _enum)  => {
+			this.log.info("--- getEnum ROOMS ---");
+			this.log.info(JSON.stringify(err));
+			this.log.info(JSON.stringify(result));
+			this.log.info(JSON.stringify(_enum));
+		});
+
 		/*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
