@@ -104,8 +104,8 @@ class Natsclient extends utils.Adapter {
 
     nc.on("connect", () => {
       this.log.info("Connected to " + nc.currentServer.url.host);
-      this.setState("info.connection", true);
-      this.setState("info.server", nc.currentServer.url.host);
+      this.setState("info.connection", true, true);
+      this.setState("info.server", nc.currentServer.url.host, true);
 
       nc.on("error", err => {
         this.log.warn(err);
