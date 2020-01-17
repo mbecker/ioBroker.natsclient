@@ -34,7 +34,7 @@ class Natsclient extends utils.Adapter {
 	 */
 	async getSubscribedDevices() {		
 		return this.getEnum("natsclient", (err, result, _enum)  => {
-			const subscribedDevices = []; // The devices from the enum.natsclient to subscribe
+			const subscribedDevices = {}; // The devices from the enum.natsclient to subscribe
 			// this.log.info("--- getEnum ROOMS ---");
 			// this.log.info(JSON.stringify(err));
 			// this.log.info(JSON.stringify(result));
@@ -47,11 +47,15 @@ class Natsclient extends utils.Adapter {
 			for(const _key in result) {
 				// this.log.info("-----");
 				// this.log.info(JSON.stringify(result[_key]["common"]));
+
+				// Create key in object subscribed devices and initialie ezmpty array
+				subscribedDevices[_key] = [];
+
 				const _enum = result[_key]; // Temporary variable for enum object in enum.natsclient
 				if(typeof _enum["common"] !== "undefined" && typeof _enum["common"]["members"] !== "undefined" && _enum["common"]["members"].length > 0) {
 					// this.log.info("Devices: " + _enum["common"]["members"]);
 					const devices = _enum["common"]["members"];
-					devices.forEach(device => subscribedDevices.push(device));
+					devices.forEach(device => subscribedDevices[_key].push(device));
 				}
 			}
 			return subscribedDevices;
