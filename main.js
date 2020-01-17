@@ -72,12 +72,11 @@ class Natsclient extends utils.Adapter {
 			}
 
 			// const _result = result["enum.natsclient"]; // Getting the enum "enum.natsclient"; creating temp variable _result to loop throug
-			for(const _enum in result) {
+			for(const _key in result) {
 				this.log.info("-----");
-				this.log.info(_enum);
-				this.log.info(JSON.stringify(result[_enum]["common"]));
+				this.log.info(JSON.stringify(result[_key]["common"]));
+				const _enum = result[_key]; // Temporary variable for enum object in enum.natsclient
 				if(typeof _enum["common"] !== "undefined" && typeof _enum["common"]["members"] !== "undefined" && _enum["common"]["members"].length > 0) {
-					this.log.info("Devices ....");
 					this.log.info("Devices: " + _enum["common"]["members"]);
 				}
 			}
