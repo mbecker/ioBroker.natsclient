@@ -97,9 +97,9 @@ class Natsclient extends utils.Adapter {
       this.log.info("- " + _key);
       this.subscribedDevices[_key].forEach(_device => this.log.info("-- " + _device));
     }
-    
-    const natsServers = [this.config.natsconnection]; // TODO: Create array string in optopns to have multiple nats connection string adresses
-    let nc = NATS.connect({ servers: natsServers, json: true }); // TODO: json bool value as option
+
+    // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
+    let nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
     // currentServer is the URL of the connected server.
 
     nc.on("connect", () => {
