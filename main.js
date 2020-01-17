@@ -52,7 +52,7 @@ class Natsclient extends utils.Adapter {
           // this.log.info(JSON.stringify(result[_key]["common"]));
 
           // Create key in object subscribed devices and initialie ezmpty array
-          const _keyName = _key.replace("enum." + this.adaptername, "");
+          const _keyName = _key.replace("enum." + this.adaptername + ".", "");
           this.subscribedDevices[_keyName] = [];
 
           const _enum = result[_key]; // Temporary variable for enum object in enum.natsclient
@@ -63,7 +63,7 @@ class Natsclient extends utils.Adapter {
           ) {
             // this.log.info("Devices: " + _enum["common"]["members"]);
             const devices = _enum["common"]["members"];
-            devices.forEach(device => this.subscribedDevices[_keyName].push(device.replace("enum." + this.adaptername, "")));
+            devices.forEach(_device => this.subscribedDevices[_keyName].push(_device));
           }
         }
         resolve()
