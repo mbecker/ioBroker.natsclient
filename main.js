@@ -77,9 +77,9 @@ class Natsclient extends utils.Adapter {
 			await this.setStateAsync("info.connection", true);
 		}
 
-		const subscribedDevices = await this.getSubscribedDevices();
+		const subscribedDevices = this.getSubscribedDevices();
 		this.log.info("--- subscribed devices ---");
-		this.log.info(JSON.stringify(subscribedDevices));
+		this.log.info(subscribedDevices);
 
 
 		/*
