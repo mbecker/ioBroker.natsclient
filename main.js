@@ -86,6 +86,7 @@ class Natsclient extends utils.Adapter {
     // this.config:
     this.log.info("config option1: " + this.config.option1);
     this.log.info("config option2: " + this.config.option2);
+    this.log.info("config natsconnection: " + this.config.natsconnection);
 
     /*
      * NATS Config
