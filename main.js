@@ -47,14 +47,16 @@ class Natsclient extends utils.Adapter {
 			await this.setStateAsync("info.connection", true);
 		}
 
-		this.getEnums("rooms", (err, res) => {
+		this.getEnums("natsclient", (err, res) => {
 			if (res) {
-				const _result = res["enum.rooms"];
+				
 				this.log.info("--- ROOMS ---");
 				this.log.info(JSON.stringify(res));
-				for ( let room in _result) {
-					this.log.info(room);
-				}
+
+				// const _result = res["enum.rooms"];
+				// for ( let room in _result) {
+				// 	this.log.info(room);
+				// }
 			} else if (err) {
 				this.log.warn("No room set for device in objects enumeration.")
 			}
