@@ -62,8 +62,8 @@ class Natsclient extends utils.Adapter {
 			}
 		});
 
+		const subscribedDevices = []; // The devices from the enum.natsclient to subscribe
 		this.getEnum("natsclient", (err, result, _enum)  => {
-			const subscribedDevices = []; // The devices from the enum.natsclient to subscribe
 			this.log.info("--- getEnum ROOMS ---");
 			this.log.info(JSON.stringify(err));
 			this.log.info(JSON.stringify(result));
@@ -83,10 +83,9 @@ class Natsclient extends utils.Adapter {
 					devices.forEach(device => subscribedDevices.push(device));
 				}
 			}
-
-			this.log.info("Subescribed devices: " + subscribedDevices);
-
 		});
+
+		this.log.info("Subscribed devices: " + subscribedDevices);
 
 		/*
 		For every state in the system there has to be also an object of type state
