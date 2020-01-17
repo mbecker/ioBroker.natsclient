@@ -33,7 +33,7 @@ class Natsclient extends utils.Adapter {
 	 * @returns {JSON}
 	 */
 	getSubscribedDevices() {		
-		this.getEnum("natsclient", (err, result, _enum)  => {
+		return this.getEnum("natsclient", (err, result, _enum)  => {
 			const subscribedDevices = {}; // The devices from the enum.natsclient to subscribe
 			// this.log.info("--- getEnum ROOMS ---");
 			// this.log.info(JSON.stringify(err));
@@ -83,7 +83,7 @@ class Natsclient extends utils.Adapter {
 
 		const subscribedDevices = this.getSubscribedDevices();
 		this.log.info("--- subscribed devices ---");
-		this.log.info(JSON.stringify(subscribedDevices));
+		this.log.info(subscribedDevices);
 
 
 		/*
