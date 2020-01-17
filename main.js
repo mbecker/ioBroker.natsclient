@@ -75,7 +75,9 @@ class Natsclient extends utils.Adapter {
 			for(const _enum in result) {
 				this.log.info("-----");
 				this.log.info(_enum);
+				this.log.info(JSON.stringify(_enum["common"]));
 				if(typeof _enum["common"] !== "undefined" && typeof _enum["common"]["members"] !== "undefined" && _enum["common"]["members"].length > 0) {
+					this.log.info("Devices ....");
 					this.log.info("Devices: " + _enum["common"]["members"]);
 				}
 			}
