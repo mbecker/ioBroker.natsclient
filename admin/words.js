@@ -37,5 +37,17 @@ systemDictionary = {
 		"es": "opcion 2",
 		"pl": "Opcja 2",
 		"zh-cn": "选项2"
+	},
+	"natsconnection": {
+		"en": "natsconnection",
+		"de": "natsconnection",
+		"ru": "natsconnection",
+		"pt": "natsconnection",
+		"nl": "natsconnection",
+		"fr": "natsconnection",
+		"it": "natsconnection",
+		"es": "natsconnection",
+		"pl": "natsconnection",
+		"zh-cn": "natsconnection"
 	}
 };

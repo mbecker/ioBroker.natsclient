@@ -41,6 +41,11 @@ class Natsclient extends utils.Adapter {
 		// this.config:
 		this.log.info("config option1: " + this.config.option1);
 		this.log.info("config option2: " + this.config.option2);
+		this.log.info("config natsconnection: " + this.config.natsconnection);
+
+		if(this.config.natsconnection.length > 0) {
+			await this.setStateAsync("info.connection", true);
+		}
 
 		/*
 		For every state in the system there has to be also an object of type state
@@ -74,7 +79,7 @@ class Natsclient extends utils.Adapter {
 		await this.setStateAsync("testVariable", { val: true, ack: true });
 
 		// same thing, but the state is deleted after 30s (getState will return null afterwards)
-		await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+		// await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
 
 		// examples for the checkPassword/checkGroup functions
 		let result = await this.checkPasswordAsync("admin", "iobroker");

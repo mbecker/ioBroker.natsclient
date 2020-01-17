@@ -72,7 +72,8 @@
 	},
 	"native": {
 		"option1": true,
-		"option2": "42"
+		"option2": "42",
+		"natsconnection": "https://test.com:8080",
 	},
 	"objects": [],
 	"instanceObjects": [
