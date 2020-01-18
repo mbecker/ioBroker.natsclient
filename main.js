@@ -30,6 +30,7 @@ class Natsclient extends utils.Adapter {
     // Custom class parmeters
     this.subscribedDevices = {};
     this.adaptername = "natsclient"; // TODO: Replace with option for enum[this.option("enumname")]
+    this.shouldUseNatsChannelPrefix = false;
   }
 
   /**
@@ -169,6 +170,13 @@ class Natsclient extends utils.Adapter {
     }
 
     this.on("stateChange", (id, state) => {
+      // TODO: Loop throug this.subscribedDevices and sent message to channel to all matched devices in rooms as follows for example:
+      // room1.deconz.light1
+      // directoryXYZ.deconz.light1
+      // Just add the name of the directory / room to the name of the device after looping throug the list of subscribed devices
+      if(this.shouldUseNatsChannelPrefix) {
+
+      }
       this.log.info("stateChange " + id + " " + JSON.stringify(state));
 
       // you can use the ack flag to detect if state is command(false) or status(true)
