@@ -92,12 +92,7 @@ class Natsclient extends utils.Adapter {
      * NATS Config
      */
     await this.getSubscribedDevices();
-    this.log.info("--- subscribed devices ---");
-    for (const _key in this.subscribedDevices) {
-      this.log.info("- " + _key);
-      this.subscribedDevices[_key].forEach(_device => this.log.info("-- " + _device));
-    }
-
+    
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     let nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
     // currentServer is the URL of the connected server.
@@ -154,6 +149,22 @@ class Natsclient extends utils.Adapter {
     nc.on("permission_error", err => {
       this.log.warn("got a permissions error: " + err.message);
     });
+
+    // Get the initale state status and publish it to the nats channels
+    this.log.info("--- subscribed devices ---");
+    for (const _key in this.subscribedDevices) {
+      this.log.info("- " + _key);
+      this.subscribedDevices[_key].forEach((_device) => {
+        this.log.info("-- " + _device);
+        this.getForeignState(_device, (err, state) => {
+          if(err !== null) {
+            this.log.warn("Error get foreign state " + _device + ": " + err);
+            return;
+          }
+          this.log.info(JSON.stringify(state));
+        })
+      });
+    }
 
     /*
 		For every state in the system there has to be also an object of type state
