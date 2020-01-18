@@ -90,7 +90,7 @@
 			"type": "state",
 			"common": {
 				"role": "indicator.connected",
-				"name": "Device or service connected",
+				"name": "nats client connection status",
 				"type": "boolean",
 				"read": true,
 				"write": false,
@@ -103,7 +103,7 @@
 			"type": "state",
 			"common": {
 				"role": "text",
-				"name": "Name of the server the nats client connected is",
+				"name": "Address of the server the nats client is connected",
 				"type": "string",
 				"read": true,
 				"write": false,
