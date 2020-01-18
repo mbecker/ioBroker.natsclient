@@ -92,12 +92,12 @@ class Natsclient extends utils.Adapter {
      * NATS Config
      */
     await this.getSubscribedDevices();
-    
+
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     let nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
     // currentServer is the URL of the connected server.
 
-    nc.on("connect", (nc) => {
+    nc.on("connect", nc => {
       this.log.info("Connected to " + nc.currentServer.url.host);
       this.setState("info.connection", true, true);
       this.setState("info.server", nc.currentServer.url.host, true);
@@ -154,17 +154,28 @@ class Natsclient extends utils.Adapter {
     this.log.info("--- subscribed devices ---");
     for (const _key in this.subscribedDevices) {
       this.log.info("- " + _key);
-      this.subscribedDevices[_key].forEach((_device) => {
+      this.subscribedDevices[_key].forEach(_device => {
         this.log.info("-- " + _device);
         this.getForeignState(_device, (err, state) => {
-          if(err !== null) {
+          if (err !== null) {
             this.log.warn("Error get foreign state " + _device + ": " + err);
             return;
           }
           this.log.info(JSON.stringify(state));
-        })
+        });
+
+        this.subscribeForeignStates(_device);
       });
     }
+
+    this.on("stateChange", (id, state) => {
+      this.log.info("stateChange " + id + " " + JSON.stringify(state));
+
+      // you can use the ack flag to detect if state is command(false) or status(true)
+      if (!state.ack) {
+        this.log.info("ack is not set!");
+      }
+    });
 
     /*
 		For every state in the system there has to be also an object of type state
