@@ -102,16 +102,57 @@ class Natsclient extends utils.Adapter {
     let nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
     // currentServer is the URL of the connected server.
 
-    nc.on("connect", () => {
+    nc.on("connect", (nc) => {
       this.log.info("Connected to " + nc.currentServer.url.host);
       this.setState("info.connection", true, true);
       this.setState("info.server", nc.currentServer.url.host, true);
+    });
 
-      nc.on("error", err => {
-        this.log.warn(err);
-        this.setState("info.connection", false);
-        this.setState("info.server", "");
-      });
+    nc.on("error", err => {
+      this.log.warn(err);
+      this.setState("info.connection", false, true);
+      this.setState("info.server", "", true);
+    });
+
+    // emitted whenever the client disconnects from a server
+    nc.on("disconnect", () => {
+      this.log.info("natsclient disconnect");
+      this.setState("info.connection", false, true);
+      this.setState("info.server", "", true);
+    });
+
+    // emitted whenever the client is attempting to reconnect
+    nc.on("reconnecting", () => {
+      this.log.info("natsclient reconnecting");
+    });
+
+    // emitted whenever the client reconnects
+    // reconnect callback provides a reference to the connection as an argument
+    nc.on("reconnect", nc => {
+      this.log.info("natsclient reconnected to " + nc.currentServer.url.host);
+      this.setState("info.connection", true, true);
+      this.setState("info.server", nc.currentServer.url.host, true);
+    });
+
+    // emitted when the connection is closed - once a connection is closed
+    // the client has to create a new connection.
+    nc.on("close", () => {
+      this.log.info("natsclient close");
+      this.setState("info.connection", false, true);
+      this.setState("info.server", "", true);
+    });
+
+    // emitted whenever the client unsubscribes
+    nc.on("unsubscribe", (sid, subject) => {
+      this.log.warn("unsubscribed subscription " + sid + " for subject " + subject);
+    });
+
+    // emitted whenever the server returns a permission error for
+    // a publish/subscription for the current user. This sort of error
+    // means that the client cannot subscribe and/or publish/request
+    // on the specific subject
+    nc.on("permission_error", err => {
+      this.log.warn("got a permissions error: " + err.message);
     });
 
     /*
