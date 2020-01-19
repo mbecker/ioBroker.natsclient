@@ -47,6 +47,7 @@
 		function save(callback) {
 			// example: select elements with class=value and build settings object
 			var obj = {};
+			var showError = false;
 			$('.value').each(function () {
 				var $this = $(this);
 				if ($this.attr('type') === 'checkbox') {
@@ -58,6 +59,7 @@
 						$('#shouldUsePrefixForChannelAlert').text('Please set a prefix name (string) for nats channel.').show();
 						return;
 					} else {
+						showError = true;
 						$('#shouldUsePrefixForChannelAlert').hide();
 					}
 				} else {
@@ -65,12 +67,16 @@
 					// Check that the nats channel does not have a "." (dot) at the the end of the string
 					if($this.attr('id') === "shouldUsePrefixForChannel" && $this.val().charAt($this.val().length - 1)) {
 						$('#shouldUsePrefixForChannelAlert').text('Please do not use a "." (dot) at the end of the name/string').show();
+						showError = true;
 						return;
 					} else {
 						$('#shouldUsePrefixForChannelAlert').hide();
 					}
 				}
 			});
+			if(showError) {
+				return;
+			}
 			callback(obj);
 		}
 	</script>
