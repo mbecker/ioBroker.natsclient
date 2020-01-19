@@ -44,21 +44,25 @@ class Natsclient extends utils.Adapter {
 
   /**
    * Publis state to NATS channel
-   * @param {device string, state Object}
+   * @param {string} device
+   * @param {ioBroker.Object | null | undefined} state
    */
   publishToNatsChannel(device, state) {
     if(this.config.shouldUsePrefixForChannel) {
       device = this.config.shouldUsePrefixForChannelName + "." + device;
     }
     // Publish to nats channel
-    this.nc.publish(device, state);
+    if(this.nc === null) {
+      this.log.warn("nats client connection is null");
+    } else {
+      this.nc.publish(device, state);
+    }
   }
 
 
 
   /**
    * Get all deives from enum.antsclient to subscribe to
-   * @returns {JSON}
    */
   async getSubscribedDevices() {
     return new Promise(resolve => {
@@ -134,7 +138,7 @@ class Natsclient extends utils.Adapter {
     });
 
     // emitted whenever the client disconnects from a server
-    this.nc.o.("disconnect", () => {
+    this.nc.on("disconnect", () => {
       this.log.info("natsclient disconnect");
       this.setState("info.connection", false, true);
       this.setState("info.server", "", true);
