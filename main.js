@@ -12,6 +12,13 @@ const NATS = require("nats");
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
+/* Option parameters in admin
+*
+* this.config.natsconnection;
+* this.config.shouldUsePrefixForChannel;
+* this.config.shouldUsePrefixForChannelName;
+* /
+
 class Natsclient extends utils.Adapter {
   /**
    * @param {Partial<ioBroker.AdapterOptions>} [options={}]
@@ -26,12 +33,28 @@ class Natsclient extends utils.Adapter {
     this.on("stateChange", this.onStateChange.bind(this));
     // this.on("message", this.onMessage.bind(this));
     this.on("unload", this.onUnload.bind(this));
+    
 
     // Custom class parmeters
+    this.nc = null;
     this.subscribedDevices = {};
     this.adaptername = "natsclient"; // TODO: Replace with option for enum[this.option("enumname")]
-    this.shouldUseNatsChannelPrefix = false;
+    this.shouldUsePrefixForChannel = false;
   }
+
+  /**
+   * Publis state to NATS channel
+   * @param {device string, state Object}
+   */
+  publishToNatsChannel(device, state) {
+    if(this.config.shouldUsePrefixForChannel) {
+      device = this.config.shouldUsePrefixForChannelName + "." + device;
+    }
+    // Publish to nats channel
+    this.nc.publish(device, state);
+  }
+
+
 
   /**
    * Get all deives from enum.antsclient to subscribe to
@@ -95,36 +118,36 @@ class Natsclient extends utils.Adapter {
     await this.getSubscribedDevices();
 
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
-    let nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
+    this.nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
     // currentServer is the URL of the connected server.
 
-    nc.on("connect", nc => {
+    this.nc.on("connect", nc => {
       this.log.info("Connected to " + nc.currentServer.url.host);
       this.setState("info.connection", true, true);
       this.setState("info.server", nc.currentServer.url.host, true);
     });
 
-    nc.on("error", err => {
+    this.nc.on("error", err => {
       this.log.warn(err);
       this.setState("info.connection", false, true);
       this.setState("info.server", "", true);
     });
 
     // emitted whenever the client disconnects from a server
-    nc.on("disconnect", () => {
+    this.nc.o.("disconnect", () => {
       this.log.info("natsclient disconnect");
       this.setState("info.connection", false, true);
       this.setState("info.server", "", true);
     });
 
     // emitted whenever the client is attempting to reconnect
-    nc.on("reconnecting", () => {
+    this.nc.on("reconnecting", () => {
       this.log.info("natsclient reconnecting");
     });
 
     // emitted whenever the client reconnects
     // reconnect callback provides a reference to the connection as an argument
-    nc.on("reconnect", nc => {
+    this.nc.on("reconnect", nc => {
       this.log.info("natsclient reconnected to " + nc.currentServer.url.host);
       this.setState("info.connection", true, true);
       this.setState("info.server", nc.currentServer.url.host, true);
@@ -132,14 +155,14 @@ class Natsclient extends utils.Adapter {
 
     // emitted when the connection is closed - once a connection is closed
     // the client has to create a new connection.
-    nc.on("close", () => {
+    this.nc.on("close", () => {
       this.log.info("natsclient close");
       this.setState("info.connection", false, true);
       this.setState("info.server", "", true);
     });
 
     // emitted whenever the client unsubscribes
-    nc.on("unsubscribe", (sid, subject) => {
+    this.nc.on("unsubscribe", (sid, subject) => {
       this.log.warn("unsubscribed subscription " + sid + " for subject " + subject);
     });
 
@@ -147,24 +170,30 @@ class Natsclient extends utils.Adapter {
     // a publish/subscription for the current user. This sort of error
     // means that the client cannot subscribe and/or publish/request
     // on the specific subject
-    nc.on("permission_error", err => {
+    this.nc.on("permission_error", err => {
       this.log.warn("got a permissions error: " + err.message);
     });
 
     // Get the initale state status and publish it to the nats channels
+    // Subscribe to state changes
     this.log.info("--- subscribed devices ---");
     for (const _key in this.subscribedDevices) {
       this.log.info("- " + _key);
       this.subscribedDevices[_key].forEach(_device => {
         this.log.info("-- " + _device);
+
+        // Get initial state of _device
         this.getForeignState(_device, (err, state) => {
           if (err !== null) {
             this.log.warn("Error get foreign state " + _device + ": " + err);
             return;
           }
+          // TODO: Publish state to nats channel
           this.log.info(JSON.stringify(state));
+          this.publishToNatsChannel(_device, state);
         });
 
+        // Subscribe to _device updates
         this.subscribeForeignStates(_device);
       });
     }
@@ -174,15 +203,13 @@ class Natsclient extends utils.Adapter {
       // room1.deconz.light1
       // directoryXYZ.deconz.light1
       // Just add the name of the directory / room to the name of the device after looping throug the list of subscribed devices
-      if(this.shouldUseNatsChannelPrefix) {
-
-      }
       this.log.info("stateChange " + id + " " + JSON.stringify(state));
 
       // you can use the ack flag to detect if state is command(false) or status(true)
       if (!state.ack) {
         this.log.info("ack is not set!");
       }
+      this.publishToNatsChannel(id, state);
     });
 
     /*
