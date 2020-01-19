@@ -17,7 +17,7 @@ const NATS = require("nats");
 * this.config.natsconnection;
 * this.config.shouldUsePrefixForChannel;
 * this.config.shouldUsePrefixForChannelName;
-* /
+*/
 
 class Natsclient extends utils.Adapter {
   /**
