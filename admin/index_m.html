@@ -56,25 +56,24 @@
 					// Check that prefix is selected (true) and hase a name for channel (string length > 0)
 					if($this.attr('id') === "shouldUsePrefixForChannel" && $this.prop('checked') && 
 					$('#shouldUsePrefixForChannelName').val().length === 0) {
-						$('#shouldUsePrefixForChannelAlert').text('Please set a prefix name (string) for nats channel.').show();
+						showError = 'Please set a prefix name (string) for nats channel.';
 						return;
 					} else {
-						showError = true;
 						$('#shouldUsePrefixForChannelAlert').hide();
 					}
 				} else {
 					obj[$this.attr('id')] = $this.val();
 					// Check that the nats channel does not have a "." (dot) at the the end of the string
 					if($this.attr('id') === "shouldUsePrefixForChannel" && $this.val().charAt($this.val().length - 1)) {
-						$('#shouldUsePrefixForChannelAlert').text('Please do not use a "." (dot) at the end of the name/string').show();
-						showError = true;
+						showError = 'Please do not use a "." (dot) at the end of the name/string';
 						return;
 					} else {
 						$('#shouldUsePrefixForChannelAlert').hide();
 					}
 				}
 			});
-			if(showError) {
+			if(showError !== false) {
+				$('#shouldUsePrefixForChannelAlert').text(showError).show();
 				return;
 			}
 			callback(obj);
