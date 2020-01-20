@@ -51,12 +51,14 @@
           } else {
             // do not call onChange direct, because onChange could expect some arguments
             if (id === "shouldUsePrefixForChannelName") {
+				// Inital add of nats channel preview
               addNatsChannlesPreview($key.val(settings[id]).val());
               $key
                 .val(settings[id])
                 .on("change", () => onChange())
                 .on("keyup", () => {
-                  addNatsChannlesPreview($(this).val());
+				  // addNatsChannlesPreview($(this).val());
+				  addNatsChannlesPreview($key.val(settings[id]).val());
                 });
             } else {
               $key
