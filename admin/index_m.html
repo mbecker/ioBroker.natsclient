@@ -28,7 +28,7 @@
 				var $key = $(this);
 				var id = $key.attr('id');
 				console.log(id + " - ");
-				console.log($(this));
+				console.log($(this).value);
 				if(id === "shouldUsePrefixForChannelName") {
 						$('#previewNatsChannel').text($(this).val() + objectName);
 					}
