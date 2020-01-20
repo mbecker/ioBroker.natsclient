@@ -36,7 +36,8 @@
 				} else {
 					// do not call onChange direct, because onChange could expect some arguments
 					if(id === "shouldUsePrefixForChannelName") {
-								$('#previewNatsChannel').text($key.val(settings[id]) + objectName);
+						console.log($key.val(settings[id]));
+								$('#previewNatsChannel').text($key.val(settings[id]).val() + objectName);
 							}
 					$key.val(settings[id])
 						.on('change', () => onChange())
