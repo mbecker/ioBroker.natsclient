@@ -34,7 +34,7 @@
             '<span class="previewstring error">Please do not use a "." (dot) at the end of the NATS channel string</span>'
           );
         }
-        $("#previewNatsChannel").append(els); // Append new elements
+        $("#previewNatsChannel").replaceWith(els); // Append new elements
       }
 
       // This will be called by the admin adapter when the settings page loads
