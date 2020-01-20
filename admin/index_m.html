@@ -18,7 +18,22 @@
 	<script type="text/javascript" src="words.js"></script>
 
 	<script type="text/javascript">
-		var objectName = 'deconz.0.Lights.1.on';
+		// To show example nats channels
+		var objectsName = [
+		'deconz.0.Lights.1.on',
+		'deconz.0.Lights.2.on',
+		'zwave.0.NODE4.SWITCH_BINARY.Switch_1',
+		'zwave.0.NODE4.SENSOR_MULTILEVEL.Power_1'
+		];
+
+		function getNatsChannelsPreview(natsChannel) {
+			var previewString = '';
+			objectsName.forEach(_object => {
+				previewString = previewString + natsChannel + _object + '<br />';
+			});
+			return previewString;
+		}
+
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
 
@@ -36,11 +51,11 @@
 				} else {
 					// do not call onChange direct, because onChange could expect some arguments
 					if(id === "shouldUsePrefixForChannelName") {
-						$('#previewNatsChannel').text($key.val(settings[id]).val() + objectName);
+						$('#previewNatsChannel').text($key.val(getNatsChannelsPreview(settings[id]).val()));
 						$key.val(settings[id])
 							.on('change', () => onChange())
 							.on('keyup', () => {
-								$('#previewNatsChannel').text($(this).val() + objectName);
+								$('#previewNatsChannel').text(getNatsChannelsPreview($(this).val() + objectName));
 							});
 					} else {
 						$key.val(settings[id])
