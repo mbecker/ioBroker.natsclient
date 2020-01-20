@@ -28,18 +28,14 @@
 		  console.log("add nats ...")
         var els = [];
         objectsName.forEach(_object => {
-          els.push('<span class="previewstring">' + natsChannel + _object + "</span>");
+          els.push('<span class="previewstring"><span class="previewnatschannel">' + natsChannel + '</span>' + _object + "</span>");
 		});
-		console.log("add nats: " + natsChannel);
-		console.log("last char: " + natsChannel.charAt(natsChannel.length - 1));
-		console.log(natsChannel.charAt(natsChannel.length - 1) !== ".");
+		// Check that the last char of the natsChannel is not a "." (dot)
         if (natsChannel.charAt(natsChannel.length - 1) !== ".") {
           els.push(
             '<span class="previewstring error">Please use a "." (dot) at the end of the NATS channel string</span>'
           );
 		}
-		console.log("add nats !!!")
-		// $(".previewstring").remove();
 		$("#previewNatsChannel").html(els); // Append new elements
       }
 
