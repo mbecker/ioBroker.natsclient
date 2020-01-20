@@ -34,7 +34,8 @@
           els.push(
             '<span class="previewstring error">Please use a "." (dot) at the end of the NATS channel string</span>'
           );
-        }
+		}
+		console.log("add nats !!!")
         $("#previewNatsChannel").replaceWith(els); // Append new elements
       }
 
@@ -53,6 +54,7 @@
             // do not call onChange direct, because onChange could expect some arguments
             if (id === "shouldUsePrefixForChannelName") {
 				// Inital add of nats channel preview
+				console.log("?");
               addNatsChannlesPreview($key.val(settings[id]).val());
               $key
                 .val(settings[id])
