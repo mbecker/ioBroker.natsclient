@@ -15,7 +15,6 @@ const NATS = require("nats");
 /* Option parameters in admin
 *
 * this.config.natsconnection;
-* this.config.shouldUsePrefixForChannel;
 * this.config.shouldUsePrefixForChannelName;
 */
 
@@ -39,7 +38,6 @@ class Natsclient extends utils.Adapter {
     this.nc = null;
     this.subscribedDevices = {};
     this.adaptername = "natsclient"; // TODO: Replace with option for enum[this.option("enumname")]
-    this.shouldUsePrefixForChannel = false;
   }
 
   /**
@@ -48,14 +46,12 @@ class Natsclient extends utils.Adapter {
    * @param {ioBroker.Object | null | undefined} state
    */
   publishToNatsChannel(device, state) {
-    if(this.config.shouldUsePrefixForChannel) {
-      device = this.config.shouldUsePrefixForChannelName + "." + device;
-    }
+    device = this.config.shouldUsePrefixForChannelName + "." + device;
     // Publish to nats channel
     if(this.nc === null) {
       this.log.warn("nats client connection is null");
     } else {
-      this.log.info(`Publish state of object "${device}" to nats: ${JSON.stringify(state)}`);
+      this.log.info(`Publish state of object to nats channel: ${device} - ${JSON.stringify(state)}`);
       this.nc.publish(device, state);
     }
   }

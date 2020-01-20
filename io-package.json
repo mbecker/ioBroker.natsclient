@@ -74,7 +74,6 @@
 		"option1": true,
 		"option2": "42",
 		"natsconnection": "https://test.com:8080",
-		"shouldUsePrefixForChannel": false,
 		"shouldUsePrefixForChannelName": ""
 	},
 	"objects": [],
