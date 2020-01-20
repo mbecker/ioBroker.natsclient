@@ -18,6 +18,7 @@
 	<script type="text/javascript" src="words.js"></script>
 
 	<script type="text/javascript">
+	var objectName = 'deconz.0.Lights.1.on';
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
 
@@ -34,11 +35,16 @@
 						;
 				} else {
 					// do not call onChange direct, because onChange could expect some arguments
+					if(id === "shouldUsePrefixForChannelName") {
+						$('#previewNatsChannel').text(objectName + $key.val());
+					}
+
 					$key.val(settings[id])
 						.on('change', () => onChange())
 						.on('keyup', () => {
-							console.log($(this).val());
-							console.log($('#shouldUsePrefixForChannel').prop('checked'));
+							if(id === "shouldUsePrefixForChannelName") {
+								$('#previewNatsChannel').text(objectName + $(this).val());
+							}
 						})
 						;
 				}
@@ -54,33 +60,21 @@
 		function save(callback) {
 			// example: select elements with class=value and build settings object
 			var obj = {};
-			var showError = false;
+			// var showError = false;
 			$('.value').each(function () {
 				var $this = $(this);
 				if ($this.attr('type') === 'checkbox') {
 					obj[$this.attr('id')] = $this.prop('checked');
-
-					// Check that prefix is selected (true) and hase a name for channel (string length > 0)
-					if($this.attr('id') === "shouldUsePrefixForChannel" && $this.prop('checked') && 
-					$('#shouldUsePrefixForChannelName').val().length === 0) {
-						showError = 'Please set a prefix name (string) for nats channel.';
-						return;
-					}
 				} else {
 					obj[$this.attr('id')] = $this.val();
-					// Check that the nats channel does not have a "." (dot) at the the end of the string
-					if($this.attr('id') === "shouldUsePrefixForChannelName" && $this.val().charAt($this.val().length - 1) === "." && $('#shouldUsePrefixForChannel').prop('checked')) {
-						showError = 'Please do not use a "." (dot) at the end of the prefix string for nats channel. Last char of prefix string is: ' + $this.val().charAt($this.val().length - 1);
-						return;
-					}
 				}
 			});
-			if(showError !== false) {
-				$('#shouldUsePrefixForChannelAlert').text("Error: " + showError).show();
-				M.toast({html: "Error: <br />" + showError})
-				return;
-			}
-			$('#shouldUsePrefixForChannelAlert').hide();
+			// if(showError !== false) {
+			// 	$('#shouldUsePrefixForChannelAlert').text("Error: " + showError).show();
+			// 	M.toast({html: "Error: <br />" + showError})
+			// 	return;
+			// }
+			// $('#shouldUsePrefixForChannelAlert').hide();
 			callback(obj);
 		}
 
@@ -128,24 +122,19 @@
 		<div class="row">
 			<h5>Settings: Channel Prefix</h5>
 			<div class="card-panel red lighten-2" id="shouldUsePrefixForChannelAlert" style="display: none;">Custom error message</div>
+			<p>Preview nats channel:&nbsp;<span id="previewNatsChannel"></span></p>
 			</div>
 			<div class="col s6 input-field">
-				<div class="row">
+				<!-- <div class="row">
 					<div class="col s6 input-field">
 						<input type="checkbox" class="value" id="shouldUsePrefixForChannel" />
 						<label for="shouldUsePrefixForChannel" class="translate">Should use prefix for nats channel to publish messages?</label>
 					</div>
-				</div>
+				</div> -->
 				<div class="row">
 					<div class="col s6 input-field">
 						<input type="text" class="value" id="shouldUsePrefixForChannelName" />
 						<label for="shouldUsePrefixForChannelName" class="translate">NATS channel prefix name / string (withot "." (dot) at last character)</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col s6 input-field">
-						<input disabled value="" type="text">
-          				<label for="disabled" id="shouldUsePrefixForChannelNamePreview">Preview nats channel name</label>
 					</div>
 				</div>
 			</div>
