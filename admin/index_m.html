@@ -22,9 +22,6 @@
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
 
-			// Initial load of page: Show preview
-			$('#previewNatsChannel').text($('#shouldUsePrefixForChannelName').val() + objectName);
-
 			// example: select elements with id=key and class=value and insert value
 			if (!settings) return;
 			$('.value').each(function () {
@@ -76,6 +73,10 @@
 			// $('#shouldUsePrefixForChannelAlert').hide();
 			callback(obj);
 		}
+
+		$(function() {
+    		$('#previewNatsChannel').text($('#shouldUsePrefixForChannelName').val() + objectName);
+  		});
 	</script>
 
 </head>
