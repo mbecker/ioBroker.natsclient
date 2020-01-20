@@ -20,6 +20,10 @@
 	<script type="text/javascript">
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
+
+			// Custom parameters
+			var shouldUsePrefixForChannel = $('#shouldUsePrefixForChannelName').val();
+
 			// example: select elements with id=key and class=value and insert value
 			if (!settings) return;
 			$('.value').each(function () {
@@ -37,7 +41,13 @@
 						.on('keyup', () => onChange())
 						;
 				}
+				// Custom helper methods
+				// If listener is for 'shouldUsePrefixForChannelName' (change or keyup) and 'shouldUsePrefixForChannelName' is true then update the duisabled text input 'shouldUsePrefixForChannelNamePreview'
+				if(id === "shouldUsePrefixForChannelName" && $('#shouldUsePrefixForChannelName').val()) {
+					$('#shouldUsePrefixForChannelNamePreview').text($key.val() + ".deconz.0.Lights.1.on");
+				}
 			});
+
 			onChange(false);
 			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
 			if (M) M.updateTextFields();
@@ -62,20 +72,26 @@
 				} else {
 					obj[$this.attr('id')] = $this.val();
 					// Check that the nats channel does not have a "." (dot) at the the end of the string
-					if($this.attr('id') === "shouldUsePrefixForChannel" && $this.val().charAt($this.val().length - 1)) {
+					if($this.attr('id') === "shouldUsePrefixForChannelName" && $this.val().charAt($this.val().length - 1)) {
 						showError = 'Please do not use a "." (dot) at the end of the name/string';
 						return;
 					}
 				}
 			});
 			if(showError !== false) {
-				$('#shouldUsePrefixForChannelAlert').text(showError).show();
-				window.alert(showError);
+				$('#shouldUsePrefixForChannelAlert').text("Error: " + showError).show();
+				M.toast({html: "Error: <br />" + showError})
 				return;
 			}
 			$('#shouldUsePrefixForChannelAlert').hide();
 			callback(obj);
 		}
+
+		// Custom helper methods
+		// Methods / helpers will only run once the page Document Object Model (DOM) is ready for JavaScript code to execute
+		$( document ).ready(function() {
+			
+		});
 	</script>
 
 </head>
@@ -114,9 +130,8 @@
 		</div>
 
 		<div class="row">
-			<h3>Settings: Channel Prefix</h3>
-			<div class="alert alert-primary" role="alert" id="shouldUsePrefixForChannelAlert" style="visibility: hidden;">
-				
+			<h5>Settings: Channel Prefix</h5>
+			<div class="card-panel red lighten-2" id="shouldUsePrefixForChannelAlert" style="display: none;">Custom error message</div>
 			</div>
 			<div class="col s6 input-field">
 				<div class="row">
@@ -129,6 +144,12 @@
 					<div class="col s6 input-field">
 						<input type="text" class="value" id="shouldUsePrefixForChannelName" />
 						<label for="shouldUsePrefixForChannelName" class="translate">Prefix for channel publish</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s6 input-field">
+						<input disabled value="" type="text">
+          				<label for="disabled" id="shouldUsePrefixForChannelNamePreview">Preview nats channel name</label>
 					</div>
 				</div>
 			</div>
