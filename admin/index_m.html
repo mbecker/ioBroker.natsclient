@@ -77,11 +77,6 @@
 			// $('#shouldUsePrefixForChannelAlert').hide();
 			callback(obj);
 		}
-
-		// Custom helper methods
-		// Methods / helpers will only run once the page Document Object Model (DOM) is ready for JavaScript code to execute
-		$( document ).ready(function() {
-		});
 	</script>
 
 </head>
@@ -125,12 +120,6 @@
 			<p>Preview nats channel:&nbsp;<span id="previewNatsChannel"></span></p>
 			</div>
 			<div class="col s6 input-field">
-				<!-- <div class="row">
-					<div class="col s6 input-field">
-						<input type="checkbox" class="value" id="shouldUsePrefixForChannel" />
-						<label for="shouldUsePrefixForChannel" class="translate">Should use prefix for nats channel to publish messages?</label>
-					</div>
-				</div> -->
 				<div class="row">
 					<div class="col s6 input-field">
 						<input type="text" class="value" id="shouldUsePrefixForChannelName" />
