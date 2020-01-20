@@ -29,9 +29,9 @@
         objectsName.forEach(_object => {
           els.push('<span class="previewstring">' + natsChannel + _object + "</span>");
         });
-        if (natsChannel.charAt(natsChannel.length - 1) == ".") {
+        if (natsChannel.charAt(natsChannel.length - 1) !== ".") {
           els.push(
-            '<span class="previewstring error">Please do not use a "." (dot) at the end of the NATS channel string</span>'
+            '<span class="previewstring error">Please use a "." (dot) at the end of the NATS channel string</span>'
           );
         }
         $("#previewNatsChannel").replaceWith(els); // Append new elements
