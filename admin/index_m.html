@@ -27,6 +27,10 @@
 			$('.value').each(function () {
 				var $key = $(this);
 				var id = $key.attr('id');
+				consle.log(id + " - " + $key.val());
+				if(id === "shouldUsePrefixForChannelName") {
+						$('#previewNatsChannel').text($key.val() + objectName);
+					}
 
 				if ($key.attr('type') === 'checkbox') {
 					// do not call onChange direct, because onChange could expect some arguments
@@ -35,15 +39,11 @@
 						;
 				} else {
 					// do not call onChange direct, because onChange could expect some arguments
-					if(id === "shouldUsePrefixForChannelName") {
-						$('#previewNatsChannel').text(objectName + $key.val());
-					}
-
 					$key.val(settings[id])
 						.on('change', () => onChange())
 						.on('keyup', () => {
 							if(id === "shouldUsePrefixForChannelName") {
-								$('#previewNatsChannel').text(objectName + $(this).val());
+								$('#previewNatsChannel').text($(this).val() + objectName);
 							}
 						})
 						;
@@ -123,7 +123,7 @@
 				<div class="row">
 					<div class="col s6 input-field">
 						<input type="text" class="value" id="shouldUsePrefixForChannelName" />
-						<label for="shouldUsePrefixForChannelName" class="translate">NATS channel prefix name / string (withot "." (dot) at last character)</label>
+						<label for="shouldUsePrefixForChannelName" class="translate">NATS channel prefix string</label>
 					</div>
 				</div>
 			</div>
