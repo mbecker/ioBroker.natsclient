@@ -26,11 +26,10 @@
 
       function addNatsChannlesPreview(natsChannel) {
         var els = [];
-        var isLastCharDor = false;
         objectsName.forEach(_object => {
-          els.push('<span class="previewstring">' + previewString + _object + "</span>");
+          els.push('<span class="previewstring">' + natsChannel + _object + "</span>");
         });
-        if (previewString.charAt(previewString.length - 1) == ".") {
+        if (natsChannel.charAt(natsChannel.length - 1) == ".") {
           els.push(
             '<span class="previewstring error">Please do not use a "." (dot) at the end of the NATS channel string</span>'
           );
