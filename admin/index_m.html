@@ -36,7 +36,7 @@
 				if(id === "shouldUsePrefixForChannelName" && $('#shouldUsePrefixForChannel').prop('checked')) {
 					$('#shouldUsePrefixForChannelNamePreview').text($key.val() + ".deconz.0.Lights.1.on");
 				} else if(!$('#shouldUsePrefixForChannel').prop('checked')) {
-					$('#shouldUsePrefixForChannelNamePreview').text(".deconz.0.Lights.1.on");
+					$('#shouldUsePrefixForChannelNamePreview').text("deconz.0.Lights.1.on");
 				}
 
 				if ($key.attr('type') === 'checkbox') {
