@@ -56,9 +56,10 @@
               $key
                 .val(settings[id])
                 .on("change", () => onChange())
-                .on("keyup", () => {
+                .on("keyup", (el) => {
 				  // addNatsChannlesPreview($(this).val());
-				  addNatsChannlesPreview($key.val(settings[id]).val());
+				  console.log($(this).val());
+				  console.log(el);
                 });
             } else {
               $key
