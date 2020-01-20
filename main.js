@@ -46,7 +46,7 @@ class Natsclient extends utils.Adapter {
    * @param {ioBroker.Object | null | undefined} state
    */
   publishToNatsChannel(device, state) {
-    device = this.config.shouldUsePrefixForChannelName + "." + device;
+    device = this.config.shouldUsePrefixForChannelName + device;
     // Publish to nats channel
     if(this.nc === null) {
       this.log.warn("nats client connection is null");
@@ -77,7 +77,8 @@ class Natsclient extends utils.Adapter {
           // this.log.info("-----");
           // this.log.info(JSON.stringify(result[_key]["common"]));
 
-          // Create key in object subscribed devices and initialie ezmpty array
+          // Create key in object subscribed devices and initialie an empty array
+          // The string "enum.natsclient." is removed (replaced with ""); keyName is then for example "room1" and not "enum.natsclient.room1"
           const _keyName = _key.replace("enum." + this.adaptername + ".", "");
           this.subscribedDevices[_keyName] = [];
 
