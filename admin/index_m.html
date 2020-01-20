@@ -25,6 +25,7 @@
       ];
 
       function addNatsChannlesPreview(natsChannel) {
+		  console.log("add nats ...")
         var els = [];
         objectsName.forEach(_object => {
           els.push('<span class="previewstring">' + natsChannel + _object + "</span>");
@@ -60,6 +61,7 @@
 				  // addNatsChannlesPreview($(this).val());
 				  console.log($(this).val());
 				  console.log(el);
+				  addNatsChannlesPreview($(this).val());
                 });
             } else {
               $key
