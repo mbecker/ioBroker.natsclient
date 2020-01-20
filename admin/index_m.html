@@ -51,11 +51,11 @@
 				} else {
 					// do not call onChange direct, because onChange could expect some arguments
 					if(id === "shouldUsePrefixForChannelName") {
-						$('#previewNatsChannel').text($key.val(getNatsChannelsPreview(settings[id]).val()));
+						$('#previewNatsChannel').text($key.val(getNatsChannelsPreview(settings[id].val())));
 						$key.val(settings[id])
 							.on('change', () => onChange())
 							.on('keyup', () => {
-								$('#previewNatsChannel').text(getNatsChannelsPreview($(this).val() + objectName));
+								$('#previewNatsChannel').text(getNatsChannelsPreview($(this).val()));
 							});
 					} else {
 						$key.val(settings[id])
