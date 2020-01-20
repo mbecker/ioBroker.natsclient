@@ -29,6 +29,16 @@
 			$('.value').each(function () {
 				var $key = $(this);
 				var id = $key.attr('id');
+
+				console.log(id + $key.val());
+				// Custom helper methods
+				// If listener is for 'shouldUsePrefixForChannelName' (change or keyup) and 'shouldUsePrefixForChannelName' is true then update the duisabled text input 'shouldUsePrefixForChannelNamePreview'
+				if(id === "shouldUsePrefixForChannelName" && $('#shouldUsePrefixForChannel').prop('checked')) {
+					$('#shouldUsePrefixForChannelNamePreview').text($key.val() + ".deconz.0.Lights.1.on");
+				} else if(!$('#shouldUsePrefixForChannel').prop('checked')) {
+					$('#shouldUsePrefixForChannelNamePreview').text(".deconz.0.Lights.1.on");
+				}
+
 				if ($key.attr('type') === 'checkbox') {
 					// do not call onChange direct, because onChange could expect some arguments
 					$key.prop('checked', settings[id])
@@ -41,11 +51,7 @@
 						.on('keyup', () => onChange())
 						;
 				}
-				// Custom helper methods
-				// If listener is for 'shouldUsePrefixForChannelName' (change or keyup) and 'shouldUsePrefixForChannelName' is true then update the duisabled text input 'shouldUsePrefixForChannelNamePreview'
-				if(id === "shouldUsePrefixForChannelName" && $('#shouldUsePrefixForChannelName').val()) {
-					$('#shouldUsePrefixForChannelNamePreview').text($key.val() + ".deconz.0.Lights.1.on");
-				}
+				
 			});
 
 			onChange(false);
@@ -72,8 +78,8 @@
 				} else {
 					obj[$this.attr('id')] = $this.val();
 					// Check that the nats channel does not have a "." (dot) at the the end of the string
-					if($this.attr('id') === "shouldUsePrefixForChannelName" && $this.val().charAt($this.val().length - 1) && $('#shouldUsePrefixForChannel').prop('checked')) {
-						showError = 'Please do not use a "." (dot) at the end of the name/string for nats channel prefix.<br />Last char is: ' + $this.val().charAt($this.val().length - 1);
+					if($this.attr('id') === "shouldUsePrefixForChannelName" && $this.val().charAt($this.val().length - 1) === "." && $('#shouldUsePrefixForChannel').prop('checked')) {
+						showError = 'Please do not use a "." (dot) at the end of the prefix string for nats channel. Last char of prefix string is: ' + $this.val().charAt($this.val().length - 1);
 						return;
 					}
 				}
