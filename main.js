@@ -52,7 +52,9 @@ class Natsclient extends utils.Adapter {
       this.log.warn("nats client connection is null");
     } else {
       this.log.info(`Publish state of object to nats channel: ${device} - ${JSON.stringify(state)}`);
-      this.nc.publish(device, state);
+      this.nc.publish(device, state, () => {
+        this.log.info("Publish messages confirmed by nats server");
+      });
     }
   }
 
