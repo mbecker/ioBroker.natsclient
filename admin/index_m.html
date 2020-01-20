@@ -22,17 +22,14 @@
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
 
+			// Initial load of page: Show preview
+			$('#previewNatsChannel').text($('#shouldUsePrefixForChannelName').val() + objectName);
+
 			// example: select elements with id=key and class=value and insert value
 			if (!settings) return;
 			$('.value').each(function () {
 				var $key = $(this);
 				var id = $key.attr('id');
-				
-				if(id === "shouldUsePrefixForChannelName") {
-						console.log(id + " - ");
-						console.log($key[0].value);
-						$('#previewNatsChannel').text($(this).val() + objectName);
-					}
 
 				if ($key.attr('type') === 'checkbox') {
 					// do not call onChange direct, because onChange could expect some arguments
