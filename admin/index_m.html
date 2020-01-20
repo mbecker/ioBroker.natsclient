@@ -27,9 +27,9 @@
 			$('.value').each(function () {
 				var $key = $(this);
 				var id = $key.attr('id');
-				console.log(id + " - " + $key.val());
+				console.log(id + " - " + $(this).val());
 				if(id === "shouldUsePrefixForChannelName") {
-						$('#previewNatsChannel').text($key.val() + objectName);
+						$('#previewNatsChannel').text($(this).val() + objectName);
 					}
 
 				if ($key.attr('type') === 'checkbox') {
