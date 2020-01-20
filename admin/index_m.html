@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="words.js"></script>
 
 	<script type="text/javascript">
-	var objectName = 'deconz.0.Lights.1.on';
+		var objectName = 'deconz.0.Lights.1.on';
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
 
@@ -75,6 +75,8 @@
 		}
 
 		$(function() {
+			console.log("Show Preview");
+			console.log($('#shouldUsePrefixForChannelName').val());
     		$('#previewNatsChannel').text($('#shouldUsePrefixForChannelName').val() + objectName);
   		});
 	</script>
