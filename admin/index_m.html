@@ -29,7 +29,7 @@
 		function getNatsChannelsPreview(natsChannel) {
 			var previewString = '';
 			objectsName.forEach(_object => {
-				previewString = previewString + natsChannel + _object;
+				previewString = previewString + natsChannel + _object + '<br >';
 			});
 			return previewString;
 		}
@@ -132,7 +132,7 @@
 		<div class="row">
 			<h5>Settings: Channel Prefix</h5>
 			<div class="card-panel red lighten-2" id="shouldUsePrefixForChannelAlert" style="display: none;">Custom error message</div>
-			<p>Preview nats channel:&nbsp;<span id="previewNatsChannel"></span></p>
+			<p>Preview nats channel:&nbsp;<span id="previewNatsChannel" style="display: block;"></span></p>
 			</div>
 			<div class="col s6 input-field">
 				<div class="row">
