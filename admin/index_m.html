@@ -21,23 +21,11 @@
 		// This will be called by the admin adapter when the settings page loads
 		function load(settings, onChange) {
 
-			// Custom parameters
-			var shouldUsePrefixForChannel = $('#shouldUsePrefixForChannelName').val();
-
 			// example: select elements with id=key and class=value and insert value
 			if (!settings) return;
 			$('.value').each(function () {
 				var $key = $(this);
 				var id = $key.attr('id');
-
-				console.log(id + $key.val());
-				// Custom helper methods
-				// If listener is for 'shouldUsePrefixForChannelName' (change or keyup) and 'shouldUsePrefixForChannelName' is true then update the duisabled text input 'shouldUsePrefixForChannelNamePreview'
-				if(id === "shouldUsePrefixForChannelName" && $('#shouldUsePrefixForChannel').prop('checked')) {
-					$('#shouldUsePrefixForChannelNamePreview').text($key.val() + ".deconz.0.Lights.1.on");
-				} else if(!$('#shouldUsePrefixForChannel').prop('checked')) {
-					$('#shouldUsePrefixForChannelNamePreview').text("deconz.0.Lights.1.on");
-				}
 
 				if ($key.attr('type') === 'checkbox') {
 					// do not call onChange direct, because onChange could expect some arguments
@@ -49,7 +37,8 @@
 					$key.val(settings[id])
 						.on('change', () => onChange())
 						.on('keyup', () => {
-							console.log($(this));
+							console.log($(this).val());
+							console.log($('#shouldUsePrefixForChannel').prop('checked'));
 						})
 						;
 				}
