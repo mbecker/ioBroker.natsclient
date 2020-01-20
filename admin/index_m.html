@@ -72,7 +72,7 @@
 				} else {
 					obj[$this.attr('id')] = $this.val();
 					// Check that the nats channel does not have a "." (dot) at the the end of the string
-					if($this.attr('id') === "shouldUsePrefixForChannelName" && $this.val().charAt($this.val().length - 1) && $('#shouldUsePrefixForChannelName').prop('checked')) {
+					if($this.attr('id') === "shouldUsePrefixForChannelName" && $this.val().charAt($this.val().length - 1) && $('#shouldUsePrefixForChannel').prop('checked')) {
 						showError = 'Please do not use a "." (dot) at the end of the name/string for nats channel prefix';
 						return;
 					}
