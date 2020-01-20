@@ -55,6 +55,7 @@ class Natsclient extends utils.Adapter {
     if(this.nc === null) {
       this.log.warn("nats client connection is null");
     } else {
+      this.log.info(`Publish state of object "${device}" to nats: ${JSON.stringify(state)}`);
       this.nc.publish(device, state);
     }
   }
@@ -133,8 +134,9 @@ class Natsclient extends utils.Adapter {
 
     this.nc.on("error", err => {
       this.log.warn(err);
-      this.setState("info.connection", false, true);
-      this.setState("info.server", "", true);
+      // TODO: Check if to set the connetion to false when an erro occurs
+      // this.setState("info.connection", false, true);
+      // this.setState("info.server", "", true);
     });
 
     // emitted whenever the client disconnects from a server
@@ -192,12 +194,11 @@ class Natsclient extends utils.Adapter {
             this.log.warn("Error get foreign state " + _device + ": " + err);
             return;
           }
-          // TODO: Publish state to nats channel
-          this.log.info(JSON.stringify(state));
+          
           this.publishToNatsChannel(_device, state);
         });
 
-        // Subscribe to _device updates
+        // ioBroker.adapater subscribe to _device updates
         this.subscribeForeignStates(_device);
       });
     }
