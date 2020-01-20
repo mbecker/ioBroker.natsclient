@@ -36,17 +36,17 @@
 				} else {
 					// do not call onChange direct, because onChange could expect some arguments
 					if(id === "shouldUsePrefixForChannelName") {
-						console.log($key.val(settings[id]));
-								$('#previewNatsChannel').text($key.val(settings[id]).val() + objectName);
-							}
-					$key.val(settings[id])
-						.on('change', () => onChange())
-						.on('keyup', () => {
-							if(id === "shouldUsePrefixForChannelName") {
+						$('#previewNatsChannel').text($key.val(settings[id]).val() + objectName);
+						$key.val(settings[id])
+							.on('change', () => onChange())
+							.on('keyup', () => {
 								$('#previewNatsChannel').text($(this).val() + objectName);
-							}
-						})
-						;
+							});
+					} else {
+						$key.val(settings[id])
+						.on('change', () => onChange())
+						.on('keyup', () => onChange());
+					}
 				}
 				
 			});
@@ -77,12 +77,6 @@
 			// $('#shouldUsePrefixForChannelAlert').hide();
 			callback(obj);
 		}
-
-		$(function() {
-			console.log("Show Preview");
-			console.log($('#shouldUsePrefixForChannelName').val());
-    		$('#previewNatsChannel').text($('#shouldUsePrefixForChannelName').val() + objectName);
-  		});
 	</script>
 
 </head>
