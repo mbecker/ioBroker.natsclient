@@ -29,7 +29,10 @@
         var els = [];
         objectsName.forEach(_object => {
           els.push('<span class="previewstring">' + natsChannel + _object + "</span>");
-        });
+		});
+		console.log("add nats: " + natsChannel);
+		console.log("last char: " + natsChannel.charAt(natsChannel.length - 1));
+		console.log(natsChannel.charAt(natsChannel.length - 1) !== ".");
         if (natsChannel.charAt(natsChannel.length - 1) !== ".") {
           els.push(
             '<span class="previewstring error">Please use a "." (dot) at the end of the NATS channel string</span>'
