@@ -62,6 +62,7 @@ class Natsclient extends utils.Adapter {
    */
   async getSubscribedStates() {
     return new Promise(resolve => {
+      // Get all states from "enum.adaptername"
       this.getEnum(this.adaptername, (err, result, _enum) => {
         // this.log.info("--- getEnum ROOMS ---");
         // this.log.info(JSON.stringify(err));
@@ -70,14 +71,30 @@ class Natsclient extends utils.Adapter {
         if (err !== null) {
           return this.log.warn("getEnum('" + this.adaptername + "') error: " + err);
         }
+        if (result === null || result.length === 0) {
+          return this.log.warn("getEnum('" + this.adaptername + "') result: " + result);
+        }
 
-        // const _result = result["enum.natsclient"]; // Getting the enum "enum.natsclient"; creating temp variable _result to loop throug
+        /* Loop throug the list of "enum.adaptername":
+         * result {
+         *  room1: {
+         *    state1,
+         *    state2,
+         *    state3
+         *  },
+         *  room2: {
+         *    state2,
+         *    state4,
+         *    state5
+         *  }
+         * } 
+         */
         for (const _key in result) {
           // this.log.info("-----");
           // this.log.info(JSON.stringify(result[_key]["common"]));
 
           // Create key in object subscribed devices and initialie an empty array
-          // The string "enum.natsclient." is removed (replaced with ""); keyName is then for example "room1" and not "enum.natsclient.room1"
+          // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
           const _keyName = _key.replace("enum." + this.adaptername + ".", "");
           this.subscribedDevices[_keyName] = [];
 
