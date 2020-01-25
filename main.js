@@ -90,6 +90,17 @@ class Natsclient extends utils.Adapter {
             // this.log.info("Devices: " + _enum["common"]["members"]);
             const devices = _enum["common"]["members"];
             devices.forEach(_device => this.subscribedDevices[_keyName].push(_device));
+            this.getObject(_device, (err, obj) => {
+              if (err !== null) {
+                this.log.warn("Error getObject info: " + _device + " - Error: " + err);
+                return;
+              }
+              if (obj === null) {
+                this.log.warn("Error getObject object is null");
+                return;
+              }
+              this.log.info(JSON.stringify(obj));
+            });
           }
         }
         resolve();
