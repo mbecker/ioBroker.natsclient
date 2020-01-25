@@ -13,10 +13,10 @@ const NATS = require("nats");
 // const fs = require("fs");
 
 /* Option parameters in admin
-*
-* this.config.natsconnection;
-* this.config.shouldUsePrefixForChannelName;
-*/
+ *
+ * this.config.natsconnection;
+ * this.config.shouldUsePrefixForChannelName;
+ */
 
 class Natsclient extends utils.Adapter {
   /**
@@ -32,7 +32,6 @@ class Natsclient extends utils.Adapter {
     this.on("stateChange", this.onStateChange.bind(this));
     // this.on("message", this.onMessage.bind(this));
     this.on("unload", this.onUnload.bind(this));
-    
 
     // Custom class parmeters
     this.nc = null;
@@ -48,7 +47,7 @@ class Natsclient extends utils.Adapter {
   publishToNatsChannel(device, state) {
     device = this.config.shouldUsePrefixForChannelName + device;
     // Publish to nats channel
-    if(this.nc === null) {
+    if (this.nc === null) {
       this.log.warn("nats client connection is null");
     } else {
       this.log.info(`Publish state of object to nats channel: ${device} - ${JSON.stringify(state)}`);
@@ -57,8 +56,6 @@ class Natsclient extends utils.Adapter {
       });
     }
   }
-
-
 
   /**
    * Get all deives from enum.antsclient to subscribe to
@@ -179,6 +176,14 @@ class Natsclient extends utils.Adapter {
       this.log.warn("got a permissions error: " + err.message);
     });
 
+    /*
+     * Publish:
+     * (1) Inital State
+     * (2) stateChange
+     *
+     */
+
+    // Publish: (1) Inital State
     // Get the initale state status and publish it to the nats channels
     // Subscribe to state changes
     this.log.info("--- subscribed devices ---");
@@ -193,7 +198,7 @@ class Natsclient extends utils.Adapter {
             this.log.warn("Error get foreign state " + _device + ": " + err);
             return;
           }
-          
+
           this.publishToNatsChannel(_device, state);
         });
 
@@ -202,19 +207,21 @@ class Natsclient extends utils.Adapter {
       });
     }
 
-    this.on("stateChange", (id, state) => {
-      // TODO: Loop throug this.subscribedDevices and sent message to channel to all matched devices in rooms as follows for example:
-      // room1.deconz.light1
-      // directoryXYZ.deconz.light1
-      // Just add the name of the directory / room to the name of the device after looping throug the list of subscribed devices
-      this.log.info("stateChange " + id + " " + JSON.stringify(state));
+    // Publish: (2) stateChange
+    // this.on("stateChange", (id, state) => {
+    // TODO: Use existing stateChange class func
+    // TODO: Loop throug this.subscribedDevices and sent message to channel to all matched devices in rooms as follows for example:
+    // room1.deconz.light1
+    // directoryXYZ.deconz.light1
+    // Just add the name of the directory / room to the name of the device after looping throug the list of subscribed devices
+    // this.log.info("stateChange " + id + " " + JSON.stringify(state));
 
-      // you can use the ack flag to detect if state is command(false) or status(true)
-      if (!state.ack) {
-        this.log.info("ack is not set!");
-      }
-      this.publishToNatsChannel(id, state);
-    });
+    // you can use the ack flag to detect if state is command(false) or status(true)
+    //   if (!state.ack) {
+    //     this.log.info("ack is not set!");
+    //   }
+    //   this.publishToNatsChannel(id, state);
+    // });
 
     /*
 		For every state in the system there has to be also an object of type state
@@ -292,6 +299,18 @@ class Natsclient extends utils.Adapter {
    * @param {ioBroker.State | null | undefined} state
    */
   onStateChange(id, state) {
+    this.getObject(id, (err, obj) => {
+      if (err !== null) {
+        this.log.warn("Error getObject info: " + id + " - Error: " + err);
+        return;
+      }
+      if (obj === null) {
+        this.log.warn("Error getObject object is null");
+        return;
+      }
+      this.log.info(JSON.stringify(obj));
+    });
+
     if (state) {
       // The state was changed
       this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
