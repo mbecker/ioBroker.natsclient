@@ -60,7 +60,7 @@ class Natsclient extends utils.Adapter {
   /**
    * Get all deives from enum.antsclient to subscribe to
    */
-  async getSubscribedDevices() {
+  async getSubscribedStates() {
     return new Promise(resolve => {
       this.getEnum(this.adaptername, (err, result, _enum) => {
         // this.log.info("--- getEnum ROOMS ---");
@@ -130,7 +130,7 @@ class Natsclient extends utils.Adapter {
     /*
      * NATS Config
      */
-    await this.getSubscribedDevices();
+    await this.getSubscribedStates();
 
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     this.nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
