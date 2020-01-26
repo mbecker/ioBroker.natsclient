@@ -87,7 +87,7 @@ class Natsclient extends utils.Adapter {
          *    state4,
          *    state5
          *  }
-         * } 
+         * }
          */
         for (const _key in result) {
           // this.log.info("-----");
@@ -108,21 +108,20 @@ class Natsclient extends utils.Adapter {
             const devices = _enum["common"]["members"];
             devices.forEach(_device => {
               this.subscribedDevices[_keyName].push(_device);
-              
-              this.getForeignStateAsync(_device).then(obj => {
-                if (obj === null) {
-                  throw new Error("obj is null");
-                }
-                this.log.info(JSON.stringify(obj));
-              }).catch(err => {
-                this.log.warn("Error getObject info: " + _device + " - Error: " + err);
-              });
-            
 
-              
+              this.getForeignObjectAsync(_device)
+                .then(obj => {
+                  if (obj === null) {
+                    throw new Error("obj is null");
+                  }
+                  this.log.info(JSON.stringify(obj));
+                })
+                .catch(err => {
+                  this.log.warn("Error getObject info: " + _device + " - Error: " + err);
+                });
 
               // this.getForeignObject(_device, (err, obj) => {
-                
+
               //   this.log.info("getForeignObject: " + _device);
               //   if (err !== null) {
               //     this.log.warn("Error getObject info: " + _device + " - Error: " + err);
@@ -134,8 +133,6 @@ class Natsclient extends utils.Adapter {
               //   }
               //   this.log.info(JSON.stringify(obj));
               // });
-
-
             });
           }
         }
@@ -249,15 +246,19 @@ class Natsclient extends utils.Adapter {
           this.publishToNatsChannel(_device, state);
         });
 
-        this.getForeignStateAsync(_device).then(obj => {
+        this.getForeignObject(_device, (err, obj) => {
+          this.log.info("getForeignObject: " + _device);
+          if (err !== null) {
+            this.log.warn("Error getObject info: " + _device + " - Error: " + err);
+            return;
+          }
           if (obj === null) {
-            throw new Error("obj is null");
+            this.log.warn("Error getObject object is null");
+            return;
           }
           this.nc.publish("iobroker.objects." + device, obj, () => {
             this.log.info("Publish obj confirmed by nats server");
           });
-        }).catch(err => {
-          this.log.warn("Error getObject info: " + _device + " - Error: " + err);
         });
 
         // ioBroker.adapater subscribe to _device updates
