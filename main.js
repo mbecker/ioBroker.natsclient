@@ -253,7 +253,7 @@ class Natsclient extends utils.Adapter {
           if (obj === null) {
             throw new Error("obj is null");
           }
-          this.nc.publish("iobroker.objects" + device, obj, () => {
+          this.nc.publish("iobroker.objects." + device, obj, () => {
             this.log.info("Publish obj confirmed by nats server");
           });
         }).catch(err => {
