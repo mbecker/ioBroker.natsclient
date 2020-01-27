@@ -539,6 +539,7 @@ class Natsclient extends utils.Adapter {
 
     this.log.info("--- subscribed objects / states ---");
     // TODO: Check if initial message should be sent; check which channel should be used (prefix as well)
+    this.log.info(JSON.stringify(this.subscribedObjects));
     this.nc.publish("iobroker.objects.initial", this.subscribedObjects, () => {
       this.log.info(
         "Initial messages confirmed; subscribed objects send as message to the nats cchannel: " +
