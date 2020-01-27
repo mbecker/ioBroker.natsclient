@@ -126,7 +126,7 @@ class Natsclient extends utils.Adapter {
         // this.log.info("--- getObjects ---");
         // this.log.info(JSON.stringify(_value.result)); //  {"result":{"enum.natsclient.room1":{"_id":"enum.natsclient.room1","common":{"name":"room1","members":["deconz.0.Lights.1.on","zwave.0.NODE4.SWITCH_BINARY.Switch_1"],"icon":"","color":false},"t
         // this.log.info(JSON.stringify(_value.requestEnum)); // "enum.natsclient"
-        asyncForEach(Object.keys(_value.result), async (_key) => {
+        await asyncForEach(Object.keys(_value.result), async (_key) => {
           // JSON key: _key
           // JSON value: result[_key]
           const element = _value.result[_key];
@@ -142,7 +142,7 @@ class Natsclient extends utils.Adapter {
             element["common"]["members"].length > 0
           ) {
             const elementMembers = element["common"]["members"];
-            asyncForEach(elementMembers, async (_state) => {
+            await asyncForEach(elementMembers, async (_state) => {
               // Add _state to list of subscribed states and subscribe to state changes
               this.subscribedStates.push(_state);
               this.subscribeForeignStates(_state);
