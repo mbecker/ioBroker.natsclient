@@ -160,6 +160,18 @@ class Natsclient extends utils.Adapter {
           err => {
             if (err) this.log.warn("getObjectsEachOf eachof: " + err.message);
             this.log.info("DONNNNEE??");
+            // Publish: (1) Inital State
+            // Get the initale state status and publish it to the nats channels
+
+            this.log.info("--- subscribed objects / states ---");
+            // TODO: Check if initial message should be sent; check which channel should be used (prefix as well)
+            this.log.info(JSON.stringify(this.subscribedObjects));
+            this.nc.publish("iobroker.objects.initial", this.subscribedObjects, () => {
+              this.log.info(
+                "Initial messages confirmed; subscribed objects send as message to the nats cchannel: " +
+                  "iobroker.objects.initial"
+              );
+            });
           }
         );
       })
@@ -456,7 +468,6 @@ class Natsclient extends utils.Adapter {
     //   .catch(err => {
     //     this.log.warn("getObjectsAsync error: " + err);
     //   });
-    this.getObjectsEachOf();
 
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     this.nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
@@ -466,6 +477,7 @@ class Natsclient extends utils.Adapter {
       this.log.info("Connected to " + nc.currentServer.url.host);
       this.setState("info.connection", true, true);
       this.setState("info.server", nc.currentServer.url.host, true);
+      this.getObjectsEachOf();
     });
 
     this.nc.on("error", err => {
@@ -522,19 +534,6 @@ class Natsclient extends utils.Adapter {
      * (2) stateChange
      *
      */
-
-    // Publish: (1) Inital State
-    // Get the initale state status and publish it to the nats channels
-
-    this.log.info("--- subscribed objects / states ---");
-    // TODO: Check if initial message should be sent; check which channel should be used (prefix as well)
-    this.log.info(JSON.stringify(this.subscribedObjects));
-    this.nc.publish("iobroker.objects.initial", this.subscribedObjects, () => {
-      this.log.info(
-        "Initial messages confirmed; subscribed objects send as message to the nats cchannel: " +
-          "iobroker.objects.initial"
-      );
-    });
 
     // Publish: (2) stateChange
     // this.on("stateChange", (id, state) => {
