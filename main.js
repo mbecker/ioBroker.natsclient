@@ -121,7 +121,7 @@ class Natsclient extends utils.Adapter {
   // }
 
   async getObjects() {
-    await this.getEnumAsync(this.adaptername)
+    this.getEnumAsync(this.adaptername)
       .then((_value) => {
         // this.log.info("--- getObjects ---");
         // this.log.info(JSON.stringify(_value.result)); //  {"result":{"enum.natsclient.room1":{"_id":"enum.natsclient.room1","common":{"name":"room1","members":["deconz.0.Lights.1.on","zwave.0.NODE4.SWITCH_BINARY.Switch_1"],"icon":"","color":false},"t
@@ -142,7 +142,7 @@ class Natsclient extends utils.Adapter {
             element["common"]["members"].length > 0
           ) {
             const elementMembers = element["common"]["members"];
-            await asyncForEach(elementMembers, async (_state) => {
+            asyncForEach(elementMembers, async (_state) => {
               // Add _state to list of subscribed states and subscribe to state changes
               this.subscribedStates.push(_state);
               this.subscribeForeignStates(_state);
@@ -151,7 +151,7 @@ class Natsclient extends utils.Adapter {
               // Subscribe to object changes
               
               this.subscribedObjects[_keyName][_state] = null;
-              await this.getForeignObjectAsync(_state)
+              this.getForeignObjectAsync(_state)
                 .then(obj => {
                   if (obj === null) {
                     throw new Error("obj is null");
