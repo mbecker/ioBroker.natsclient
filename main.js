@@ -149,7 +149,9 @@ class Natsclient extends utils.Adapter {
 
               // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
               // Subscribe to object changes
-              this.getForeignObjectAsync(_state)
+              
+              this.subscribedObjects[_keyName][_state] = null;
+              await this.getForeignObjectAsync(_state)
                 .then(obj => {
                   if (obj === null) {
                     throw new Error("obj is null");
@@ -161,7 +163,6 @@ class Natsclient extends utils.Adapter {
                 })
                 .catch(err => {
                   this.log.warn("Error getObject info: " + _state + " - Error: " + err);
-                  this.subscribedObjects[_keyName][_state] = null;
                 });
             });
           }
