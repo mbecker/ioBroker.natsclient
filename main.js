@@ -309,7 +309,6 @@ class Natsclient extends utils.Adapter {
       });
 
       nc.subscribe(initget, (msg, reply, subject, sid) => {
-        subject = reply ? reply : subject.replace(objectget, "");
         this.log.info("Subscribe " + initget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         this.getSubscribedObjectsAndStates(reply);
       });
