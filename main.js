@@ -18,6 +18,12 @@ const NATS = require("nats");
  * this.config.shouldUsePrefixForChannelName;
  */
 
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
+
 class Natsclient extends utils.Adapter {
   /**
    * @param {Partial<ioBroker.AdapterOptions>} [options={}]
@@ -108,6 +114,63 @@ class Natsclient extends utils.Adapter {
     }
   }
 
+  // async asyncForEach(array, callback) {
+  //   for (let index = 0; index < array.length; index++) {
+  //     await callback(array[index], index, array);
+  //   }
+  // }
+
+  async getObjects() {
+    await this.getEnumAsync(this.adaptername)
+      .then((result, requestEnum) => {
+        // this.log.info(JSON.stringify(result));
+        // this.log.info(JSON.stringify(requestEnum)); // "enum.natsclient"
+        asyncForEach(Object.keys(result), async (_key) => {
+          // JSON key: _key
+          // JSON value: result[_key]
+          const element = result[_key];
+
+          // Create key in object subscribed devices and initialie an empty array
+          // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
+          const _keyName = _key.replace("enum." + this.adaptername + ".", "");
+          this.subscribedObjects[_keyName] = {};
+
+          if (
+            typeof element["common"] !== "undefined" &&
+            typeof element["common"]["members"] !== "undefined" &&
+            element["common"]["members"].length > 0
+          ) {
+            const elementMembers = element["common"]["members"];
+            asyncForEach(elementMembers, async (_state) => {
+              // Add _state to list of subscribed states and subscribe to state changes
+              this.subscribedStates.push(_state);
+              this.subscribeForeignStates(_state);
+
+              // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
+              // Subscribe to object changes
+              this.getForeignObjectAsync(_state)
+                .then(obj => {
+                  if (obj === null) {
+                    throw new Error("obj is null");
+                  }
+                  this.log.info("add foreign obecjt to json: " + _keyName + " - " + _state);
+                  this.subscribedObjects[_keyName][_state] = obj;
+                  this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
+                  this.subscribeForeignObjects(_state);
+                })
+                .catch(err => {
+                  this.log.warn("Error getObject info: " + _state + " - Error: " + err);
+                  this.subscribedObjects[_keyName][_state] = null;
+                });
+            });
+          }
+        });
+      })
+      .catch(err => {
+        this.log.warn("Error getEnum for adapter name: " + this.adaptername + " - Error: " + err);
+      });
+  }
+
   /**
    * Get all deives from enum.antsclient to subscribe to
    */
@@ -144,7 +207,7 @@ class Natsclient extends utils.Adapter {
          *  }
          * }
          */
-
+        let resolveCounter = 0;
         for (const _key in result) {
           // this.log.info("-----");
           // this.log.info(JSON.stringify(result[_key]["common"]));
@@ -189,8 +252,11 @@ class Natsclient extends utils.Adapter {
                 });
             });
           }
+          resolveCounter = resolveCounter + 1;
         }
-        resolve();
+        if(resolveCounter === result.length) {
+          resolve();
+        }        
       });
     });
   }
@@ -214,7 +280,7 @@ class Natsclient extends utils.Adapter {
     /*
      * NATS Config
      */
-    await this.getSubscribedObjectsAndStates();
+    await this.getObjects();
 
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     this.nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
