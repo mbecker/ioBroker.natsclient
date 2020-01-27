@@ -156,7 +156,7 @@ class Natsclient extends utils.Adapter {
                   if (obj === null) {
                     throw new Error("obj is null");
                   }
-                  this.log.info("add foreign obecjt to json: " + _keyName + " - " + _state);
+                  this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
                   this.subscribedObjects[_keyName][_state] = obj;
                   this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
                   this.subscribeForeignObjects(_state);
