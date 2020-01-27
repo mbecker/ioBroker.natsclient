@@ -14,8 +14,10 @@ const async = require("async");
 const initget = "init.get";
 const stateset = "state.set.>";
 const stateget = "state.get.>";
+const stategetsend = "state.send";
 const objectset = "object.set.>";
 const objectget = "object.get.>";
+const objectgetsend = "object.send";
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -250,7 +252,7 @@ class Natsclient extends utils.Adapter {
       });
 
       nc.subscribe(stateget, (msg, reply, subject, sid) => {
-        subject = subject.replace(stateget, "");
+        subject = subject.replace(stateget, stategetsend);
         this.log.info("Subscribe " + stateget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         
         this.getForeignState(subject, (err, state) => {
@@ -268,20 +270,27 @@ class Natsclient extends utils.Adapter {
       nc.subscribe(objectset, (msg, reply, subject, sid) => {
         // reply is not important because all state changes are handled by listener and sent back to nats
         subject = subject.replace(objectset, "");
-        this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
-        if(this.subscribedStates.indexOf(subject) !== -1) {
-          this.setForeignObject(subject, msg, (err) => {
-            if (err !== null) {
-              this.log.warn(err);
+        this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));
+        // Check tah foreign object is in list of subscribed objects
+        for(const _key in this.subscribedObjects) {
+          const element = this.subscribedObjects[_key];
+          for(const _objKey in element) {
+            if(_objKey === objectset) {
+              this.setForeignObject(subject, msg, (err) => {
+                if (err !== null) {
+                  this.log.warn(err);
+                  return;
+                }
+                this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; setForeignObject succesful: " + subject);
+              });
               return;
             }
-            this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; setForeignObject succesful: " + subject);
-          });
+          }
         }
       });
 
       nc.subscribe(objectget, (msg, reply, subject, sid) => {
-        subject = subject.replace(objectget, "");
+        subject = subject.replace(objectget, objectgetsend);
         this.log.info("Subscribe " + objectget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         
         this.getForeignObject(subject, (err, state) => {
