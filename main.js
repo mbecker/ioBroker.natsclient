@@ -133,7 +133,7 @@ class Natsclient extends utils.Adapter {
           // Create key in object subscribed devices and initialie an empty array
           // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
           const _keyName = _key.replace("enum." + this.adaptername + ".", "");
-          this.subscribedObjects[_keyName] = {};
+          this.subscribedObjects[_key] = {};
 
           if (
             typeof element["common"] !== "undefined" &&
@@ -153,14 +153,14 @@ class Natsclient extends utils.Adapter {
                   if (obj === null) {
                     throw new Error("obj is null");
                   }
-                  this.log.info("add foreign obecjt to json: " + _keyName + " - " + _state);
-                  this.subscribedObjects[_keyName][_state] = obj;
-                  this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
+                  this.log.info("add foreign obecjt to json: " + _key + " - " + _state);
+                  this.subscribedObjects[_key][_state] = obj;
+                  this.log.info(JSON.stringify(this.subscribedObjects[_key][_state]));
                   this.subscribeForeignObjects(_state);
                 })
                 .catch(err => {
                   this.log.warn("Error getObject info: " + _state + " - Error: " + err);
-                  this.subscribedObjects[_keyName][_state] = null;
+                  this.subscribedObjects[_key][_state] = null;
                 });
             });
           }
