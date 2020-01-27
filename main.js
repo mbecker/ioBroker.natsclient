@@ -122,9 +122,9 @@ class Natsclient extends utils.Adapter {
   // }
 
   getObjectsEachOf() {
-    return this.getEnumAsync(this.adaptername)
+    this.getEnumAsync(this.adaptername)
       .then(_value => {
-        return async.forEachOf(
+        async.forEachOf(
           _value.result,
           (element, _key, callback) => {
             const _keyName = _key.replace("enum." + this.adaptername + ".", "");
@@ -164,12 +164,11 @@ class Natsclient extends utils.Adapter {
           },
           (err) => {
             if (err) this.log.warn("getObjectsEachOf eachof: " + err.message);
-            throw new Error(err);
           }
         );
       })
       .then(err => {
-        return err;
+        if (err) this.log.warn("getObjectsEachOf getEnumAsync: " + err);
       });
   }
 
