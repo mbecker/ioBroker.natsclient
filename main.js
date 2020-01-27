@@ -115,13 +115,14 @@ class Natsclient extends utils.Adapter {
     }
   }
 
-  // async asyncForEach(array, callback) {
-  //   for (let index = 0; index < array.length; index++) {
-  //     await callback(array[index], index, array);
-  //   }
-  // }
 
-  getObjectsEachOf() {
+  /**
+   * Get the subscribed states from enum
+   * - Add objects and states to list
+   * - Subscribe to states and objects
+   * - Publishes objects to nats channel
+   */
+  getSubscribedObjectsAndStates() {
     this.getEnumAsync(this.adaptername)
       .then(_value => {
         async.forEachOf(
@@ -134,23 +135,25 @@ class Natsclient extends utils.Adapter {
               typeof element["common"]["members"] !== "undefined" &&
               element["common"]["members"].length > 0
             ) {
-              const elementMembers = element["common"]["members"];
+              const elementMembers = element["common"]["members"]; // includes the states as follows: element["common"]["members"] = ["deconz.0.Lights.1.bri", "deconz.0.Lights.2.on", ...]
               async.every(
                 elementMembers,
-                (_state, callback2) => {
+                (_state, innerCallback) => {
                   this.getForeignObject(_state, (err, obj) => {
-                    if (err !== null) return callback2(err, null);
+                    if (err !== null) return innerCallback(err, null);
+                    // State: Push to internal list; subscribe to changes
                     this.subscribedStates.push(_state);
                     this.subscribeForeignStates(_state);
-                    this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
+                    
+                    // Object: Push to internal list; subscribe to changes
                     this.subscribedObjects[_keyName][_state] = obj;
-                    this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
                     this.subscribeForeignObjects(_state);
-                    callback2(null, true);
+                    
+                    // Call for true
+                    innerCallback(null, true);
                   });
                 },
                 err => {
-                  // if result is true then every file exists
                   if (err !== null) callback(err);
                   callback();
                 }
@@ -158,289 +161,25 @@ class Natsclient extends utils.Adapter {
             }
           },
           err => {
-            if (err) this.log.warn("getObjectsEachOf eachof: " + err.message);
-            this.log.info("DONNNNEE??");
-            // Publish: (1) Inital State
-            // Get the initale state status and publish it to the nats channels
-
-            this.log.info("--- subscribed objects / states ---");
-            // TODO: Check if initial message should be sent; check which channel should be used (prefix as well)
-            this.log.info(JSON.stringify(this.subscribedObjects));
+            if (err) {
+              this.log.warn("getObjectsEachOf: " + err.message);
+              return;
+            }
+            
+            // Publish: Inital State
+            // this.nc is not null because the function is initialized in the nc.on listener "connect"
+            // TODO: Check config for initial status and inital channel            
             this.nc.publish("iobroker.objects.initial", this.subscribedObjects, () => {
               this.log.info(
-                "Initial messages confirmed; subscribed objects send as message to the nats cchannel: " +
+                "Initial messages confirmed; subscribed objects send as message to the nats channel: " +
                   "iobroker.objects.initial"
               );
             });
           }
         );
-      })
-      .then(err => {
-        if (err) this.log.warn("getObjectsEachOf getEnumAsync: " + err);
       });
   }
 
-  getObjectsNotAsync() {
-    return new Promise((resolve, reject) => {
-      this.getEnumAsync(this.adaptername)
-        .then(_value => {
-          // this.log.info("--- getObjects ---");
-          // this.log.info(JSON.stringify(_value.result)); //  {"result":{"enum.natsclient.room1":{"_id":"enum.natsclient.room1","common":{"name":"room1","members":["deconz.0.Lights.1.on","zwave.0.NODE4.SWITCH_BINARY.Switch_1"],"icon":"","color":false},"t
-          // this.log.info(JSON.stringify(_value.requestEnum)); // "enum.natsclient"
-
-          for (const _key in _value.result) {
-            // JSON key: _key
-            // JSON value: result[_key]
-            const element = _value.result[_key];
-
-            // Create key in object subscribed devices and initialie an empty array
-            // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
-            const _keyName = _key.replace("enum." + this.adaptername + ".", "");
-            this.subscribedObjects[_keyName] = {};
-
-            if (
-              typeof element["common"] !== "undefined" &&
-              typeof element["common"]["members"] !== "undefined" &&
-              element["common"]["members"].length > 0
-            ) {
-              const elementMembers = element["common"]["members"];
-              for (const _state in elementMembers) {
-                this.subscribedStates.push(_state);
-                this.subscribeForeignStates(_state);
-
-                // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
-                // Subscribe to object changes
-
-                this.subscribedObjects[_keyName][_state] = null;
-                this.getForeignObjectAsync(_state)
-                  .then(obj => {
-                    if (obj === null) {
-                      throw new Error("obj is null");
-                    }
-                    this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
-                    this.subscribedObjects[_keyName][_state] = obj;
-                    this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
-                    this.subscribeForeignObjects(_state);
-                  })
-                  .catch(err => {
-                    this.log.warn("Error getObject info: " + _state + " - Error: " + err);
-                  });
-              }
-            }
-          }
-          resolve(this.subscribedObjects);
-        })
-        .catch(err => {
-          this.log.warn("Error getEnum for adapter name: " + this.adaptername + " - Error: " + err);
-          reject(err);
-        });
-    });
-  }
-
-  getObjectsAsync() {
-    return new Promise((resolve, reject) => {
-      this.getEnumAsync(this.adaptername)
-        .then(_value => {
-          // this.log.info("--- getObjects ---");
-          // this.log.info(JSON.stringify(_value.result)); //  {"result":{"enum.natsclient.room1":{"_id":"enum.natsclient.room1","common":{"name":"room1","members":["deconz.0.Lights.1.on","zwave.0.NODE4.SWITCH_BINARY.Switch_1"],"icon":"","color":false},"t
-          // this.log.info(JSON.stringify(_value.requestEnum)); // "enum.natsclient"
-          const keys = Object.keys(_value.result);
-          let keysCount = 0;
-          asyncForEach(keys, async _key => {
-            // JSON key: _key
-            // JSON value: result[_key]
-            const element = _value.result[_key];
-
-            // Create key in object subscribed devices and initialie an empty array
-            // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
-            const _keyName = _key.replace("enum." + this.adaptername + ".", "");
-            this.subscribedObjects[_keyName] = {};
-
-            if (
-              typeof element["common"] !== "undefined" &&
-              typeof element["common"]["members"] !== "undefined" &&
-              element["common"]["members"].length > 0
-            ) {
-              const elementMembers = element["common"]["members"];
-              asyncForEach(elementMembers, async _state => {
-                // Add _state to list of subscribed states and subscribe to state changes
-                this.subscribedStates.push(_state);
-                this.subscribeForeignStates(_state);
-
-                // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
-                // Subscribe to object changes
-
-                this.subscribedObjects[_keyName][_state] = null;
-                await this.getForeignObjectAsync(_state)
-                  .then(obj => {
-                    if (obj === null) {
-                      throw new Error("obj is null");
-                    }
-                    this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
-                    this.subscribedObjects[_keyName][_state] = obj;
-                    this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
-                    this.subscribeForeignObjects(_state);
-                  })
-                  .catch(err => {
-                    this.log.warn("Error getObject info: " + _state + " - Error: " + err);
-                  });
-              });
-              keysCount = keysCount + 1;
-              if (keys.length === keysCount) {
-                resolve(this.subscribedObjects);
-              }
-            }
-          });
-        })
-        .catch(err => {
-          this.log.warn("Error getEnum for adapter name: " + this.adaptername + " - Error: " + err);
-          reject(err);
-        });
-    });
-  }
-
-  async getObjects() {
-    this.getEnumAsync(this.adaptername)
-      .then(_value => {
-        // this.log.info("--- getObjects ---");
-        // this.log.info(JSON.stringify(_value.result)); //  {"result":{"enum.natsclient.room1":{"_id":"enum.natsclient.room1","common":{"name":"room1","members":["deconz.0.Lights.1.on","zwave.0.NODE4.SWITCH_BINARY.Switch_1"],"icon":"","color":false},"t
-        // this.log.info(JSON.stringify(_value.requestEnum)); // "enum.natsclient"
-        return asyncForEach(Object.keys(_value.result), async _key => {
-          // JSON key: _key
-          // JSON value: result[_key]
-          const element = _value.result[_key];
-
-          // Create key in object subscribed devices and initialie an empty array
-          // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
-          const _keyName = _key.replace("enum." + this.adaptername + ".", "");
-          this.subscribedObjects[_keyName] = {};
-
-          if (
-            typeof element["common"] !== "undefined" &&
-            typeof element["common"]["members"] !== "undefined" &&
-            element["common"]["members"].length > 0
-          ) {
-            const elementMembers = element["common"]["members"];
-            return asyncForEach(elementMembers, async _state => {
-              // Add _state to list of subscribed states and subscribe to state changes
-              this.subscribedStates.push(_state);
-              this.subscribeForeignStates(_state);
-
-              // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
-              // Subscribe to object changes
-
-              this.subscribedObjects[_keyName][_state] = null;
-              return this.getForeignObjectAsync(_state)
-                .then(obj => {
-                  if (obj === null) {
-                    throw new Error("obj is null");
-                  }
-                  this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
-                  this.subscribedObjects[_keyName][_state] = obj;
-                  this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
-                  this.subscribeForeignObjects(_state);
-                })
-                .catch(err => {
-                  this.log.warn("Error getObject info: " + _state + " - Error: " + err);
-                });
-            });
-          }
-        });
-      })
-      .catch(err => {
-        this.log.warn("Error getEnum for adapter name: " + this.adaptername + " - Error: " + err);
-      });
-  }
-
-  /**
-   * Get all deives from enum.antsclient to subscribe to
-   */
-  async getSubscribedObjectsAndStates() {
-    return new Promise(resolve => {
-      // Get all states from "enum.adaptername"
-      // The enum object has only 2 levels (no sub-sub-...-level object); The "enum.adaptername" does not allow to have an iterative object like: room1 -> ( state1, state2, room3 -> ( state5, state 6 ) ), room2 -> state 3, ...
-
-      this.getEnum(this.adaptername, (err, result, _enum) => {
-        this.log.info("--- getEnum ROOMS ---");
-        // this.log.info("--- get getSubscribedStates ---");
-        // this.log.info(JSON.stringify(err));
-        // this.log.info(JSON.stringify(result));
-        // this.log.info(JSON.stringify(_enum)); // "enum.natsclient"
-        // this.log.info("--- end getSubscribedStates ---");
-        if (err !== null) {
-          return this.log.warn("getEnum('" + this.adaptername + "') error: " + err);
-        }
-        if (result === null || result.length === 0) {
-          return this.log.warn("getEnum('" + this.adaptername + "') result: " + result);
-        }
-
-        /* Loop throug the list of "enum.adaptername":
-         * enum.adaptername (result) {
-         *  room1: {
-         *    state1,
-         *    state2,
-         *    state3
-         *  },
-         *  room2: {
-         *    state2,
-         *    state4,
-         *    state5
-         *  }
-         * }
-         */
-        let resolveCounter = 0;
-        for (const _key in result) {
-          // this.log.info("-----");
-          // this.log.info(JSON.stringify(result[_key]["common"]));
-
-          // Create key in object subscribed devices and initialie an empty array
-          // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
-          const _keyName = _key.replace("enum." + this.adaptername + ".", "");
-          this.subscribedObjects[_keyName] = {};
-
-          // Temporary variable for enum object in enum.natsclient;
-          // const _enum = result["room1"];
-          const _enum = result[_key];
-          if (
-            typeof _enum["common"] !== "undefined" &&
-            typeof _enum["common"]["members"] !== "undefined" &&
-            _enum["common"]["members"].length > 0
-          ) {
-            // this.log.info("Devices: " + _enum["common"]["members"]);
-            const devices = _enum["common"]["members"];
-
-            // Iterate each "member" of enum.adapternamer.level1 (like "enum.apatername.room1")
-            devices.forEach(_state => {
-              // Add _state to list of subscribed states and subscribe to state changes
-              this.subscribedStates.push(_state);
-              this.subscribeForeignStates(_state);
-
-              // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
-              // Subscribe to object changes
-              this.getForeignObjectAsync(_state)
-                .then(obj => {
-                  if (obj === null) {
-                    throw new Error("obj is null");
-                  }
-                  this.log.info("add foreign obecjt to json: " + _keyName + " - " + _state);
-                  this.subscribedObjects[_keyName][_state] = obj;
-                  this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
-                  this.subscribeForeignObjects(_state);
-                })
-                .catch(err => {
-                  this.log.warn("Error getObject info: " + _state + " - Error: " + err);
-                  this.subscribedObjects[_keyName][_state] = null;
-                });
-            });
-          }
-          resolveCounter = resolveCounter + 1;
-        }
-        if (resolveCounter === result.length) {
-          resolve();
-        }
-      });
-    });
-  }
 
   /**
    * Is called when databases are connected and adapter received configuration.
@@ -454,8 +193,6 @@ class Natsclient extends utils.Adapter {
 
     // The adapters config (in the instance object everything under the attribute "native") is accessible via
     // this.config:
-    this.log.info("config option1: " + this.config.option1);
-    this.log.info("config option2: " + this.config.option2);
     this.log.info("config natsconnection: " + this.config.natsconnection);
 
     /*
@@ -477,7 +214,25 @@ class Natsclient extends utils.Adapter {
       this.log.info("Connected to " + nc.currentServer.url.host);
       this.setState("info.connection", true, true);
       this.setState("info.server", nc.currentServer.url.host, true);
-      this.getObjectsEachOf();
+      
+      // Get objects from enum and subscribe to states
+      this.getSubscribedObjectsAndStates();
+
+      // Subscribe to receives messages / commands
+      nc.subscribe("set.>", (msg, reply, subject, sid) => {
+        if (reply) {
+          nc.publish(reply, "reply");
+          return;
+        }
+        this.log.info("Subscribe: Channel - " + subject + " - Message: " + JSON.stringify(msg));
+        if(this.subscribedStates.indexOf(subject) !== -1) {
+          this.setForeignState(subject, msg, (err) => {
+            if (err !== null) {
+              this.log.warn(err);
+            }
+          })
+        }
+      })
     });
 
     this.nc.on("error", err => {
@@ -528,29 +283,7 @@ class Natsclient extends utils.Adapter {
       this.log.warn("got a permissions error: " + err.message);
     });
 
-    /*
-     * Publish:
-     * (1) Inital State
-     * (2) stateChange
-     *
-     */
-
-    // Publish: (2) stateChange
-    // this.on("stateChange", (id, state) => {
-    // TODO: Use existing stateChange class func
-    // TODO: Loop throug this.subscribedStates and sent message to channel to all matched devices in rooms as follows for example:
-    // room1.deconz.light1
-    // directoryXYZ.deconz.light1
-    // Just add the name of the directory / room to the name of the device after looping throug the list of subscribed devices
-    // this.log.info("stateChange " + id + " " + JSON.stringify(state));
-
-    // you can use the ack flag to detect if state is command(false) or status(true)
-    //   if (!state.ack) {
-    //     this.log.info("ack is not set!");
-    //   }
-    //   this.publishToNatsChannel(id, state);
-    // });
-
+    
     /*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
