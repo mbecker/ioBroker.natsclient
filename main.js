@@ -224,8 +224,8 @@ class Natsclient extends utils.Adapter {
           nc.publish(reply, "reply");
           return;
         }
-        this.log.info("Subscribe: Channel - " + subject + " - Message: " + JSON.stringify(msg));
         subject = subject.replace("set.", "");
+        this.log.info("Subscribe: Channel - " + subject + " - Message: " + JSON.stringify(msg));        
         if(this.subscribedStates.indexOf(subject) !== -1) {
           this.setForeignState(subject, msg, (err) => {
             if (err !== null) {
