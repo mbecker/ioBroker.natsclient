@@ -122,14 +122,14 @@ class Natsclient extends utils.Adapter {
 
   async getObjects() {
     await this.getEnumAsync(this.adaptername)
-      .then((result, requestEnum) => {
-        this.log.info("--- getObjects ---");
-        this.log.info(JSON.stringify(result));
-        this.log.info(JSON.stringify(requestEnum)); // "enum.natsclient"
-        asyncForEach(Object.keys(result), async (_key) => {
+      .then((_value) => {
+        // this.log.info("--- getObjects ---");
+        // this.log.info(JSON.stringify(_value.result)); //  {"result":{"enum.natsclient.room1":{"_id":"enum.natsclient.room1","common":{"name":"room1","members":["deconz.0.Lights.1.on","zwave.0.NODE4.SWITCH_BINARY.Switch_1"],"icon":"","color":false},"t
+        // this.log.info(JSON.stringify(_value.requestEnum)); // "enum.natsclient"
+        asyncForEach(Object.keys(_value.result), async (_key) => {
           // JSON key: _key
           // JSON value: result[_key]
-          const element = result[_key];
+          const element = _value.result[_key];
 
           // Create key in object subscribed devices and initialie an empty array
           // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
