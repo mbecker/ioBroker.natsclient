@@ -166,7 +166,7 @@ class Natsclient extends utils.Adapter {
             if (err) this.log.warn("getObjectsEachOf eachof: " + err.message);
           }
         );
-        console.log("DONNNNEE??");
+        this.log.info("DONNNNEE??");
       })
       .then(err => {
         if (err) this.log.warn("getObjectsEachOf getEnumAsync: " + err);
