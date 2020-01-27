@@ -12,12 +12,14 @@ const async = require("async");
 
 // TODO: Replace const with config
 const initget = "init.get";
+const stateupdate = "state.update";
 const stateset = "state.set.>";
 const stateget = "state.get.>";
 const stategetsend = "state.send";
 const objectset = "object.set.>";
 const objectget = "object.get.>";
 const objectgetsend = "object.send";
+
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -93,7 +95,7 @@ class Natsclient extends utils.Adapter {
    * @param {ioBroker.State} state The state object
    */
   updateState(id, state) {
-    this.publishToNatsChannel(id, null, state, null);
+    this.publishToNatsChannel(stateupdate + "." + id, null, state, null);
   }
 
   /**
