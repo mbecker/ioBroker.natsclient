@@ -10,6 +10,13 @@ const utils = require("@iobroker/adapter-core");
 const NATS = require("nats");
 const async = require("async");
 
+// TODO: Replace const with config
+const initget = "init.get";
+const stateset = "state.set.>";
+const stateget = "state.get.>";
+const objectset = "object.set.>";
+const objectget = "object.get.>";
+
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
@@ -84,7 +91,7 @@ class Natsclient extends utils.Adapter {
    * @param {ioBroker.State} state The state object
    */
   updateState(id, state) {
-    this.publishToNatsChannel(id, state);
+    this.publishToNatsChannel(id, null, state, null);
   }
 
   /**
@@ -99,30 +106,42 @@ class Natsclient extends utils.Adapter {
 
   /**
    * Publis state to NATS channel
-   * @param {string} id The id of the state
-   * @param {ioBroker.State} state The state object
+   * @param {string} subject The subject the message should sent to
+   * @param {string | null} reply The reply channel if exists (overwrite subject)
+   * @param {object} msg The object which should be sent
+   * @param {string | null} err The error sent to subject|reply
    */
-  publishToNatsChannel(id, state) {
-    // The nats chanel with prefix
-    const channel = this.config.shouldUsePrefixForChannelName + id;
+  publishToNatsChannel(subject, reply, msg, err) {
+    // If reply the use reply as channel; if not then use normal subject with prefix
+    subject = reply ? reply : this.config.shouldUsePrefixForChannelName + subject;
+
+    if (err !== null) {
+      this.nc.publish(subject, {
+        error: err
+      }, () => {
+        this.log.info(`Publish error to nats channel: ${subject}`);
+      });
+      return;
+    }
+    
     // Publish to nats channel
     if (this.nc === null) {
       this.log.warn("nats client connection is null");
     } else {
-      this.nc.publish(channel, state, () => {
-        this.log.info(`Publish state to nats channel confirmed: ${channel} - ${JSON.stringify(state)}`);
+      this.nc.publish(subject, msg, () => {
+        this.log.info(`Publish msg to nats channel confirmed: ${subject} - ${JSON.stringify(msg)}`);
       });
     }
   }
-
 
   /**
    * Get the subscribed states from enum
    * - Add objects and states to list
    * - Subscribe to states and objects
    * - Publishes objects to nats channel
+   * @param {string | null} reply The reply channel
    */
-  getSubscribedObjectsAndStates() {
+  getSubscribedObjectsAndStates(reply) {
     this.getEnumAsync(this.adaptername)
       .then(_value => {
         async.forEachOf(
@@ -168,13 +187,8 @@ class Natsclient extends utils.Adapter {
             
             // Publish: Inital State
             // this.nc is not null because the function is initialized in the nc.on listener "connect"
-            // TODO: Check config for initial status and inital channel            
-            this.nc.publish("iobroker.objects.initial", this.subscribedObjects, () => {
-              this.log.info(
-                "Initial messages confirmed; subscribed objects send as message to the nats channel: " +
-                  "iobroker.objects.initial"
-              );
-            });
+            // TODO: Check config for initial status and inital channel; check for prefix?
+            this.publishToNatsChannel(initget, reply, this.subscribedObjects, null);
           }
         );
       });
@@ -216,24 +230,79 @@ class Natsclient extends utils.Adapter {
       this.setState("info.server", nc.currentServer.url.host, true);
       
       // Get objects from enum and subscribe to states
-      this.getSubscribedObjectsAndStates();
+      this.getSubscribedObjectsAndStates(null);
 
+      
       // Subscribe to receives messages / commands
-      nc.subscribe("set.>", (msg, reply, subject, sid) => {
-        if (reply) {
-          nc.publish(reply, "reply");
-          return;
-        }
-        subject = subject.replace("set.", "");
-        this.log.info("Subscribe: Channel - " + subject + " - Message: " + JSON.stringify(msg));        
+      nc.subscribe(stateset, (msg, reply, subject, sid) => {
+        // reply is not important because all state changes are handled by listener and sent back to nats
+        subject = subject.replace(stateset, "");
+        this.log.info("Subscribe " + stateset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         if(this.subscribedStates.indexOf(subject) !== -1) {
           this.setForeignState(subject, msg, (err) => {
             if (err !== null) {
               this.log.warn(err);
+              return;
             }
-          })
+            this.log.info("Subscribe " + stateset + "; Subscribe ID: " + sid + "; setForeignState succesful: " + subject);
+          });
         }
-      })
+      });
+
+      nc.subscribe(stateget, (msg, reply, subject, sid) => {
+        subject = subject.replace(stateget, "");
+        this.log.info("Subscribe " + stateget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
+        
+        this.getForeignState(subject, (err, state) => {
+          if (err !== null) {
+            this.log.warn(err);
+            this.nc.publish(subject, {
+              error: err
+            });
+            return;
+          }
+          this.publishToNatsChannel(subject, reply, state, null);
+        });
+      });
+
+      nc.subscribe(objectset, (msg, reply, subject, sid) => {
+        // reply is not important because all state changes are handled by listener and sent back to nats
+        subject = subject.replace(objectset, "");
+        this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
+        if(this.subscribedStates.indexOf(subject) !== -1) {
+          this.setForeignObject(subject, msg, (err) => {
+            if (err !== null) {
+              this.log.warn(err);
+              return;
+            }
+            this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; setForeignObject succesful: " + subject);
+          });
+        }
+      });
+
+      nc.subscribe(objectget, (msg, reply, subject, sid) => {
+        subject = subject.replace(objectget, "");
+        this.log.info("Subscribe " + objectget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
+        
+        this.getForeignObject(subject, (err, state) => {
+          if (err !== null) {
+            this.log.warn(err);
+            this.nc.publish(subject, {
+              error: err
+            });
+            return;
+          }
+          this.publishToNatsChannel(subject, reply, state, null);
+        });
+      });
+
+      nc.subscribe(initget, (msg, reply, subject, sid) => {
+        subject = reply ? reply : subject.replace(objectget, "");
+        this.log.info("Subscribe " + initget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
+        this.getSubscribedObjectsAndStates(reply);
+      });
+
+
     });
 
     this.nc.on("error", err => {
