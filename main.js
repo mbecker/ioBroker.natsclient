@@ -282,7 +282,7 @@ class Natsclient extends utils.Adapter {
     /*
      * NATS Config
      */
-    await this.getObjects();
+    this.getObjects();
 
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     this.nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
