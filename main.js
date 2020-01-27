@@ -12,6 +12,7 @@ const async = require("async");
 
 // TODO: Replace const with config
 const initget = "init.get";
+const initsend = "init.send";
 const stateupdate = "state.update";
 const stateset = "state.set.>";
 const stateget = "state.get.>";
@@ -192,7 +193,7 @@ class Natsclient extends utils.Adapter {
             // Publish: Inital State
             // this.nc is not null because the function is initialized in the nc.on listener "connect"
             // TODO: Check config for initial status and inital channel; check for prefix?
-            this.publishToNatsChannel(initget, reply, this.subscribedObjects, null);
+            this.publishToNatsChannel(initsend, reply, this.subscribedObjects, null);
           }
         );
       });
