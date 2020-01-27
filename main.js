@@ -8,6 +8,7 @@
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
 const NATS = require("nats");
+const async = require("async");
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -120,9 +121,53 @@ class Natsclient extends utils.Adapter {
   //   }
   // }
 
-  /**
-   *
-   */
+  async getObjectsEachOf() {
+    const enums = await this.getEnumAsync(this.adaptername);
+    if (typeof enums.result === "undefined" || enums.result.length === 0) {
+      return;
+    }
+    await async.forEachOf(
+      enums.result,
+      (element, _key, callback) => {
+        const _keyName = _key.replace("enum." + this.adaptername + ".", "");
+        this.subscribedObjects[_keyName] = {};
+        if (
+          typeof element["common"] !== "undefined" &&
+          typeof element["common"]["members"] !== "undefined" &&
+          element["common"]["members"].length > 0
+        ) {
+          const elementMembers = element["common"]["members"];
+          for (const _state in elementMembers) {
+            this.subscribedStates.push(_state);
+            this.subscribeForeignStates(_state);
+
+            // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
+            // Subscribe to object changes
+
+            this.subscribedObjects[_keyName][_state] = null;
+            this.getForeignObjectAsync(_state)
+              .then(obj => {
+                if (obj === null) {
+                  throw new Error("obj is null");
+                }
+                this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
+                this.subscribedObjects[_keyName][_state] = obj;
+                this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
+                this.subscribeForeignObjects(_state);
+              })
+              .catch(err => {
+                this.log.warn("Error getObject info: " + _state + " - Error: " + err);
+              });
+          }
+          callback();
+        }
+      },
+      (err) => {
+        if (err) this.log.warn(err.message);
+      }
+    );
+  }
+
   getObjectsNotAsync() {
     return new Promise((resolve, reject) => {
       this.getEnumAsync(this.adaptername)
@@ -404,13 +449,14 @@ class Natsclient extends utils.Adapter {
     /*
      * NATS Config
      */
-    this.getObjectsNotAsync()
-      .then(msg => {
-        this.log.info("getObjectsAsync msg: " + JSON.stringify(msg));
-      })
-      .catch(err => {
-        this.log.warn("getObjectsAsync error: " + err);
-      });
+    // this.getObjectsNotAsync()
+    //   .then(msg => {
+    //     this.log.info("getObjectsAsync msg: " + JSON.stringify(msg));
+    //   })
+    //   .catch(err => {
+    //     this.log.warn("getObjectsAsync error: " + err);
+    //   });
+    this.getObjectsEachOf();
 
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     this.nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
