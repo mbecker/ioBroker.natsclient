@@ -168,10 +168,10 @@ class Natsclient extends utils.Adapter {
                     this.log.warn("Error getObject info: " + _state + " - Error: " + err);
                   });
               });
-            }
-            keysCount = keysCount + 1;
-            if (keys.length === keysCount) {
-              resolve("SUCCESS");
+              keysCount = keysCount + 1;
+              if (keys.length === keysCount) {
+                resolve("SUCCESS");
+              }
             }
           });
         })
