@@ -242,7 +242,7 @@ class Natsclient extends utils.Adapter {
       nc.subscribe(this.config.shouldUsePrefixForChannelName + stateset, (msg, reply, subject, sid) => {
         // reply is not important because all state changes are handled by listener and sent back to nats
         subject = subject.replace(stateset, "");
-        this.log.info("Subscribe " + stateset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
+        this.log.info("Subscribe " + subject + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         if(this.subscribedStates.indexOf(subject) !== -1) {
           this.setForeignState(subject, msg, (err) => {
             if (err !== null) {
