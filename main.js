@@ -158,8 +158,9 @@ class Natsclient extends utils.Adapter {
               .catch(err => {
                 this.log.warn("Error getObject info: " + _state + " - Error: " + err);
               });
+            callback();
           }
-          callback();
+          
         }
       },
       (err) => {
