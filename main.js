@@ -137,7 +137,8 @@ class Natsclient extends utils.Adapter {
           element["common"]["members"].length > 0
         ) {
           const elementMembers = element["common"]["members"];
-          for (const _state in elementMembers) {
+          for (const _memberKey in elementMembers) {
+            const _state = elementMembers[_memberKey];
             this.subscribedStates.push(_state);
             this.subscribeForeignStates(_state);
 
@@ -167,6 +168,7 @@ class Natsclient extends utils.Adapter {
         if (err) this.log.warn(err.message);
       }
     );
+    this.log.info("---- DONE getObjectsEachOf ---");
   }
 
   getObjectsNotAsync() {
