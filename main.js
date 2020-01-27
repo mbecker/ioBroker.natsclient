@@ -239,7 +239,7 @@ class Natsclient extends utils.Adapter {
 
       
       // Subscribe to receives messages / commands
-      nc.subscribe(stateset, (msg, reply, subject, sid) => {
+      nc.subscribe(this.config.shouldUsePrefixForChannelName + stateset, (msg, reply, subject, sid) => {
         // reply is not important because all state changes are handled by listener and sent back to nats
         subject = subject.replace(stateset, "");
         this.log.info("Subscribe " + stateset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
@@ -254,7 +254,7 @@ class Natsclient extends utils.Adapter {
         }
       });
 
-      nc.subscribe(stateget, (msg, reply, subject, sid) => {
+      nc.subscribe(this.config.shouldUsePrefixForChannelName + stateget, (msg, reply, subject, sid) => {
         subject = subject.replace(stateget, stategetsend);
         this.log.info("Subscribe " + stateget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         
@@ -270,7 +270,7 @@ class Natsclient extends utils.Adapter {
         });
       });
 
-      nc.subscribe(objectset, (msg, reply, subject, sid) => {
+      nc.subscribe(this.config.shouldUsePrefixForChannelName + objectset, (msg, reply, subject, sid) => {
         // reply is not important because all state changes are handled by listener and sent back to nats
         subject = subject.replace(objectset, "");
         this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));
@@ -292,7 +292,7 @@ class Natsclient extends utils.Adapter {
         }
       });
 
-      nc.subscribe(objectget, (msg, reply, subject, sid) => {
+      nc.subscribe(this.config.shouldUsePrefixForChannelName + objectget, (msg, reply, subject, sid) => {
         subject = subject.replace(objectget, objectgetsend);
         this.log.info("Subscribe " + objectget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         
@@ -308,7 +308,7 @@ class Natsclient extends utils.Adapter {
         });
       });
 
-      nc.subscribe(initget, (msg, reply, subject, sid) => {
+      nc.subscribe(this.config.shouldUsePrefixForChannelName + initget, (msg, reply, subject, sid) => {
         this.log.info("Subscribe " + initget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         this.getSubscribedObjectsAndStates(reply);
       });
