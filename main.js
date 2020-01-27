@@ -121,8 +121,8 @@ class Natsclient extends utils.Adapter {
         // this.log.info("--- get getSubscribedStates ---");
         // this.log.info(JSON.stringify(err));
         // this.log.info(JSON.stringify(result));
-        this.log.info(JSON.stringify(_enum));
-        this.log.info("--- end getSubscribedStates ---");
+        // this.log.info(JSON.stringify(_enum)); // "enum.natsclient"
+        // this.log.info("--- end getSubscribedStates ---");
         if (err !== null) {
           return this.log.warn("getEnum('" + this.adaptername + "') error: " + err);
         }
@@ -178,6 +178,7 @@ class Natsclient extends utils.Adapter {
                   if (obj === null) {
                     throw new Error("obj is null");
                   }
+                  this.log.info("add foreign obecjt to json: " + _keyName + " - " + _state);
                   this.subscribedObjects[_keyName][_state] = obj;
                   this.subscribeForeignObjects(_state);
                 })
