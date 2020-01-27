@@ -147,8 +147,7 @@ class Natsclient extends utils.Adapter {
               element["common"]["members"].length > 0
             ) {
               const elementMembers = element["common"]["members"];
-              asyncForEach(elementMembers, async _state => {
-                // Add _state to list of subscribed states and subscribe to state changes
+              for (const _state in elementMembers) {
                 this.subscribedStates.push(_state);
                 this.subscribeForeignStates(_state);
 
@@ -169,7 +168,7 @@ class Natsclient extends utils.Adapter {
                   .catch(err => {
                     this.log.warn("Error getObject info: " + _state + " - Error: " + err);
                   });
-              });
+              }
             }
           }
           resolve(this.subscribedObjects);
