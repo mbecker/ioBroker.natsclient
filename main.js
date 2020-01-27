@@ -170,7 +170,7 @@ class Natsclient extends utils.Adapter {
               });
               keysCount = keysCount + 1;
               if (keys.length === keysCount) {
-                resolve("SUCCESS");
+                resolve(this.subscribedObjects);
               }
             }
           });
@@ -346,7 +346,7 @@ class Natsclient extends utils.Adapter {
      */
     this.getObjectsAsync()
       .then(msg => {
-        this.log.info("getObjectsAsync msg: " + msg);
+        this.log.info("getObjectsAsync msg: " + JSON.stringify(msg));
       })
       .catch(err => {
         this.log.warn("getObjectsAsync error: " + err);
