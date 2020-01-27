@@ -153,17 +153,19 @@ class Natsclient extends utils.Adapter {
                     this.subscribedObjects[_keyName][_state] = obj;
                     this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
                     this.subscribeForeignObjects(_state);
+                    callback();
                   })
                   .catch(err => {
                     this.log.warn("Error getObject info: " + _state + " - Error: " + err);
+                    callback(err);
                   });
-                callback();
+                
               }
               
             }
           },
           (err) => {
-            if (err) this.log.warn(err.message);
+            if (err) this.log.warn("getObjectsEachOf eachof: " + err.message);
             throw new Error(err);
           }
         );
