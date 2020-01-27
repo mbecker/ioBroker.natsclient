@@ -168,13 +168,12 @@ class Natsclient extends utils.Adapter {
                     this.log.warn("Error getObject info: " + _state + " - Error: " + err);
                   });
               });
-              keysCount = keysCount + 1;
-              if(keys.length === keysCount) {
-                resolve("SUCCESS");
-              }
+            }
+            keysCount = keysCount + 1;
+            if (keys.length === keysCount) {
+              resolve("SUCCESS");
             }
           });
-
         })
         .catch(err => {
           this.log.warn("Error getEnum for adapter name: " + this.adaptername + " - Error: " + err);
@@ -346,10 +345,10 @@ class Natsclient extends utils.Adapter {
      * NATS Config
      */
     this.getObjectsAsync()
-      .then((msg) => {
+      .then(msg => {
         this.log.info("getObjectsAsync msg: " + msg);
       })
-      .catch((err) => {
+      .catch(err => {
         this.log.warn("getObjectsAsync error: " + err);
       });
 
