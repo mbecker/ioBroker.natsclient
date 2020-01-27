@@ -167,6 +167,8 @@ class Natsclient extends utils.Adapter {
             });
           }
         });
+        this.log.info("getObjects this.subscribedObjects: " + JSON.stringify(this.subscribedObjects));
+        this.log.info("this.nc = " + this.nc);
       })
       .catch(err => {
         this.log.warn("Error getEnum for adapter name: " + this.adaptername + " - Error: " + err);
