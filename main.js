@@ -242,7 +242,8 @@ class Natsclient extends utils.Adapter {
       nc.subscribe(this.config.shouldUsePrefixForChannelName + stateset, (msg, reply, subject, sid) => {
         // reply is not important because all state changes are handled by listener and sent back to nats
         // subject: iobroker.state.set.zwave.0.NODE4.SWITCH_BINARY.Switch_1
-        subject = subject.replace(this.config.shouldUsePrefixForChannelName + stateset + ".", "");
+
+        subject = subject.replace(this.config.shouldUsePrefixForChannelName + stateset.replace(".>", "") + ".", "");
         this.log.info("Subscribe " + subject + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
         if(this.subscribedStates.indexOf(subject) !== -1) {
           this.setForeignState(subject, msg, (err) => {
