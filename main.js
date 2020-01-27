@@ -180,6 +180,7 @@ class Natsclient extends utils.Adapter {
                   }
                   this.log.info("add foreign obecjt to json: " + _keyName + " - " + _state);
                   this.subscribedObjects[_keyName][_state] = obj;
+                  this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
                   this.subscribeForeignObjects(_state);
                 })
                 .catch(err => {
