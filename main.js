@@ -35,24 +35,75 @@ class Natsclient extends utils.Adapter {
 
     // Custom class parmeters
     this.nc = null;
-    this.subscribedDevices = {};
+    this.subscribedObjects = {};
+    this.subscribedStates = [];
     this.adaptername = "natsclient"; // TODO: Replace with option for enum[this.option("enumname")]
   }
 
   /**
-   * Publis state to NATS channel
-   * @param {string} device
-   * @param {ioBroker.Object | null | undefined} state
+   * Updated the object (id) in the subscrbed objects
+   * @param {string} id
+   * @param {ioBroker.Object} object
    */
-  publishToNatsChannel(device, state) {
-    device = this.config.shouldUsePrefixForChannelName + device;
+  updateObject(id, object) {
+    // TODO: Publish to nats channel?
+    for (const _key in this.subscribedObjects) {
+      for (const _object in this.subscribedObjects[_key]) {
+        if (_object === id) {
+          this.subscribedObjects[_key][_object] = object;
+        }
+      }
+    }
+  }
+
+  /**
+   * Delete object from subscribed objects
+   * @param {string} id
+   */
+  deleteObject(id) {
+    // TODO: Publish to nats channel?
+    for (const _key in this.subscribedObjects) {
+      for (const _object in this.subscribedObjects[_key]) {
+        if (_object === id) {
+          delete this.subscribedObjects[_key][_object];
+        }
+      }
+    }
+  }
+
+  /**
+   * Update state (publish to nats channel)
+   * @param {string} id The id of the state
+   * @param {ioBroker.State} state The state object
+   */
+  updateState(id, state) {
+    this.publishToNatsChannel(id, state);
+  }
+
+  /**
+   * Delete state from subscribed states
+   * @param {string} id The id of the state which is deleted
+   */
+  deleteState(id) {
+    // TODO: Publish to nats channel?
+    const index = this.subscribedStates.indexOf(id);
+    if (index !== -1) this.subscribedStates.splice(index, 1);
+  }
+
+  /**
+   * Publis state to NATS channel
+   * @param {string} id The id of the state
+   * @param {ioBroker.State} state The state object
+   */
+  publishToNatsChannel(id, state) {
+    // The nats chanel with prefix
+    const channel = this.config.shouldUsePrefixForChannelName + id;
     // Publish to nats channel
     if (this.nc === null) {
       this.log.warn("nats client connection is null");
     } else {
-      this.log.info(`Publish state of object to nats channel: ${device} - ${JSON.stringify(state)}`);
-      this.nc.publish(device, state, () => {
-        this.log.info("Publish messages confirmed by nats server");
+      this.nc.publish(channel, state, () => {
+        this.log.info(`Publish state to nats channel confirmed: ${channel} - ${JSON.stringify(state)}`);
       });
     }
   }
@@ -60,14 +111,18 @@ class Natsclient extends utils.Adapter {
   /**
    * Get all deives from enum.antsclient to subscribe to
    */
-  async getSubscribedStates() {
+  async getSubscribedObjectsAndStates() {
     return new Promise(resolve => {
       // Get all states from "enum.adaptername"
+      // The enum object has only 2 levels (no sub-sub-...-level object); The "enum.adaptername" does not allow to have an iterative object like: room1 -> ( state1, state2, room3 -> ( state5, state 6 ) ), room2 -> state 3, ...
+
       this.getEnum(this.adaptername, (err, result, _enum) => {
-        // this.log.info("--- getEnum ROOMS ---");
+        this.log.info("--- getEnum ROOMS ---");
+        // this.log.info("--- get getSubscribedStates ---");
         // this.log.info(JSON.stringify(err));
         // this.log.info(JSON.stringify(result));
-        // this.log.info(JSON.stringify(_enum));
+        this.log.info(JSON.stringify(_enum));
+        this.log.info("--- end getSubscribedStates ---");
         if (err !== null) {
           return this.log.warn("getEnum('" + this.adaptername + "') error: " + err);
         }
@@ -89,6 +144,7 @@ class Natsclient extends utils.Adapter {
          *  }
          * }
          */
+
         for (const _key in result) {
           // this.log.info("-----");
           // this.log.info(JSON.stringify(result[_key]["common"]));
@@ -96,9 +152,11 @@ class Natsclient extends utils.Adapter {
           // Create key in object subscribed devices and initialie an empty array
           // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
           const _keyName = _key.replace("enum." + this.adaptername + ".", "");
-          this.subscribedDevices[_keyName] = [];
+          this.subscribedObjects[_keyName] = {};
 
-          const _enum = result[_key]; // Temporary variable for enum object in enum.natsclient
+          // Temporary variable for enum object in enum.natsclient;
+          // const _enum = result["room1"];
+          const _enum = result[_key];
           if (
             typeof _enum["common"] !== "undefined" &&
             typeof _enum["common"]["members"] !== "undefined" &&
@@ -106,33 +164,27 @@ class Natsclient extends utils.Adapter {
           ) {
             // this.log.info("Devices: " + _enum["common"]["members"]);
             const devices = _enum["common"]["members"];
-            devices.forEach(_device => {
-              this.subscribedDevices[_keyName].push(_device);
 
-              this.getForeignObjectAsync(_device)
+            // Iterate each "member" of enum.adapternamer.level1 (like "enum.apatername.room1")
+            devices.forEach(_state => {
+              // Add _state to list of subscribed states and subscribe to state changes
+              this.subscribedStates.push(_state);
+              this.subscribeForeignStates(_state);
+
+              // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
+              // Subscribe to object changes
+              this.getForeignObjectAsync(_state)
                 .then(obj => {
                   if (obj === null) {
                     throw new Error("obj is null");
                   }
-                  this.log.info(JSON.stringify(obj));
+                  this.subscribedObjects[_keyName][_state] = obj;
+                  this.subscribeForeignObjects(_state);
                 })
                 .catch(err => {
-                  this.log.warn("Error getObject info: " + _device + " - Error: " + err);
+                  this.log.warn("Error getObject info: " + _state + " - Error: " + err);
+                  this.subscribedObjects[_keyName][_state] = null;
                 });
-
-              // this.getForeignObject(_device, (err, obj) => {
-
-              //   this.log.info("getForeignObject: " + _device);
-              //   if (err !== null) {
-              //     this.log.warn("Error getObject info: " + _device + " - Error: " + err);
-              //     return;
-              //   }
-              //   if (obj === null) {
-              //     this.log.warn("Error getObject object is null");
-              //     return;
-              //   }
-              //   this.log.info(JSON.stringify(obj));
-              // });
             });
           }
         }
@@ -160,7 +212,7 @@ class Natsclient extends utils.Adapter {
     /*
      * NATS Config
      */
-    await this.getSubscribedStates();
+    await this.getSubscribedObjectsAndStates();
 
     // const natsServers = []; // TODO: Create array string in optopns to have multiple nats connection string adresses
     this.nc = NATS.connect({ url: this.config.natsconnection, json: true }); // TODO: json bool value as option
@@ -229,47 +281,20 @@ class Natsclient extends utils.Adapter {
 
     // Publish: (1) Inital State
     // Get the initale state status and publish it to the nats channels
-    // Subscribe to state changes
-    this.log.info("--- subscribed devices ---");
-    for (const _key in this.subscribedDevices) {
-      this.log.info("- " + _key);
-      this.subscribedDevices[_key].forEach(_device => {
-        this.log.info("-- " + _device);
 
-        // Get initial state of _device
-        this.getForeignState(_device, (err, state) => {
-          if (err !== null) {
-            this.log.warn("Error get foreign state " + _device + ": " + err);
-            return;
-          }
-
-          this.publishToNatsChannel(_device, state);
-        });
-
-        this.getForeignObject(_device, (err, obj) => {
-          this.log.info("getForeignObject: " + _device);
-          if (err !== null) {
-            this.log.warn("Error getObject info: " + _device + " - Error: " + err);
-            return;
-          }
-          if (obj === null) {
-            this.log.warn("Error getObject object is null");
-            return;
-          }
-          this.nc.publish("iobroker.objects." + _device, obj, () => {
-            this.log.info("Publish obj confirmed by nats server");
-          });
-        });
-
-        // ioBroker.adapater subscribe to _device updates
-        this.subscribeForeignStates(_device);
-      });
-    }
+    this.log.info("--- subscribed objects / states ---");
+    // TODO: Check if initial message should be sent; check which channel should be used (prefix as well)
+    this.nc.publish("iobroker.objects.initial", this.subscribedObjects, () => {
+      this.log.info(
+        "Initial messages confirmed; subscribed objects send as message to the nats cchannel: " +
+          "iobroker.objects.initial"
+      );
+    });
 
     // Publish: (2) stateChange
     // this.on("stateChange", (id, state) => {
     // TODO: Use existing stateChange class func
-    // TODO: Loop throug this.subscribedDevices and sent message to channel to all matched devices in rooms as follows for example:
+    // TODO: Loop throug this.subscribedStates and sent message to channel to all matched devices in rooms as follows for example:
     // room1.deconz.light1
     // directoryXYZ.deconz.light1
     // Just add the name of the directory / room to the name of the device after looping throug the list of subscribed devices
@@ -287,41 +312,41 @@ class Natsclient extends utils.Adapter {
 		Here a simple template for a boolean variable named "testVariable"
 		Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
 		*/
-    await this.setObjectAsync("testVariable", {
-      type: "state",
-      common: {
-        name: "testVariable",
-        type: "boolean",
-        role: "indicator",
-        read: true,
-        write: true
-      },
-      native: {}
-    });
+    // await this.setObjectAsync("testVariable", {
+    //   type: "state",
+    //   common: {
+    //     name: "testVariable",
+    //     type: "boolean",
+    //     role: "indicator",
+    //     read: true,
+    //     write: true
+    //   },
+    //   native: {}
+    // });
 
     // in this template all states changes inside the adapters namespace are subscribed
-    this.subscribeStates("*");
+    // this.subscribeStates("*");
 
     /*
 		setState examples
 		you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
 		*/
     // the variable testVariable is set to true as command (ack=false)
-    await this.setStateAsync("testVariable", true);
+    // await this.setStateAsync("testVariable", true);
 
     // same thing, but the value is flagged "ack"
     // ack should be always set to true if the value is received from or acknowledged from the target system
-    await this.setStateAsync("testVariable", { val: true, ack: true });
+    // await this.setStateAsync("testVariable", { val: true, ack: true });
 
     // same thing, but the state is deleted after 30s (getState will return null afterwards)
     // await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
 
     // examples for the checkPassword/checkGroup functions
-    let result = await this.checkPasswordAsync("admin", "iobroker");
-    this.log.info("check user admin pw iobroker: " + result);
+    // let result = await this.checkPasswordAsync("admin", "iobroker");
+    // this.log.info("check user admin pw iobroker: " + result);
 
-    result = await this.checkGroupAsync("admin", "admin");
-    this.log.info("check group user admin group admin: " + result);
+    // result = await this.checkGroupAsync("admin", "admin");
+    // this.log.info("check group user admin group admin: " + result);
   }
 
   /**
@@ -344,11 +369,13 @@ class Natsclient extends utils.Adapter {
    */
   onObjectChange(id, obj) {
     if (obj) {
-      // The object was changed
+      // The object was changed; update corresponding object in subscribed objects
       this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
+      this.updateObject(id, obj);
     } else {
       // The object was deleted
       this.log.info(`object ${id} deleted`);
+      this.deleteObject(id);
     }
   }
 
@@ -358,24 +385,14 @@ class Natsclient extends utils.Adapter {
    * @param {ioBroker.State | null | undefined} state
    */
   onStateChange(id, state) {
-    this.getObject(id, (err, obj) => {
-      if (err !== null) {
-        this.log.warn("Error getObject info: " + id + " - Error: " + err);
-        return;
-      }
-      if (obj === null) {
-        this.log.warn("Error getObject object is null");
-        return;
-      }
-      this.log.info(JSON.stringify(obj));
-    });
-
     if (state) {
       // The state was changed
       this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+      this.updateState(id, state);
     } else {
       // The state was deleted
       this.log.info(`state ${id} deleted`);
+      this.deleteState(id);
     }
   }
 
