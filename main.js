@@ -135,39 +135,33 @@ class Natsclient extends utils.Adapter {
               element["common"]["members"].length > 0
             ) {
               const elementMembers = element["common"]["members"];
-              for (const _memberKey in elementMembers) {
-                const _state = elementMembers[_memberKey];
-                this.subscribedStates.push(_state);
-                this.subscribeForeignStates(_state);
-    
-                // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
-                // Subscribe to object changes
-    
-                this.subscribedObjects[_keyName][_state] = null;
-                this.getForeignObjectAsync(_state)
-                  .then(obj => {
-                    if (obj === null) {
-                      throw new Error("obj is null");
-                    }
+              async.every(
+                elementMembers,
+                (_state, callback2) => {
+                  this.getForeignObject(_state, (err, obj) => {
+                    if (err !== null) return callback2(err, null);
+                    this.subscribedStates.push(_state);
+                    this.subscribeForeignStates(_state);
                     this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
                     this.subscribedObjects[_keyName][_state] = obj;
                     this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
                     this.subscribeForeignObjects(_state);
-                  })
-                  .catch(err => {
-                    this.log.warn("Error getObject info: " + _state + " - Error: " + err);
-                    callback(err);
-                  });                
-              }
-              callback();              
+                    callback2(null, true);
+                  });
+                },
+                err => {
+                  // if result is true then every file exists
+                  if (err !== null) callback(err);
+                  callback();
+                }
+              );
             }
           },
-          (err) => {
+          err => {
             if (err) this.log.warn("getObjectsEachOf eachof: " + err.message);
             this.log.info("DONNNNEE??");
           }
         );
-        
       })
       .then(err => {
         if (err) this.log.warn("getObjectsEachOf getEnumAsync: " + err);
