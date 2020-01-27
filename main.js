@@ -121,12 +121,12 @@ class Natsclient extends utils.Adapter {
   //   }
   // }
 
-  async getObjectsEachOf() {
-    const enums = await this.getEnumAsync(this.adaptername);
+  getObjectsEachOf() {
+    const enums = this.getEnumAsync(this.adaptername);
     if (typeof enums.result === "undefined" || enums.result.length === 0) {
       return;
     }
-    await async.forEachOf(
+    async.forEachOf(
       enums.result,
       (element, _key, callback) => {
         const _keyName = _key.replace("enum." + this.adaptername + ".", "");
