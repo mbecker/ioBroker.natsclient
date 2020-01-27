@@ -154,7 +154,7 @@ class Natsclient extends utils.Adapter {
                 // Subscribe to object changes
 
                 this.subscribedObjects[_keyName][_state] = null;
-                return this.getForeignObjectAsync(_state)
+                await this.getForeignObjectAsync(_state)
                   .then(obj => {
                     if (obj === null) {
                       throw new Error("obj is null");
