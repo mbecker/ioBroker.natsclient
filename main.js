@@ -120,7 +120,68 @@ class Natsclient extends utils.Adapter {
   //   }
   // }
 
-  async getObjectsAsync() {
+  /**
+   *
+   */
+  getObjectsNotAsync() {
+    return new Promise((resolve, reject) => {
+      this.getEnumAsync(this.adaptername)
+        .then(_value => {
+          // this.log.info("--- getObjects ---");
+          // this.log.info(JSON.stringify(_value.result)); //  {"result":{"enum.natsclient.room1":{"_id":"enum.natsclient.room1","common":{"name":"room1","members":["deconz.0.Lights.1.on","zwave.0.NODE4.SWITCH_BINARY.Switch_1"],"icon":"","color":false},"t
+          // this.log.info(JSON.stringify(_value.requestEnum)); // "enum.natsclient"
+
+          for (const _key in _value.result) {
+            // JSON key: _key
+            // JSON value: result[_key]
+            const element = _value.result[_key];
+
+            // Create key in object subscribed devices and initialie an empty array
+            // The string "enum.adaptername." is removed (replaced with ""); keyName is then for example "room1" and not "enum.adaptername.room1"
+            const _keyName = _key.replace("enum." + this.adaptername + ".", "");
+            this.subscribedObjects[_keyName] = {};
+
+            if (
+              typeof element["common"] !== "undefined" &&
+              typeof element["common"]["members"] !== "undefined" &&
+              element["common"]["members"].length > 0
+            ) {
+              const elementMembers = element["common"]["members"];
+              asyncForEach(elementMembers, async _state => {
+                // Add _state to list of subscribed states and subscribe to state changes
+                this.subscribedStates.push(_state);
+                this.subscribeForeignStates(_state);
+
+                // Assign the the object info to the key as "enum.apternamer.room1.object1 = object1.info"
+                // Subscribe to object changes
+
+                this.subscribedObjects[_keyName][_state] = null;
+                this.getForeignObjectAsync(_state)
+                  .then(obj => {
+                    if (obj === null) {
+                      throw new Error("obj is null");
+                    }
+                    this.log.info("add foreign objects to json: " + _keyName + " - " + _state);
+                    this.subscribedObjects[_keyName][_state] = obj;
+                    this.log.info(JSON.stringify(this.subscribedObjects[_keyName][_state]));
+                    this.subscribeForeignObjects(_state);
+                  })
+                  .catch(err => {
+                    this.log.warn("Error getObject info: " + _state + " - Error: " + err);
+                  });
+              });
+            }
+          }
+          resolve(this.subscribedObjects);
+        })
+        .catch(err => {
+          this.log.warn("Error getEnum for adapter name: " + this.adaptername + " - Error: " + err);
+          reject(err);
+        });
+    });
+  }
+
+  getObjectsAsync() {
     return new Promise((resolve, reject) => {
       this.getEnumAsync(this.adaptername)
         .then(_value => {
@@ -344,7 +405,7 @@ class Natsclient extends utils.Adapter {
     /*
      * NATS Config
      */
-    this.getObjectsAsync()
+    this.getObjectsNotAsync()
       .then(msg => {
         this.log.info("getObjectsAsync msg: " + JSON.stringify(msg));
       })
