@@ -214,78 +214,147 @@ class Natsclient extends utils.Adapter {
     // this.config:
     this.log.info("config natsconnection: " + this.config.natsconnection);
 
-    this.getForeignObjects(this.config.getobjectsid, (err, obj) => {
-      if (err !== null) return this.log.error(err);
-      this.log.info("--- START GETTING FOREIGNSTATES ---");
+    const objects = this.config.getobjectsid.split(",");
+    let arr = [];
 
-      let obj2 = {};
+    objects.forEach(el => {
+      this.getForeignObjects(el, (err, obj) => {
+        if (err !== null) return this.log.error(err);
+        this.log.info("--- START GETTING FOREIGNSTATES ---");
 
-      for (const k in obj) {
-
-        if (typeof obj[k]["common"] === "undefined") continue;
-        if (typeof obj[k]["common"]["type"] === "undefined") continue;
-        if (typeof obj[k]["common"]["role"] === "undefined") continue;
-        let role = obj[k]["common"]["role"].toLocaleLowerCase();
-        if (!role.includes("switch.") && !role.includes("value.")) continue;
-
-        if(role.includes("switch.")) role = role.split("switch.")[1];
-        if(role.includes("value.")) role = role.split("value.")[1];
-
-        obj2[k] = {};
-        obj2[k]["id"] = k;
-        obj2[k]["type"] = obj[k]["common"]["type"];
-        obj2[k]["unit"] = obj[k]["common"]["unit"];
-        obj2[k]["role"] = role;
+        let obj2 = {};
 
 
-        this.getForeignStateAsync(k)
-          .then((state) => {
-            obj2[k]["value"] = state;
+        for (const k in obj) {
 
-            // An object like "switch.power" has maybe states like "on", "off"
-            // These values could be later used as true/false
-            // Chekc that that object has these states and the set the type to "onoff"; the original type is maybe "mixed"
-            if (typeof obj[k]["common"]["states"] !== "undefined") {
-              const states = obj[k]["common"]["states"];
-              for (const kstates in states) {
-                const vstates = states[kstates].toLocaleLowerCase();
-                if (vstates.includes("on")) {
-                  obj2[k]["type"] = "onoff";
-                }
+          if (typeof obj[k]["common"] === "undefined") continue;
+          if (typeof obj[k]["common"]["type"] === "undefined") continue;
+          if (typeof obj[k]["common"]["role"] === "undefined") continue;
+          let role = obj[k]["common"]["role"].toLocaleLowerCase();
+
+          if (!role.includes("switch.") && !role.includes("value.") && !role.includes("sensor.") 
+          && !k.toLocaleLowerCase().includes("temperature")
+          && !k.toLocaleLowerCase().includes("humidity")
+          && !k.toLocaleLowerCase().includes("pressure")
+          && !k.toLocaleLowerCase().includes("open")
+          && !k.toLocaleLowerCase().includes("daylight")
+          && !k.toLocaleLowerCase().includes("dark")
+          && !k.toLocaleLowerCase().includes("lux")
+          && !k.toLocaleLowerCase().includes("lightlevel")
+          ) continue;
+
+          if (role.includes("switch.")) role = role.split("switch.")[1];
+          if (role.includes("value.")) role = role.split("value.")[1];
+          if (role.includes("sensor.")) role = role.split("sensor.")[1];
+          if (k.toLocaleLowerCase().includes("temperature")) role = "temperature";
+          if (k.toLocaleLowerCase().includes("humidity")) role = "humidity";
+          if (k.toLocaleLowerCase().includes("pressure")) role = "pressure";
+          if (k.toLocaleLowerCase().includes("open")) role = "open";
+          if (k.toLocaleLowerCase().includes("daylight")) role = "daylight";
+          if (k.toLocaleLowerCase().includes("dark")) role = "dark";
+          if (k.toLocaleLowerCase().includes("lux")) role = "lux";
+          if (k.toLocaleLowerCase().includes("lightlevel")) role = "lightlevel";
+          if (k.toLocaleLowerCase().includes("lastupdated")) role = "lastupdated";
+          if (role.toLocaleLowerCase().includes("datetime")) role = "lastupdated";
+
+
+          obj2[k] = {};
+          obj2[k]["id"] = k;
+          obj2[k]["field"] = role.replace(".", "_"); // role
+
+          // An object like "switch.power" has maybe states like "on", "off"
+          // These values could be later used as true/false
+          // Chekc that that object has these states and the set the type to "onoff"; the original type is maybe "mixed"
+          obj2[k]["tags"] = {};
+          obj2[k]["tags"]["type"] = obj[k]["common"]["type"];
+          if (typeof obj[k]["common"]["states"] !== "undefined") {
+            const states = obj[k]["common"]["states"];
+            for (const kstates in states) {
+              const vstates = states[kstates].toLocaleLowerCase();
+              if (vstates.includes("on")) {
+                obj2[k]["tags"]["type"] = "onoff";
+                obj2[k]["tags"]["unit"] = "onoff";
               }
             }
-            return obj2;
-          })
-          .then((obj3) => {
-            const objs = JSON.stringify(obj3);
-            this.setState("info.objs", objs);
-            this.log.info("--- WRITE DONE !!! ---");
-          })
-          .catch((err) => {
-            this.log.error(err);
-            obj[k]["error"] = err;
-          });
+          }
+          if (role === "lastupdated") {
+            obj2[k]["tags"]["type"] = "datetime";
+            obj2[k]["tags"]["unit"] = "datetime";
+          }
+
+          // TAGS
+          if (obj[k]["common"]["unit"] === "°C") obj2[k]["tags"]["unit"] = "celcius";
+          if (obj[k]["common"]["unit"] === "%") obj2[k]["tags"]["unit"] = "percentage";
+
+          if (k.toLocaleLowerCase().includes("setting")) {
+            obj2[k]["tags"]["setting"] = true;
+          } else {
+            obj2[k]["tags"]["setting"] = false;
+          }
+          if (k.toLocaleLowerCase().includes("rooms")) {
+            const ks = k.toLocaleLowerCase().split(".");
+            const room = ks[4];
+            obj2[k]["tags"]["room"] = room;
+          }
+          // {"enum.rooms.esszimmer":"Esszimmer"}
+          const enums = obj[k].enums;
+          for(const enumKey in enums) {
+            if(enumKey.toLocaleLowerCase().includes("rooms")) obj2[k]["tags"]["room"] = enums[enumKey];
+          }
+          if(typeof obj2[k]["tags"]["room"] === "object") {
+            for(const enumKey in  obj2[k]["tags"]["room"]) {
+              if(enumKey.toLocaleLowerCase().includes("en")) obj2[k]["tags"]["room"] =  obj2[k]["tags"]["room"]["en"];
+            } 
+          }
+
+          arr.push(obj2[k]);
+          const objs = JSON.stringify(arr);
+          this.setState("info.objs", objs);
+          this.log.info("--- WRITE DONE !!! ---");
 
 
-        // this.getForeignState(k, (err, state) => {
-        //   obj2[k] = obj[k];
-        //   if(err !== null) {
-        //     this.log.error(err);
-        //     obj2[k]["error"] = err;
-        //   } else {
-        //     this.log.info(JSON.stringify(state));
-        //     obj2[k]["value"] = state;
-        //   }
-        //   const objs = JSON.stringify(obj2);
-        //   this.setState("info.objs", objs);
-        //   this.log.info("--- WRITE DONE !!! ---");
-        // });
-      }
-      this.log.info("--- DONE !!! ---");
+          // this.getForeignStateAsync(k)
+          //   .then((state) => {
+          //     obj2[k]["value"] = state;
 
-      // this.log.info(objs);
-      // this.setState("info.objs", objs);
+
+
+          //     return obj2;
+          //   })
+          //   .then((obj3) => {
+          //     const objs = JSON.stringify(obj3);
+          //     this.setState("info.objs", objs);
+          //     this.log.info("--- WRITE DONE !!! ---");
+          //   })
+          //   .catch((err) => {
+          //     this.log.error(err);
+          //     obj[k]["error"] = err;
+          //   });
+
+
+          // this.getForeignState(k, (err, state) => {
+          //   obj2[k] = obj[k];
+          //   if(err !== null) {
+          //     this.log.error(err);
+          //     obj2[k]["error"] = err;
+          //   } else {
+          //     this.log.info(JSON.stringify(state));
+          //     obj2[k]["value"] = state;
+          //   }
+          //   const objs = JSON.stringify(obj2);
+          //   this.setState("info.objs", objs);
+          //   this.log.info("--- WRITE DONE !!! ---");
+          // });
+        }
+        this.log.info("--- DONE !!! ---");
+
+        // this.log.info(objs);
+        // this.setState("info.objs", objs);
+      });
     });
+
+
+
 
     /*
      * NATS Config
