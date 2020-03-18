@@ -72,7 +72,8 @@
 	},
 	"native": {
 		"natsconnection": "nats://172.0.1.99:4222",
-		"shouldUsePrefixForChannelName": "iobroker."
+		"shouldUsePrefixForChannelName": "iobroker.",
+		"getobjectsid": "tado.0.*"
 	},
 	"objects": [],
 	"instanceObjects": [
