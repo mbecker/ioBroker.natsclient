@@ -128,7 +128,7 @@ class Natsclient extends utils.Adapter {
       });
       return;
     }
-    
+
     // Publish to nats channel
     if (this.nc === null) {
       this.log.warn("nats client connection is null");
@@ -168,11 +168,11 @@ class Natsclient extends utils.Adapter {
                     // State: Push to internal list; subscribe to changes
                     this.subscribedStates.push(_state);
                     this.subscribeForeignStates(_state);
-                    
+
                     // Object: Push to internal list; subscribe to changes
                     this.subscribedObjects[_keyName][_state] = obj;
                     this.subscribeForeignObjects(_state);
-                    
+
                     // Call for true
                     innerCallback(null, true);
                   });
@@ -189,7 +189,7 @@ class Natsclient extends utils.Adapter {
               this.log.warn("getObjectsEachOf: " + err.message);
               return;
             }
-            
+
             // Publish: Inital State
             // this.nc is not null because the function is initialized in the nc.on listener "connect"
             // TODO: Check config for initial status and inital channel; check for prefix?
@@ -215,10 +215,76 @@ class Natsclient extends utils.Adapter {
     this.log.info("config natsconnection: " + this.config.natsconnection);
 
     this.getForeignObjects(this.config.getobjectsid, (err, obj) => {
-      if(err !== null) return this.log.error(err);
-      const objs = JSON.stringify(obj);
-      this.log.info(objs);
-      this.setState("info.objs", objs);
+      if (err !== null) return this.log.error(err);
+      this.log.info("--- START GETTING FOREIGNSTATES ---");
+
+      let obj2 = {};
+
+      for (const k in obj) {
+
+        if (typeof obj[k]["common"] === "undefined") continue;
+        if (typeof obj[k]["common"]["type"] === "undefined") continue;
+        if (typeof obj[k]["common"]["role"] === "undefined") continue;
+        let role = obj[k]["common"]["role"].toLocaleLowerCase();
+        if (!role.includes("switch.") && !role.includes("value.")) continue;
+
+        if(role.includes("switch.")) role = role.split("switch.")[1];
+        if(role.includes("value.")) role = role.split("value.")[1];
+
+        obj2[k] = {};
+        obj2[k]["id"] = k;
+        obj2[k]["type"] = obj[k]["common"]["type"];
+        obj2[k]["unit"] = obj[k]["common"]["unit"];
+        obj2[k]["role"] = role;
+
+
+        this.getForeignStateAsync(k)
+          .then((state) => {
+            obj2[k]["value"] = state;
+
+            // An object like "switch.power" has maybe states like "on", "off"
+            // These values could be later used as true/false
+            // Chekc that that object has these states and the set the type to "onoff"; the original type is maybe "mixed"
+            if (typeof obj[k]["common"]["states"] !== "undefined") {
+              const states = obj[k]["common"]["states"];
+              for (const kstates in states) {
+                const vstates = states[kstates].toLocaleLowerCase();
+                if (vstates.includes("on")) {
+                  obj2[k]["type"] = "onoff";
+                }
+              }
+            }
+            return obj2;
+          })
+          .then((obj3) => {
+            const objs = JSON.stringify(obj3);
+            this.setState("info.objs", objs);
+            this.log.info("--- WRITE DONE !!! ---");
+          })
+          .catch((err) => {
+            this.log.error(err);
+            obj[k]["error"] = err;
+          });
+
+
+        // this.getForeignState(k, (err, state) => {
+        //   obj2[k] = obj[k];
+        //   if(err !== null) {
+        //     this.log.error(err);
+        //     obj2[k]["error"] = err;
+        //   } else {
+        //     this.log.info(JSON.stringify(state));
+        //     obj2[k]["value"] = state;
+        //   }
+        //   const objs = JSON.stringify(obj2);
+        //   this.setState("info.objs", objs);
+        //   this.log.info("--- WRITE DONE !!! ---");
+        // });
+      }
+      this.log.info("--- DONE !!! ---");
+
+      // this.log.info(objs);
+      // this.setState("info.objs", objs);
     });
 
     /*
@@ -240,19 +306,19 @@ class Natsclient extends utils.Adapter {
       this.log.info("Connected to " + nc.currentServer.url.host);
       this.setState("info.connection", true, true);
       this.setState("info.server", nc.currentServer.url.host, true);
-      
+
       // Get objects from enum and subscribe to states
       this.getSubscribedObjectsAndStates(null);
 
-      
+
       // Subscribe to receives messages / commands
       nc.subscribe(this.config.shouldUsePrefixForChannelName + stateset, (msg, reply, subject, sid) => {
         // reply is not important because all state changes are handled by listener and sent back to nats
         // subject: iobroker.state.set.zwave.0.NODE4.SWITCH_BINARY.Switch_1
 
         subject = subject.replace(this.config.shouldUsePrefixForChannelName + stateset.replace(".>", "") + ".", "");
-        this.log.info("Subscribe " + subject + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
-        if(this.subscribedStates.indexOf(subject) !== -1) {
+        this.log.info("Subscribe " + subject + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));
+        if (this.subscribedStates.indexOf(subject) !== -1) {
           this.setForeignState(subject, msg, (err) => {
             if (err !== null) {
               this.log.warn(err);
@@ -265,8 +331,8 @@ class Natsclient extends utils.Adapter {
 
       nc.subscribe(this.config.shouldUsePrefixForChannelName + stateget, (msg, reply, subject, sid) => {
         subject = subject.replace(stateget, stategetsend);
-        this.log.info("Subscribe " + stateget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
-        
+        this.log.info("Subscribe " + stateget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));
+
         this.getForeignState(subject, (err, state) => {
           if (err !== null) {
             this.log.warn(err);
@@ -284,10 +350,10 @@ class Natsclient extends utils.Adapter {
         subject = subject.replace(objectset, "");
         this.log.info("Subscribe " + objectset + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));
         // Check tah foreign object is in list of subscribed objects
-        for(const _key in this.subscribedObjects) {
+        for (const _key in this.subscribedObjects) {
           const element = this.subscribedObjects[_key];
-          for(const _objKey in element) {
-            if(_objKey === objectset) {
+          for (const _objKey in element) {
+            if (_objKey === objectset) {
               this.setForeignObject(subject, msg, (err) => {
                 if (err !== null) {
                   this.log.warn(err);
@@ -303,8 +369,8 @@ class Natsclient extends utils.Adapter {
 
       nc.subscribe(this.config.shouldUsePrefixForChannelName + objectget, (msg, reply, subject, sid) => {
         subject = subject.replace(objectget, objectgetsend);
-        this.log.info("Subscribe " + objectget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
-        
+        this.log.info("Subscribe " + objectget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));
+
         this.getForeignObject(subject, (err, state) => {
           if (err !== null) {
             this.log.warn(err);
@@ -318,7 +384,7 @@ class Natsclient extends utils.Adapter {
       });
 
       nc.subscribe(this.config.shouldUsePrefixForChannelName + initget, (msg, reply, subject, sid) => {
-        this.log.info("Subscribe " + initget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));        
+        this.log.info("Subscribe " + initget + "; Subscribe ID: " + sid + "; Channel - " + subject + "; Message: " + JSON.stringify(msg));
         this.getSubscribedObjectsAndStates(reply);
       });
 
@@ -373,7 +439,7 @@ class Natsclient extends utils.Adapter {
       this.log.warn("got a permissions error: " + err.message);
     });
 
-    
+
     /*
 		For every state in the system there has to be also an object of type state
 		Here a simple template for a boolean variable named "testVariable"
