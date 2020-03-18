@@ -1,0 +1,2668 @@
+{
+    "deconz": {
+        "0": {
+            "lights": {
+                "1": {
+                    "reachable": {
+                        "id": "deconz.0.Lights.1.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Arbeitszimmer"
+                        }
+                    }
+                },
+                "5": {
+                    "reachable": {
+                        "id": "deconz.0.Lights.5.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "bri": {
+                        "id": "deconz.0.Lights.5.bri",
+                        "field": "brightness",
+                        "tags": {
+                            "name": "bri",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    }
+                },
+                "7": {
+                    "reachable": {
+                        "id": "deconz.0.Lights.7.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Küche"
+                        }
+                    }
+                },
+                "9": {
+                    "reachable": {
+                        "id": "deconz.0.Lights.9.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Bad"
+                        }
+                    }
+                },
+                "10": {
+                    "bri": {
+                        "id": "deconz.0.Lights.10.bri",
+                        "field": "brightness",
+                        "tags": {
+                            "name": "bri",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Eingangsbereich"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Lights.10.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Eingangsbereich"
+                        }
+                    }
+                }
+            },
+            "sensors": {
+                "1": {
+                    "dark": {
+                        "id": "deconz.0.Sensors.1.dark",
+                        "field": "dark",
+                        "tags": {
+                            "name": "dark",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "External"
+                        }
+                    },
+                    "daylight": {
+                        "id": "deconz.0.Sensors.1.daylight",
+                        "field": "daylight",
+                        "tags": {
+                            "name": "daylight",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "External"
+                        }
+                    }
+                },
+                "4": {
+                    "temperature": {
+                        "id": "deconz.0.Sensors.4.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.4.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.4.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    }
+                },
+                "5": {
+                    "humidity": {
+                        "id": "deconz.0.Sensors.5.humidity",
+                        "field": "humidity",
+                        "tags": {
+                            "name": "humidity",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.5.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.5.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    }
+                },
+                "6": {
+                    "pressure": {
+                        "id": "deconz.0.Sensors.6.pressure",
+                        "field": "pressure",
+                        "tags": {
+                            "name": "pressure",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.6.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.6.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    }
+                },
+                "7": {
+                    "temperature": {
+                        "id": "deconz.0.Sensors.7.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.7.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.7.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    }
+                },
+                "8": {
+                    "humidity": {
+                        "id": "deconz.0.Sensors.8.humidity",
+                        "field": "humidity",
+                        "tags": {
+                            "name": "humidity",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.8.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.8.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    }
+                },
+                "9": {
+                    "pressure": {
+                        "id": "deconz.0.Sensors.9.pressure",
+                        "field": "pressure",
+                        "tags": {
+                            "name": "pressure",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.9.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.9.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Wohnzimmer"
+                        }
+                    }
+                },
+                "10": {
+                    "temperature": {
+                        "id": "deconz.0.Sensors.10.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.10.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.10.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    }
+                },
+                "11": {
+                    "humidity": {
+                        "id": "deconz.0.Sensors.11.humidity",
+                        "field": "humidity",
+                        "tags": {
+                            "name": "humidity",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.11.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.11.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    }
+                },
+                "12": {
+                    "pressure": {
+                        "id": "deconz.0.Sensors.12.pressure",
+                        "field": "pressure",
+                        "tags": {
+                            "name": "pressure",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.12.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.12.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Schlafzimmer"
+                        }
+                    }
+                },
+                "13": {
+                    "open": {
+                        "id": "deconz.0.Sensors.13.open",
+                        "field": "windowdoor",
+                        "tags": {
+                            "name": "open",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Eingangsbereich"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.13.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Eingangsbereich"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.13.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Eingangsbereich"
+                        }
+                    },
+                    "temperature": {
+                        "id": "deconz.0.Sensors.13.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false,
+                            "room": "Eingangsbereich"
+                        }
+                    }
+                },
+                "14": {
+                    "power": {
+                        "id": "deconz.0.Sensors.14.power",
+                        "field": "power",
+                        "tags": {
+                            "name": "power",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.14.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.14.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "temperature": {
+                        "id": "deconz.0.Sensors.14.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false
+                        }
+                    }
+                },
+                "15": {
+                    "power": {
+                        "id": "deconz.0.Sensors.15.power",
+                        "field": "power",
+                        "tags": {
+                            "name": "power",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.15.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.15.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "temperature": {
+                        "id": "deconz.0.Sensors.15.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false
+                        }
+                    }
+                },
+                "18": {
+                    "lastupdated": {
+                        "id": "deconz.0.Sensors.18.lastupdated",
+                        "field": "lastupdated",
+                        "tags": {
+                            "name": "lastupdated",
+                            "type": "datetime",
+                            "unit": "datetime",
+                            "setting": false,
+                            "room": "Bad"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.18.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false,
+                            "room": "Bad"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.18.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Bad"
+                        }
+                    },
+                    "buttonpressed": {
+                        "id": "deconz.0.Sensors.18.buttonpressed",
+                        "field": "control",
+                        "tags": {
+                            "name": "buttonpressed",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Bad"
+                        }
+                    }
+                },
+                "19": {
+                    "dark": {
+                        "id": "deconz.0.Sensors.19.dark",
+                        "field": "dark",
+                        "tags": {
+                            "name": "dark",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.19.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.19.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "temperature": {
+                        "id": "deconz.0.Sensors.19.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "tholddark": {
+                        "id": "deconz.0.Sensors.19.tholddark",
+                        "field": "dark",
+                        "tags": {
+                            "name": "tholddark",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "daylight": {
+                        "id": "deconz.0.Sensors.19.daylight",
+                        "field": "daylight",
+                        "tags": {
+                            "name": "daylight",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "lastupdated": {
+                        "id": "deconz.0.Sensors.19.lastupdated",
+                        "field": "lastupdated",
+                        "tags": {
+                            "name": "lastupdated",
+                            "type": "datetime",
+                            "unit": "datetime",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "lightlevel": {
+                        "id": "deconz.0.Sensors.19.lightlevel",
+                        "field": "lightlevel",
+                        "tags": {
+                            "name": "lightlevel",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "lux": {
+                        "id": "deconz.0.Sensors.19.lux",
+                        "field": "lux",
+                        "tags": {
+                            "name": "lux",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    }
+                },
+                "20": {
+                    "lastupdated": {
+                        "id": "deconz.0.Sensors.20.lastupdated",
+                        "field": "lastupdated",
+                        "tags": {
+                            "name": "lastupdated",
+                            "type": "datetime",
+                            "unit": "datetime",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "battery": {
+                        "id": "deconz.0.Sensors.20.battery",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "duration": {
+                        "id": "deconz.0.Sensors.20.duration",
+                        "field": "power_consumption",
+                        "tags": {
+                            "name": "duration",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "reachable": {
+                        "id": "deconz.0.Sensors.20.reachable",
+                        "field": "reachable",
+                        "tags": {
+                            "name": "reachable",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "temperature": {
+                        "id": "deconz.0.Sensors.20.temperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "temperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    },
+                    "presence": {
+                        "id": "deconz.0.Sensors.20.presence",
+                        "field": "motion",
+                        "tags": {
+                            "name": "presence",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tado": {
+        "0": {
+            "466027": {
+                "weather": {
+                    "outsidetemperature": {
+                        "id": "tado.0.466027.Weather.outsideTemperature",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "outsidetemperature",
+                            "type": "number",
+                            "unit": "celcius",
+                            "setting": false,
+                            "room": "External"
+                        }
+                    }
+                },
+                "mobile_devices": {
+                    "1427557": {
+                        "device_setting": {
+                            "pushnotifications": {
+                                "openwindowreminder": {
+                                    "id": "tado.0.466027.Mobile_Devices.1427557.Device_Setting.pushNotifications.openWindowReminder",
+                                    "field": "device_setting",
+                                    "tags": {
+                                        "name": "openwindowreminder",
+                                        "type": "boolean",
+                                        "device_setting": "pushnotifications",
+                                        "pushnotifications": "openwindowreminder",
+                                        "device": "1427557",
+                                        "setting": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "1428071": {
+                        "device_setting": {
+                            "pushnotifications": {
+                                "openwindowreminder": {
+                                    "id": "tado.0.466027.Mobile_Devices.1428071.Device_Setting.pushNotifications.openWindowReminder",
+                                    "field": "device_setting",
+                                    "tags": {
+                                        "name": "openwindowreminder",
+                                        "type": "boolean",
+                                        "device_setting": "pushnotifications",
+                                        "pushnotifications": "openwindowreminder",
+                                        "device": "1428071",
+                                        "setting": true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "1430032": {
+                        "device_setting": {
+                            "pushnotifications": {
+                                "openwindowreminder": {
+                                    "id": "tado.0.466027.Mobile_Devices.1430032.Device_Setting.pushNotifications.openWindowReminder",
+                                    "field": "device_setting",
+                                    "tags": {
+                                        "name": "openwindowreminder",
+                                        "type": "boolean",
+                                        "device_setting": "pushnotifications",
+                                        "pushnotifications": "openwindowreminder",
+                                        "device": "1430032",
+                                        "setting": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "rooms": {
+                    "1": {
+                        "devices": {
+                            "va1661671168": {
+                                "info": {
+                                    "connectionstate": {
+                                        "id": "tado.0.466027.Rooms.1.devices.VA1661671168.info.connectionState",
+                                        "field": "connected",
+                                        "tags": {
+                                            "name": "connectionstate",
+                                            "type": "boolean",
+                                            "setting": false,
+                                            "room": "1"
+                                        }
+                                    },
+                                    "batterystate": {
+                                        "id": "tado.0.466027.Rooms.1.devices.VA1661671168.info.batteryState",
+                                        "field": "lowbat ",
+                                        "tags": {
+                                            "name": "batterystate",
+                                            "type": "mixed",
+                                            "setting": false,
+                                            "room": "1"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "openwindowdetection": {
+                            "supported": {
+                                "id": "tado.0.466027.Rooms.1.openWindowDetection.supported",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "supported",
+                                    "type": "boolean",
+                                    "openwindowdetection": "supported",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            },
+                            "enabled": {
+                                "id": "tado.0.466027.Rooms.1.openWindowDetection.enabled",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "enabled",
+                                    "type": "boolean",
+                                    "openwindowdetection": "enabled",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            },
+                            "timeoutinseconds": {
+                                "id": "tado.0.466027.Rooms.1.openWindowDetection.timeoutInSeconds",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "timeoutinseconds",
+                                    "type": "number",
+                                    "openwindowdetection": "timeoutinseconds",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            }
+                        },
+                        "setting": {
+                            "power": {
+                                "id": "tado.0.466027.Rooms.1.setting.power",
+                                "field": "power",
+                                "tags": {
+                                    "name": "power",
+                                    "type": "onoff",
+                                    "setting": true,
+                                    "room": "Esszimmer"
+                                },
+                                "states": {
+                                    "on": "on",
+                                    "off": "off"
+                                }
+                            },
+                            "temperature": {
+                                "id": "tado.0.466027.Rooms.1.setting.temperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "temperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": true,
+                                    "room": "Esszimmer"
+                                }
+                            }
+                        },
+                        "heatingpower": {
+                            "id": "tado.0.466027.Rooms.1.heatingPower",
+                            "field": "power",
+                            "tags": {
+                                "name": "heatingpower",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Esszimmer"
+                            }
+                        },
+                        "actual_temperature": {
+                            "id": "tado.0.466027.Rooms.1.Actual_Temperature",
+                            "field": "temperature",
+                            "tags": {
+                                "name": "actual_temperature",
+                                "type": "number",
+                                "unit": "celcius",
+                                "setting": false,
+                                "room": "Esszimmer"
+                            }
+                        },
+                        "actual_humidity": {
+                            "id": "tado.0.466027.Rooms.1.Actual_Humidity",
+                            "field": "humidity",
+                            "tags": {
+                                "name": "actual_humidity",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Esszimmer"
+                            }
+                        },
+                        "awayconfiguration": {
+                            "minimumawaytemperature": {
+                                "id": "tado.0.466027.Rooms.1.AwayConfiguration.minimumAwayTemperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "minimumawaytemperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            }
+                        },
+                        "openwindow": {
+                            "detectedtime": {
+                                "id": "tado.0.466027.Rooms.1.openWindow.detectedTime",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "detectedtime",
+                                    "type": "datetime",
+                                    "openWindow": "detectedtime",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            },
+                            "durationinseconds": {
+                                "id": "tado.0.466027.Rooms.1.openWindow.durationInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "durationinseconds",
+                                    "type": "number",
+                                    "openWindow": "durationinseconds",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            },
+                            "expiry": {
+                                "id": "tado.0.466027.Rooms.1.openWindow.expiry",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "expiry",
+                                    "type": "number",
+                                    "openWindow": "expiry",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            },
+                            "remainingtimeinseconds": {
+                                "id": "tado.0.466027.Rooms.1.openWindow.remainingTimeInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "remainingtimeinseconds",
+                                    "type": "number",
+                                    "openWindow": "remainingtimeinseconds",
+                                    "setting": false,
+                                    "room": "Esszimmer"
+                                }
+                            }
+                        }
+                    },
+                    "2": {
+                        "devices": {
+                            "va0090446080": {
+                                "info": {
+                                    "connectionstate": {
+                                        "id": "tado.0.466027.Rooms.2.devices.VA0090446080.info.connectionState",
+                                        "field": "connected",
+                                        "tags": {
+                                            "name": "connectionstate",
+                                            "type": "boolean",
+                                            "setting": false,
+                                            "room": "2"
+                                        }
+                                    },
+                                    "batterystate": {
+                                        "id": "tado.0.466027.Rooms.2.devices.VA0090446080.info.batteryState",
+                                        "field": "lowbat ",
+                                        "tags": {
+                                            "name": "batterystate",
+                                            "type": "mixed",
+                                            "setting": false,
+                                            "room": "2"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "openwindowdetection": {
+                            "supported": {
+                                "id": "tado.0.466027.Rooms.2.openWindowDetection.supported",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "supported",
+                                    "type": "boolean",
+                                    "openwindowdetection": "supported",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            },
+                            "enabled": {
+                                "id": "tado.0.466027.Rooms.2.openWindowDetection.enabled",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "enabled",
+                                    "type": "boolean",
+                                    "openwindowdetection": "enabled",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            },
+                            "timeoutinseconds": {
+                                "id": "tado.0.466027.Rooms.2.openWindowDetection.timeoutInSeconds",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "timeoutinseconds",
+                                    "type": "number",
+                                    "openwindowdetection": "timeoutinseconds",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            }
+                        },
+                        "setting": {
+                            "power": {
+                                "id": "tado.0.466027.Rooms.2.setting.power",
+                                "field": "power",
+                                "tags": {
+                                    "name": "power",
+                                    "type": "onoff",
+                                    "setting": true,
+                                    "room": "Wohnzimmer"
+                                },
+                                "states": {
+                                    "on": "on",
+                                    "off": "off"
+                                }
+                            },
+                            "temperature": {
+                                "id": "tado.0.466027.Rooms.2.setting.temperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "temperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": true,
+                                    "room": "Wohnzimmer"
+                                }
+                            }
+                        },
+                        "heatingpower": {
+                            "id": "tado.0.466027.Rooms.2.heatingPower",
+                            "field": "power",
+                            "tags": {
+                                "name": "heatingpower",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Wohnzimmer"
+                            }
+                        },
+                        "actual_temperature": {
+                            "id": "tado.0.466027.Rooms.2.Actual_Temperature",
+                            "field": "temperature",
+                            "tags": {
+                                "name": "actual_temperature",
+                                "type": "number",
+                                "unit": "celcius",
+                                "setting": false,
+                                "room": "Wohnzimmer"
+                            }
+                        },
+                        "actual_humidity": {
+                            "id": "tado.0.466027.Rooms.2.Actual_Humidity",
+                            "field": "humidity",
+                            "tags": {
+                                "name": "actual_humidity",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Wohnzimmer"
+                            }
+                        },
+                        "awayconfiguration": {
+                            "minimumawaytemperature": {
+                                "id": "tado.0.466027.Rooms.2.AwayConfiguration.minimumAwayTemperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "minimumawaytemperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            }
+                        }
+                    },
+                    "3": {
+                        "devices": {
+                            "va0023337216": {
+                                "info": {
+                                    "connectionstate": {
+                                        "id": "tado.0.466027.Rooms.3.devices.VA0023337216.info.connectionState",
+                                        "field": "connected",
+                                        "tags": {
+                                            "name": "connectionstate",
+                                            "type": "boolean",
+                                            "setting": false,
+                                            "room": "3"
+                                        }
+                                    },
+                                    "batterystate": {
+                                        "id": "tado.0.466027.Rooms.3.devices.VA0023337216.info.batteryState",
+                                        "field": "lowbat ",
+                                        "tags": {
+                                            "name": "batterystate",
+                                            "type": "mixed",
+                                            "setting": false,
+                                            "room": "3"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "openwindowdetection": {
+                            "supported": {
+                                "id": "tado.0.466027.Rooms.3.openWindowDetection.supported",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "supported",
+                                    "type": "boolean",
+                                    "openwindowdetection": "supported",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            },
+                            "enabled": {
+                                "id": "tado.0.466027.Rooms.3.openWindowDetection.enabled",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "enabled",
+                                    "type": "boolean",
+                                    "openwindowdetection": "enabled",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            },
+                            "timeoutinseconds": {
+                                "id": "tado.0.466027.Rooms.3.openWindowDetection.timeoutInSeconds",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "timeoutinseconds",
+                                    "type": "number",
+                                    "openwindowdetection": "timeoutinseconds",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            }
+                        },
+                        "setting": {
+                            "power": {
+                                "id": "tado.0.466027.Rooms.3.setting.power",
+                                "field": "power",
+                                "tags": {
+                                    "name": "power",
+                                    "type": "onoff",
+                                    "setting": true,
+                                    "room": "Schlafzimmer"
+                                },
+                                "states": {
+                                    "on": "on",
+                                    "off": "off"
+                                }
+                            },
+                            "temperature": {
+                                "id": "tado.0.466027.Rooms.3.setting.temperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "temperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": true,
+                                    "room": "Schlafzimmer"
+                                }
+                            }
+                        },
+                        "heatingpower": {
+                            "id": "tado.0.466027.Rooms.3.heatingPower",
+                            "field": "power",
+                            "tags": {
+                                "name": "heatingpower",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Schlafzimmer"
+                            }
+                        },
+                        "actual_temperature": {
+                            "id": "tado.0.466027.Rooms.3.Actual_Temperature",
+                            "field": "temperature",
+                            "tags": {
+                                "name": "actual_temperature",
+                                "type": "number",
+                                "unit": "celcius",
+                                "setting": false,
+                                "room": "Schlafzimmer"
+                            }
+                        },
+                        "actual_humidity": {
+                            "id": "tado.0.466027.Rooms.3.Actual_Humidity",
+                            "field": "humidity",
+                            "tags": {
+                                "name": "actual_humidity",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Schlafzimmer"
+                            }
+                        },
+                        "awayconfiguration": {
+                            "minimumawaytemperature": {
+                                "id": "tado.0.466027.Rooms.3.AwayConfiguration.minimumAwayTemperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "minimumawaytemperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            }
+                        },
+                        "openwindow": {
+                            "detectedtime": {
+                                "id": "tado.0.466027.Rooms.3.openWindow.detectedTime",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "detectedtime",
+                                    "type": "datetime",
+                                    "openWindow": "detectedtime",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            },
+                            "durationinseconds": {
+                                "id": "tado.0.466027.Rooms.3.openWindow.durationInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "durationinseconds",
+                                    "type": "number",
+                                    "openWindow": "durationinseconds",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            },
+                            "expiry": {
+                                "id": "tado.0.466027.Rooms.3.openWindow.expiry",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "expiry",
+                                    "type": "number",
+                                    "openWindow": "expiry",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            },
+                            "remainingtimeinseconds": {
+                                "id": "tado.0.466027.Rooms.3.openWindow.remainingTimeInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "remainingtimeinseconds",
+                                    "type": "number",
+                                    "openWindow": "remainingtimeinseconds",
+                                    "setting": false,
+                                    "room": "Schlafzimmer"
+                                }
+                            }
+                        }
+                    },
+                    "4": {
+                        "devices": {
+                            "va2254838016": {
+                                "info": {
+                                    "connectionstate": {
+                                        "id": "tado.0.466027.Rooms.4.devices.VA2254838016.info.connectionState",
+                                        "field": "connected",
+                                        "tags": {
+                                            "name": "connectionstate",
+                                            "type": "boolean",
+                                            "setting": false,
+                                            "room": "4"
+                                        }
+                                    },
+                                    "batterystate": {
+                                        "id": "tado.0.466027.Rooms.4.devices.VA2254838016.info.batteryState",
+                                        "field": "lowbat ",
+                                        "tags": {
+                                            "name": "batterystate",
+                                            "type": "mixed",
+                                            "setting": false,
+                                            "room": "4"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "openwindowdetection": {
+                            "supported": {
+                                "id": "tado.0.466027.Rooms.4.openWindowDetection.supported",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "supported",
+                                    "type": "boolean",
+                                    "openwindowdetection": "supported",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            },
+                            "enabled": {
+                                "id": "tado.0.466027.Rooms.4.openWindowDetection.enabled",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "enabled",
+                                    "type": "boolean",
+                                    "openwindowdetection": "enabled",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            },
+                            "timeoutinseconds": {
+                                "id": "tado.0.466027.Rooms.4.openWindowDetection.timeoutInSeconds",
+                                "field": "openwindowdetection",
+                                "tags": {
+                                    "name": "timeoutinseconds",
+                                    "type": "number",
+                                    "openwindowdetection": "timeoutinseconds",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            }
+                        },
+                        "setting": {
+                            "power": {
+                                "id": "tado.0.466027.Rooms.4.setting.power",
+                                "field": "power",
+                                "tags": {
+                                    "name": "power",
+                                    "type": "onoff",
+                                    "setting": true,
+                                    "room": "Flur"
+                                },
+                                "states": {
+                                    "on": "on",
+                                    "off": "off"
+                                }
+                            },
+                            "temperature": {
+                                "id": "tado.0.466027.Rooms.4.setting.temperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "temperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": true,
+                                    "room": "Flur"
+                                }
+                            }
+                        },
+                        "heatingpower": {
+                            "id": "tado.0.466027.Rooms.4.heatingPower",
+                            "field": "power",
+                            "tags": {
+                                "name": "heatingpower",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Flur"
+                            }
+                        },
+                        "actual_temperature": {
+                            "id": "tado.0.466027.Rooms.4.Actual_Temperature",
+                            "field": "temperature",
+                            "tags": {
+                                "name": "actual_temperature",
+                                "type": "number",
+                                "unit": "celcius",
+                                "setting": false,
+                                "room": "Flur"
+                            }
+                        },
+                        "actual_humidity": {
+                            "id": "tado.0.466027.Rooms.4.Actual_Humidity",
+                            "field": "humidity",
+                            "tags": {
+                                "name": "actual_humidity",
+                                "type": "number",
+                                "unit": "percentage",
+                                "setting": false,
+                                "room": "Flur"
+                            }
+                        },
+                        "awayconfiguration": {
+                            "minimumawaytemperature": {
+                                "id": "tado.0.466027.Rooms.4.AwayConfiguration.minimumAwayTemperature",
+                                "field": "temperature",
+                                "tags": {
+                                    "name": "minimumawaytemperature",
+                                    "type": "number",
+                                    "unit": "celcius",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            }
+                        },
+                        "openwindow": {
+                            "detectedtime": {
+                                "id": "tado.0.466027.Rooms.4.openWindow.detectedTime",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "detectedtime",
+                                    "type": "datetime",
+                                    "openWindow": "detectedtime",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            },
+                            "durationinseconds": {
+                                "id": "tado.0.466027.Rooms.4.openWindow.durationInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "durationinseconds",
+                                    "type": "number",
+                                    "openWindow": "durationinseconds",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            },
+                            "expiry": {
+                                "id": "tado.0.466027.Rooms.4.openWindow.expiry",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "expiry",
+                                    "type": "number",
+                                    "openWindow": "expiry",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            },
+                            "remainingtimeinseconds": {
+                                "id": "tado.0.466027.Rooms.4.openWindow.remainingTimeInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "remainingtimeinseconds",
+                                    "type": "number",
+                                    "openWindow": "remainingtimeinseconds",
+                                    "setting": false,
+                                    "room": "Flur"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "info": {
+                "connection": {
+                    "id": "tado.0.info.connection",
+                    "field": "connected",
+                    "tags": {
+                        "name": "connection",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                }
+            }
+        }
+    },
+    "shelly": {
+        "0": {
+            "info": {
+                "connection": {
+                    "id": "shelly.0.info.connection",
+                    "field": "connected",
+                    "tags": {
+                        "name": "connection",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                }
+            },
+            "shsw-1#11487f#1": {
+                "relay0": {
+                    "switch": {
+                        "id": "shelly.0.SHSW-1#11487F#1.Relay0.Switch",
+                        "field": "switch",
+                        "tags": {
+                            "name": "switch",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Bad"
+                        }
+                    }
+                },
+                "online": {
+                    "id": "shelly.0.SHSW-1#11487F#1.online",
+                    "field": "reachable",
+                    "tags": {
+                        "name": "online",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "Bad"
+                    }
+                }
+            },
+            "shsw-1#114418#1": {
+                "relay0": {
+                    "switch": {
+                        "id": "shelly.0.SHSW-1#114418#1.Relay0.Switch",
+                        "field": "switch",
+                        "tags": {
+                            "name": "switch",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Flur"
+                        }
+                    }
+                },
+                "online": {
+                    "id": "shelly.0.SHSW-1#114418#1.online",
+                    "field": "reachable",
+                    "tags": {
+                        "name": "online",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "Flur"
+                    }
+                }
+            }
+        }
+    },
+    "zwave": {
+        "0": {
+            "info": {
+                "connection": {
+                    "id": "zwave.0.info.connection",
+                    "field": "connected",
+                    "tags": {
+                        "name": "connection",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                }
+            },
+            "node1": {
+                "ready": {
+                    "id": "zwave.0.NODE1.ready",
+                    "field": "ready",
+                    "tags": {
+                        "name": "ready",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "alive": {
+                    "id": "zwave.0.NODE1.alive",
+                    "field": "alive",
+                    "tags": {
+                        "name": "alive",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "sleep": {
+                    "id": "zwave.0.NODE1.sleep",
+                    "field": "sleep",
+                    "tags": {
+                        "name": "sleep",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                }
+            },
+            "node4": {
+                "ready": {
+                    "id": "zwave.0.NODE4.ready",
+                    "field": "ready",
+                    "tags": {
+                        "name": "ready",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "TV"
+                    }
+                },
+                "alive": {
+                    "id": "zwave.0.NODE4.alive",
+                    "field": "alive",
+                    "tags": {
+                        "name": "alive",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "TV"
+                    }
+                },
+                "sleep": {
+                    "id": "zwave.0.NODE4.sleep",
+                    "field": "sleep",
+                    "tags": {
+                        "name": "sleep",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "TV"
+                    }
+                },
+                "sensor_multilevel": {
+                    "power_1": {
+                        "id": "zwave.0.NODE4.SENSOR_MULTILEVEL.Power_1",
+                        "field": "power",
+                        "tags": {
+                            "name": "power_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "power_units": {
+                        "id": "zwave.0.NODE4.SENSOR_MULTILEVEL.Power_Units",
+                        "field": "power",
+                        "tags": {
+                            "name": "power_units",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        },
+                        "states": {
+                            "0": "Watt"
+                        }
+                    }
+                },
+                "meter": {
+                    "electric_-_kwh_1": {
+                        "id": "zwave.0.NODE4.METER.Electric_-_kWh_1",
+                        "field": "electrickwh",
+                        "tags": {
+                            "name": "electric_-_kwh_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "electric_-_w_1": {
+                        "id": "zwave.0.NODE4.METER.Electric_-_W_1",
+                        "field": "electricwatt",
+                        "tags": {
+                            "name": "electric_-_w_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    }
+                },
+                "alarm": {
+                    "power_management_1": {
+                        "id": "zwave.0.NODE4.ALARM.Power_Management_1",
+                        "field": "power",
+                        "tags": {
+                            "name": "power_management_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        },
+                        "states": {
+                            "0": "Clear",
+                            "1": "Over Current Detected",
+                            "2": "Over Load Detected"
+                        }
+                    }
+                },
+                "powerlevel": {
+                    "powerlevel": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "powerlevel",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "timeout": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Timeout",
+                        "field": "power",
+                        "tags": {
+                            "name": "timeout",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "set_powerlevel": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Set_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "set_powerlevel",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "test_node": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Test_Node",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_node",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "test_powerlevel": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Test_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_powerlevel",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "frame_count": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Frame_Count",
+                        "field": "power",
+                        "tags": {
+                            "name": "frame_count",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "test": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Test",
+                        "field": "power",
+                        "tags": {
+                            "name": "test",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "report": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Report",
+                        "field": "power",
+                        "tags": {
+                            "name": "report",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    },
+                    "test_status": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Test_Status",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_status",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        },
+                        "states": {
+                            "0": "Failed",
+                            "1": "Success",
+                            "2": "In Progress"
+                        }
+                    },
+                    "acked_frames": {
+                        "id": "zwave.0.NODE4.POWERLEVEL.Acked_Frames",
+                        "field": "power",
+                        "tags": {
+                            "name": "acked_frames",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    }
+                },
+                "switch_binary": {
+                    "switch_1": {
+                        "id": "zwave.0.NODE4.SWITCH_BINARY.Switch_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "switch_1",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "TV"
+                        }
+                    }
+                },
+                "switch_all": {
+                    "switch_all": {
+                        "id": "zwave.0.NODE4.SWITCH_ALL.Switch_All",
+                        "field": "switch",
+                        "tags": {
+                            "name": "switch_all",
+                            "type": "number",
+                            "setting": false,
+                            "room": "TV"
+                        },
+                        "states": {
+                            "0": "Disabled",
+                            "1": "Off Enabled",
+                            "2": "On Enabled",
+                            "3": "On and Off Enabled"
+                        }
+                    }
+                }
+            },
+            "node6": {
+                "ready": {
+                    "id": "zwave.0.NODE6.ready",
+                    "field": "ready",
+                    "tags": {
+                        "name": "ready",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "Esszimmer"
+                    }
+                },
+                "alive": {
+                    "id": "zwave.0.NODE6.alive",
+                    "field": "alive",
+                    "tags": {
+                        "name": "alive",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "Esszimmer"
+                    }
+                },
+                "sleep": {
+                    "id": "zwave.0.NODE6.sleep",
+                    "field": "sleep",
+                    "tags": {
+                        "name": "sleep",
+                        "type": "boolean",
+                        "setting": false,
+                        "room": "Esszimmer"
+                    }
+                },
+                "switch_multilevel": {
+                    "level_1": {
+                        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Level_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "level_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "bright_1": {
+                        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Bright_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "bright_1",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "dim_1": {
+                        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Dim_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "dim_1",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "ignore_start_level": {
+                        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Ignore_Start_Level",
+                        "field": "switch",
+                        "tags": {
+                            "name": "ignore_start_level",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "start_level": {
+                        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Start_Level",
+                        "field": "switch",
+                        "tags": {
+                            "name": "start_level",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "valve_opening_1": {
+                        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Valve_Opening_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "valve_opening_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    }
+                },
+                "battery": {
+                    "battery_level_1": {
+                        "id": "zwave.0.NODE6.BATTERY.Battery_Level_1",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery_level_1",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    }
+                },
+                "powerlevel": {
+                    "powerlevel": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "powerlevel",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "timeout": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Timeout",
+                        "field": "power",
+                        "tags": {
+                            "name": "timeout",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "set_powerlevel": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Set_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "set_powerlevel",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "test_node": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Test_Node",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_node",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "test_powerlevel": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Test_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_powerlevel",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "frame_count": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Frame_Count",
+                        "field": "power",
+                        "tags": {
+                            "name": "frame_count",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "test": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Test",
+                        "field": "power",
+                        "tags": {
+                            "name": "test",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "report": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Report",
+                        "field": "power",
+                        "tags": {
+                            "name": "report",
+                            "type": "boolean",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "test_status": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Test_Status",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_status",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        },
+                        "states": {
+                            "0": "Failed",
+                            "1": "Success",
+                            "2": "In Progress"
+                        }
+                    },
+                    "acked_frames": {
+                        "id": "zwave.0.NODE6.POWERLEVEL.Acked_Frames",
+                        "field": "power",
+                        "tags": {
+                            "name": "acked_frames",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    }
+                },
+                "sensor_multilevel": {
+                    "air_temperature_1": {
+                        "id": "zwave.0.NODE6.SENSOR_MULTILEVEL.Air_Temperature_1",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "air_temperature_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        }
+                    },
+                    "air_temperature_units": {
+                        "id": "zwave.0.NODE6.SENSOR_MULTILEVEL.Air_Temperature_Units",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "air_temperature_units",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        },
+                        "states": {
+                            "0": "Celsius"
+                        }
+                    }
+                },
+                "alarm": {
+                    "power_management_1": {
+                        "id": "zwave.0.NODE6.ALARM.Power_Management_1",
+                        "field": "power",
+                        "tags": {
+                            "name": "power_management_1",
+                            "type": "number",
+                            "setting": false,
+                            "room": "Esszimmer"
+                        },
+                        "states": {
+                            "0": "Clear",
+                            "1": "Replace Battery Soon",
+                            "2": "Replace Battery Now"
+                        }
+                    }
+                }
+            },
+            "node7": {
+                "ready": {
+                    "id": "zwave.0.NODE7.ready",
+                    "field": "ready",
+                    "tags": {
+                        "name": "ready",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "alive": {
+                    "id": "zwave.0.NODE7.alive",
+                    "field": "alive",
+                    "tags": {
+                        "name": "alive",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "sleep": {
+                    "id": "zwave.0.NODE7.sleep",
+                    "field": "sleep",
+                    "tags": {
+                        "name": "sleep",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "powerlevel": {
+                    "powerlevel": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "powerlevel",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "timeout": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Timeout",
+                        "field": "power",
+                        "tags": {
+                            "name": "timeout",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "set_powerlevel": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Set_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "set_powerlevel",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "test_node": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Test_Node",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_node",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "test_powerlevel": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Test_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_powerlevel",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "frame_count": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Frame_Count",
+                        "field": "power",
+                        "tags": {
+                            "name": "frame_count",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "test": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Test",
+                        "field": "power",
+                        "tags": {
+                            "name": "test",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "report": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Report",
+                        "field": "power",
+                        "tags": {
+                            "name": "report",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "test_status": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Test_Status",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_status",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Failed",
+                            "1": "Success",
+                            "2": "In Progress"
+                        }
+                    },
+                    "acked_frames": {
+                        "id": "zwave.0.NODE7.POWERLEVEL.Acked_Frames",
+                        "field": "power",
+                        "tags": {
+                            "name": "acked_frames",
+                            "type": "number",
+                            "setting": false
+                        }
+                    }
+                },
+                "battery": {
+                    "battery_level_1": {
+                        "id": "zwave.0.NODE7.BATTERY.Battery_Level_1",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery_level_1",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false
+                        }
+                    }
+                },
+                "sensor_multilevel": {
+                    "air_temperature_1": {
+                        "id": "zwave.0.NODE7.SENSOR_MULTILEVEL.Air_Temperature_1",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "air_temperature_1",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "air_temperature_units": {
+                        "id": "zwave.0.NODE7.SENSOR_MULTILEVEL.Air_Temperature_Units",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "air_temperature_units",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Celsius",
+                            "1": "Fahrenheit"
+                        }
+                    },
+                    "humidity_1": {
+                        "id": "zwave.0.NODE7.SENSOR_MULTILEVEL.Humidity_1",
+                        "field": "humidity",
+                        "tags": {
+                            "name": "humidity_1",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false
+                        }
+                    },
+                    "humidity_units": {
+                        "id": "zwave.0.NODE7.SENSOR_MULTILEVEL.Humidity_Units",
+                        "field": "humidity",
+                        "tags": {
+                            "name": "humidity_units",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Percent"
+                        }
+                    }
+                }
+            },
+            "node8": {
+                "ready": {
+                    "id": "zwave.0.NODE8.ready",
+                    "field": "ready",
+                    "tags": {
+                        "name": "ready",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "alive": {
+                    "id": "zwave.0.NODE8.alive",
+                    "field": "alive",
+                    "tags": {
+                        "name": "alive",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "sleep": {
+                    "id": "zwave.0.NODE8.sleep",
+                    "field": "sleep",
+                    "tags": {
+                        "name": "sleep",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "switch_multilevel": {
+                    "level_1": {
+                        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Level_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "level_1",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "bright_1": {
+                        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Bright_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "bright_1",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "dim_1": {
+                        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Dim_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "dim_1",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "ignore_start_level": {
+                        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Ignore_Start_Level",
+                        "field": "switch",
+                        "tags": {
+                            "name": "ignore_start_level",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "start_level": {
+                        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Start_Level",
+                        "field": "switch",
+                        "tags": {
+                            "name": "start_level",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "valve_opening_1": {
+                        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Valve_Opening_1",
+                        "field": "switch",
+                        "tags": {
+                            "name": "valve_opening_1",
+                            "type": "number",
+                            "setting": false
+                        }
+                    }
+                },
+                "battery": {
+                    "battery_level_1": {
+                        "id": "zwave.0.NODE8.BATTERY.Battery_Level_1",
+                        "field": "battery",
+                        "tags": {
+                            "name": "battery_level_1",
+                            "type": "number",
+                            "unit": "percentage",
+                            "setting": false
+                        }
+                    }
+                },
+                "powerlevel": {
+                    "powerlevel": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "powerlevel",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "timeout": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Timeout",
+                        "field": "power",
+                        "tags": {
+                            "name": "timeout",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "set_powerlevel": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Set_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "set_powerlevel",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "test_node": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Test_Node",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_node",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "test_powerlevel": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Test_Powerlevel",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_powerlevel",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Normal",
+                            "1": "-1dB",
+                            "2": "-2dB",
+                            "3": "-3dB",
+                            "4": "-4dB",
+                            "5": "-5dB",
+                            "6": "-6dB",
+                            "7": "-7dB",
+                            "8": "-8dB",
+                            "9": "-9dB"
+                        }
+                    },
+                    "frame_count": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Frame_Count",
+                        "field": "power",
+                        "tags": {
+                            "name": "frame_count",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "test": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Test",
+                        "field": "power",
+                        "tags": {
+                            "name": "test",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "report": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Report",
+                        "field": "power",
+                        "tags": {
+                            "name": "report",
+                            "type": "boolean",
+                            "setting": false
+                        }
+                    },
+                    "test_status": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Test_Status",
+                        "field": "power",
+                        "tags": {
+                            "name": "test_status",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Failed",
+                            "1": "Success",
+                            "2": "In Progress"
+                        }
+                    },
+                    "acked_frames": {
+                        "id": "zwave.0.NODE8.POWERLEVEL.Acked_Frames",
+                        "field": "power",
+                        "tags": {
+                            "name": "acked_frames",
+                            "type": "number",
+                            "setting": false
+                        }
+                    }
+                },
+                "sensor_multilevel": {
+                    "air_temperature_1": {
+                        "id": "zwave.0.NODE8.SENSOR_MULTILEVEL.Air_Temperature_1",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "air_temperature_1",
+                            "type": "number",
+                            "setting": false
+                        }
+                    },
+                    "air_temperature_units": {
+                        "id": "zwave.0.NODE8.SENSOR_MULTILEVEL.Air_Temperature_Units",
+                        "field": "temperature",
+                        "tags": {
+                            "name": "air_temperature_units",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Celsius"
+                        }
+                    }
+                },
+                "alarm": {
+                    "power_management_1": {
+                        "id": "zwave.0.NODE8.ALARM.Power_Management_1",
+                        "field": "power",
+                        "tags": {
+                            "name": "power_management_1",
+                            "type": "number",
+                            "setting": false
+                        },
+                        "states": {
+                            "0": "Clear",
+                            "1": "Replace Battery Soon",
+                            "2": "Replace Battery Now"
+                        }
+                    }
+                }
+            },
+            "node5": {
+                "ready": {
+                    "id": "zwave.0.NODE5.ready",
+                    "field": "ready",
+                    "tags": {
+                        "name": "ready",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "alive": {
+                    "id": "zwave.0.NODE5.alive",
+                    "field": "alive",
+                    "tags": {
+                        "name": "alive",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "sleep": {
+                    "id": "zwave.0.NODE5.sleep",
+                    "field": "sleep",
+                    "tags": {
+                        "name": "sleep",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                }
+            },
+            "node9": {
+                "ready": {
+                    "id": "zwave.0.NODE9.ready",
+                    "field": "ready",
+                    "tags": {
+                        "name": "ready",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "alive": {
+                    "id": "zwave.0.NODE9.alive",
+                    "field": "alive",
+                    "tags": {
+                        "name": "alive",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                },
+                "sleep": {
+                    "id": "zwave.0.NODE9.sleep",
+                    "field": "sleep",
+                    "tags": {
+                        "name": "sleep",
+                        "type": "boolean",
+                        "setting": false
+                    }
+                }
+            }
+        }
+    }
+}
