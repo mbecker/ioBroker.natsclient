@@ -214,10 +214,10 @@ class Natsclient extends utils.Adapter {
     // this.config:
     this.log.info("config natsconnection: " + this.config.natsconnection);
 
-    this.getObject("deconz.0.*", (err, obj) => {
+    this.getForeignObjects("deconz.0.*", (err, obj) => {
       if(err !== null) return this.log.error(err);
       const objs = JSON.stringify(obj);
-      this.log.info(objs)
+      this.log.info(objs);
       this.setState("info.objs", objs);
     });
 
