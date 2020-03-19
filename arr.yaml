@@ -4,6 +4,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Arbeitszimmer"
   - id: "deconz.0.Sensors.1.dark"
@@ -11,6 +12,7 @@
     tags:
       name: "dark"
       type: "boolean"
+      unit: ""
       setting: false
       room: "External"
   - id: "deconz.0.Sensors.1.daylight"
@@ -18,6 +20,7 @@
     tags:
       name: "daylight"
       type: "boolean"
+      unit: ""
       setting: false
       room: "External"
   - id: "deconz.0.Lights.5.reachable"
@@ -25,6 +28,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Lights.7.reachable"
@@ -32,6 +36,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Küche"
   - id: "deconz.0.Sensors.4.temperature"
@@ -47,6 +52,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "deconz.0.Sensors.4.reachable"
@@ -54,6 +60,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "deconz.0.Sensors.5.humidity"
@@ -69,6 +76,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "deconz.0.Sensors.5.reachable"
@@ -76,6 +84,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "deconz.0.Sensors.6.pressure"
@@ -83,6 +92,7 @@
     tags:
       name: "pressure"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "deconz.0.Sensors.6.battery"
@@ -90,6 +100,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "deconz.0.Sensors.6.reachable"
@@ -97,6 +108,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "deconz.0.Sensors.7.temperature"
@@ -112,6 +124,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "deconz.0.Sensors.7.reachable"
@@ -119,6 +132,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "deconz.0.Sensors.8.humidity"
@@ -134,6 +148,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "deconz.0.Sensors.8.reachable"
@@ -141,6 +156,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "deconz.0.Sensors.9.pressure"
@@ -148,6 +164,7 @@
     tags:
       name: "pressure"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "deconz.0.Sensors.9.battery"
@@ -155,6 +172,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "deconz.0.Sensors.9.reachable"
@@ -162,6 +180,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "deconz.0.Sensors.10.temperature"
@@ -177,6 +196,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
   - id: "deconz.0.Sensors.10.reachable"
@@ -184,6 +204,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
   - id: "deconz.0.Sensors.11.humidity"
@@ -199,6 +220,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
   - id: "deconz.0.Sensors.11.reachable"
@@ -206,6 +228,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
   - id: "deconz.0.Sensors.12.pressure"
@@ -213,6 +236,7 @@
     tags:
       name: "pressure"
       type: "number"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
   - id: "deconz.0.Sensors.12.battery"
@@ -220,6 +244,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
   - id: "deconz.0.Sensors.12.reachable"
@@ -227,6 +252,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
   - id: "deconz.0.Sensors.13.open"
@@ -234,6 +260,7 @@
     tags:
       name: "open"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Eingangsbereich"
   - id: "deconz.0.Sensors.13.battery"
@@ -241,6 +268,7 @@
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
       room: "Eingangsbereich"
   - id: "deconz.0.Sensors.13.reachable"
@@ -248,6 +276,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Eingangsbereich"
   - id: "deconz.0.Sensors.13.temperature"
@@ -263,6 +292,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Bad"
   - id: "deconz.0.Sensors.14.power"
@@ -270,19 +300,25 @@
     tags:
       name: "power"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.14.battery"
     field: "battery"
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.14.reachable"
     field: "reachable"
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.14.temperature"
     field: "temperature"
     tags:
@@ -290,24 +326,31 @@
       type: "number"
       unit: "celcius"
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.15.power"
     field: "power"
     tags:
       name: "power"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.15.battery"
     field: "battery"
     tags:
       name: "battery"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.15.reachable"
     field: "reachable"
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.15.temperature"
     field: "temperature"
     tags:
@@ -315,6 +358,7 @@
       type: "number"
       unit: "celcius"
       setting: false
+      room: "-"
   - id: "deconz.0.Sensors.18.lastupdated"
     field: "lastupdated"
     tags:
@@ -336,6 +380,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Bad"
   - id: "deconz.0.Sensors.18.buttonpressed"
@@ -343,6 +388,7 @@
     tags:
       name: "buttonpressed"
       type: "number"
+      unit: ""
       setting: false
       room: "Bad"
   - id: "deconz.0.Lights.5.bri"
@@ -350,6 +396,7 @@
     tags:
       name: "bri"
       type: "number"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Lights.10.bri"
@@ -357,6 +404,7 @@
     tags:
       name: "bri"
       type: "number"
+      unit: ""
       setting: false
       room: "Eingangsbereich"
   - id: "deconz.0.Lights.10.reachable"
@@ -364,6 +412,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Eingangsbereich"
   - id: "deconz.0.Sensors.19.dark"
@@ -371,6 +420,7 @@
     tags:
       name: "dark"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.19.battery"
@@ -386,6 +436,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.19.temperature"
@@ -401,6 +452,7 @@
     tags:
       name: "tholddark"
       type: "number"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.19.daylight"
@@ -408,6 +460,7 @@
     tags:
       name: "daylight"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.19.lastupdated"
@@ -423,6 +476,7 @@
     tags:
       name: "lightlevel"
       type: "number"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.19.lux"
@@ -430,6 +484,7 @@
     tags:
       name: "lux"
       type: "number"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.20.lastupdated"
@@ -453,6 +508,7 @@
     tags:
       name: "duration"
       type: "number"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.20.reachable"
@@ -460,6 +516,7 @@
     tags:
       name: "reachable"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "deconz.0.Sensors.20.temperature"
@@ -475,6 +532,7 @@
     tags:
       name: "presence"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "tado.0.info.connection"
@@ -482,7 +540,9 @@
     tags:
       name: "connection"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "tado.0.466027.Weather.outsideTemperature"
     field: "temperature"
     tags:
@@ -496,24 +556,33 @@
     tags:
       name: "openwindowreminder"
       type: "boolean"
+      unit: ""
+      setting: true
+      room: "-"
+    additionaltags:
+      shoulduse: true
       device_setting: "pushnotifications"
       pushnotifications: "openwindowreminder"
       device: "1427557"
-      setting: true
   - id: "tado.0.466027.Mobile_Devices.1428071.Device_Setting.pushNotifications.openWindowReminder"
     field: "device_setting"
     tags:
       name: "openwindowreminder"
       type: "boolean"
+      unit: ""
+      setting: true
+      room: "-"
+    additionaltags:
+      shoulduse: true
       device_setting: "pushnotifications"
       pushnotifications: "openwindowreminder"
       device: "1428071"
-      setting: true
   - id: "tado.0.466027.Rooms.1.devices.VA1661671168.info.connectionState"
     field: "device_info"
     tags:
       name: "connectionstate"
       type: "boolean"
+      unit: ""
       setting: false
       room: "1"
   - id: "tado.0.466027.Rooms.1.devices.VA1661671168.info.batteryState"
@@ -521,6 +590,7 @@
     tags:
       name: "batterystate"
       type: "mixed"
+      unit: ""
       setting: false
       room: "1"
   - id: "tado.0.466027.Rooms.1.openWindowDetection.supported"
@@ -528,30 +598,40 @@
     tags:
       name: "supported"
       type: "boolean"
-      openwindowdetection: "supported"
+      unit: ""
       setting: false
       room: "Esszimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "supported"
   - id: "tado.0.466027.Rooms.1.openWindowDetection.enabled"
     field: "openwindowdetection"
     tags:
       name: "enabled"
       type: "boolean"
-      openwindowdetection: "enabled"
+      unit: ""
       setting: false
       room: "Esszimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "enabled"
   - id: "tado.0.466027.Rooms.1.openWindowDetection.timeoutInSeconds"
     field: "openwindowdetection"
     tags:
       name: "timeoutinseconds"
       type: "number"
-      openwindowdetection: "timeoutinseconds"
+      unit: ""
       setting: false
       room: "Esszimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "timeoutinseconds"
   - id: "tado.0.466027.Rooms.1.setting.power"
     field: "power"
     tags:
       name: "power"
       type: "onoff"
+      unit: ""
       setting: true
       room: "Esszimmer"
     states:
@@ -602,6 +682,7 @@
     tags:
       name: "connectionstate"
       type: "boolean"
+      unit: ""
       setting: false
       room: "2"
   - id: "tado.0.466027.Rooms.2.devices.VA0090446080.info.batteryState"
@@ -609,6 +690,7 @@
     tags:
       name: "batterystate"
       type: "mixed"
+      unit: ""
       setting: false
       room: "2"
   - id: "tado.0.466027.Rooms.2.openWindowDetection.supported"
@@ -616,30 +698,40 @@
     tags:
       name: "supported"
       type: "boolean"
-      openwindowdetection: "supported"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "supported"
   - id: "tado.0.466027.Rooms.2.openWindowDetection.enabled"
     field: "openwindowdetection"
     tags:
       name: "enabled"
       type: "boolean"
-      openwindowdetection: "enabled"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "enabled"
   - id: "tado.0.466027.Rooms.2.openWindowDetection.timeoutInSeconds"
     field: "openwindowdetection"
     tags:
       name: "timeoutinseconds"
       type: "number"
-      openwindowdetection: "timeoutinseconds"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "timeoutinseconds"
   - id: "tado.0.466027.Rooms.2.setting.power"
     field: "power"
     tags:
       name: "power"
       type: "onoff"
+      unit: ""
       setting: true
       room: "Wohnzimmer"
     states:
@@ -690,6 +782,7 @@
     tags:
       name: "connectionstate"
       type: "boolean"
+      unit: ""
       setting: false
       room: "3"
   - id: "tado.0.466027.Rooms.3.devices.VA0023337216.info.batteryState"
@@ -697,6 +790,7 @@
     tags:
       name: "batterystate"
       type: "mixed"
+      unit: ""
       setting: false
       room: "3"
   - id: "tado.0.466027.Rooms.3.openWindowDetection.supported"
@@ -704,30 +798,40 @@
     tags:
       name: "supported"
       type: "boolean"
-      openwindowdetection: "supported"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "supported"
   - id: "tado.0.466027.Rooms.3.openWindowDetection.enabled"
     field: "openwindowdetection"
     tags:
       name: "enabled"
       type: "boolean"
-      openwindowdetection: "enabled"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "enabled"
   - id: "tado.0.466027.Rooms.3.openWindowDetection.timeoutInSeconds"
     field: "openwindowdetection"
     tags:
       name: "timeoutinseconds"
       type: "number"
-      openwindowdetection: "timeoutinseconds"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "timeoutinseconds"
   - id: "tado.0.466027.Rooms.3.setting.power"
     field: "power"
     tags:
       name: "power"
       type: "onoff"
+      unit: ""
       setting: true
       room: "Schlafzimmer"
     states:
@@ -778,6 +882,7 @@
     tags:
       name: "connectionstate"
       type: "boolean"
+      unit: ""
       setting: false
       room: "4"
   - id: "tado.0.466027.Rooms.4.devices.VA2254838016.info.batteryState"
@@ -785,6 +890,7 @@
     tags:
       name: "batterystate"
       type: "mixed"
+      unit: ""
       setting: false
       room: "4"
   - id: "tado.0.466027.Rooms.4.openWindowDetection.supported"
@@ -792,30 +898,40 @@
     tags:
       name: "supported"
       type: "boolean"
-      openwindowdetection: "supported"
+      unit: ""
       setting: false
       room: "Flur"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "supported"
   - id: "tado.0.466027.Rooms.4.openWindowDetection.enabled"
     field: "openwindowdetection"
     tags:
       name: "enabled"
       type: "boolean"
-      openwindowdetection: "enabled"
+      unit: ""
       setting: false
       room: "Flur"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "enabled"
   - id: "tado.0.466027.Rooms.4.openWindowDetection.timeoutInSeconds"
     field: "openwindowdetection"
     tags:
       name: "timeoutinseconds"
       type: "number"
-      openwindowdetection: "timeoutinseconds"
+      unit: ""
       setting: false
       room: "Flur"
+    additionaltags:
+      shoulduse: true
+      openwindowdetection: "timeoutinseconds"
   - id: "tado.0.466027.Rooms.4.setting.power"
     field: "power"
     tags:
       name: "power"
       type: "onoff"
+      unit: ""
       setting: true
       room: "Flur"
     states:
@@ -866,149 +982,188 @@
     tags:
       name: "openwindowreminder"
       type: "boolean"
+      unit: ""
+      setting: true
+      room: "-"
+    additionaltags:
+      shoulduse: true
       device_setting: "pushnotifications"
       pushnotifications: "openwindowreminder"
       device: "1430032"
-      setting: true
   - id: "tado.0.466027.Rooms.4.openWindow.detectedTime"
     field: "openWindow"
     tags:
       name: "detectedtime"
       type: "datetime"
-      openWindow: "detectedtime"
+      unit: ""
       setting: false
       room: "Flur"
+    additionaltags:
+      openwindow: "detectedtime"
   - id: "tado.0.466027.Rooms.4.openWindow.durationInSeconds"
     field: "openWindow"
     tags:
       name: "durationinseconds"
       type: "number"
-      openWindow: "durationinseconds"
+      unit: ""
       setting: false
       room: "Flur"
+    additionaltags:
+      openwindow: "durationinseconds"
   - id: "tado.0.466027.Rooms.4.openWindow.expiry"
     field: "openWindow"
     tags:
       name: "expiry"
       type: "number"
-      openWindow: "expiry"
+      unit: ""
       setting: false
       room: "Flur"
+    additionaltags:
+      openwindow: "expiry"
   - id: "tado.0.466027.Rooms.4.openWindow.remainingTimeInSeconds"
     field: "openWindow"
     tags:
       name: "remainingtimeinseconds"
       type: "number"
-      openWindow: "remainingtimeinseconds"
+      unit: ""
       setting: false
       room: "Flur"
+    additionaltags:
+      openwindow: "remainingtimeinseconds"
   - id: "tado.0.466027.Rooms.1.openWindow.detectedTime"
     field: "openWindow"
     tags:
       name: "detectedtime"
       type: "datetime"
-      openWindow: "detectedtime"
+      unit: ""
       setting: false
       room: "Esszimmer"
+    additionaltags:
+      openwindow: "detectedtime"
   - id: "tado.0.466027.Rooms.1.openWindow.durationInSeconds"
     field: "openWindow"
     tags:
       name: "durationinseconds"
       type: "number"
-      openWindow: "durationinseconds"
+      unit: ""
       setting: false
       room: "Esszimmer"
+    additionaltags:
+      openwindow: "durationinseconds"
   - id: "tado.0.466027.Rooms.1.openWindow.expiry"
     field: "openWindow"
     tags:
       name: "expiry"
       type: "number"
-      openWindow: "expiry"
+      unit: ""
       setting: false
       room: "Esszimmer"
+    additionaltags:
+      openwindow: "expiry"
   - id: "tado.0.466027.Rooms.1.openWindow.remainingTimeInSeconds"
     field: "openWindow"
     tags:
       name: "remainingtimeinseconds"
       type: "number"
-      openWindow: "remainingtimeinseconds"
+      unit: ""
       setting: false
       room: "Esszimmer"
+    additionaltags:
+      openwindow: "remainingtimeinseconds"
   - id: "tado.0.466027.Rooms.3.openWindow.detectedTime"
     field: "openWindow"
     tags:
       name: "detectedtime"
       type: "datetime"
-      openWindow: "detectedtime"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
+    additionaltags:
+      openwindow: "detectedtime"
   - id: "tado.0.466027.Rooms.3.openWindow.durationInSeconds"
     field: "openWindow"
     tags:
       name: "durationinseconds"
       type: "number"
-      openWindow: "durationinseconds"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
+    additionaltags:
+      openwindow: "durationinseconds"
   - id: "tado.0.466027.Rooms.3.openWindow.expiry"
     field: "openWindow"
     tags:
       name: "expiry"
       type: "number"
-      openWindow: "expiry"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
+    additionaltags:
+      openwindow: "expiry"
   - id: "tado.0.466027.Rooms.3.openWindow.remainingTimeInSeconds"
     field: "openWindow"
     tags:
       name: "remainingtimeinseconds"
       type: "number"
-      openWindow: "remainingtimeinseconds"
+      unit: ""
       setting: false
       room: "Schlafzimmer"
+    additionaltags:
+      openwindow: "remainingtimeinseconds"
   - id: "tado.0.466027.Rooms.2.openWindow.detectedTime"
     field: "openWindow"
     tags:
       name: "detectedtime"
       type: "datetime"
-      openWindow: "detectedtime"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
+    additionaltags:
+      openwindow: "detectedtime"
   - id: "tado.0.466027.Rooms.2.openWindow.durationInSeconds"
     field: "openWindow"
     tags:
       name: "durationinseconds"
       type: "number"
-      openWindow: "durationinseconds"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
+    additionaltags:
+      openwindow: "durationinseconds"
   - id: "tado.0.466027.Rooms.2.openWindow.expiry"
     field: "openWindow"
     tags:
       name: "expiry"
       type: "number"
-      openWindow: "expiry"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
+    additionaltags:
+      openwindow: "expiry"
   - id: "tado.0.466027.Rooms.2.openWindow.remainingTimeInSeconds"
     field: "openWindow"
     tags:
       name: "remainingtimeinseconds"
       type: "number"
-      openWindow: "remainingtimeinseconds"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
+    additionaltags:
+      openwindow: "remainingtimeinseconds"
   - id: "shelly.0.info.connection"
     field: "device_info"
     tags:
       name: "connection"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "shelly.0.SHSW-1#11487F#1.Relay0.Switch"
     field: "switch"
     tags:
       name: "switch"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Bad"
   - id: "shelly.0.SHSW-1#11487F#1.online"
@@ -1016,6 +1171,7 @@
     tags:
       name: "online"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Bad"
   - id: "shelly.0.SHSW-1#114418#1.Relay0.Switch"
@@ -1023,6 +1179,7 @@
     tags:
       name: "switch"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "shelly.0.SHSW-1#114418#1.online"
@@ -1030,6 +1187,7 @@
     tags:
       name: "online"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Flur"
   - id: "zwave.0.info.connection"
@@ -1037,30 +1195,39 @@
     tags:
       name: "connection"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE1.ready"
     field: "device_info"
     tags:
       name: "ready"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE1.alive"
     field: "device_info"
     tags:
       name: "alive"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE1.sleep"
     field: "device_info"
     tags:
       name: "sleep"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE4.ready"
     field: "device_info"
     tags:
       name: "ready"
       type: "boolean"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.alive"
@@ -1068,6 +1235,7 @@
     tags:
       name: "alive"
       type: "boolean"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.sleep"
@@ -1075,6 +1243,7 @@
     tags:
       name: "sleep"
       type: "boolean"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.SENSOR_MULTILEVEL.Power_1"
@@ -1082,6 +1251,7 @@
     tags:
       name: "power_1"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.SENSOR_MULTILEVEL.Power_Units"
@@ -1089,6 +1259,7 @@
     tags:
       name: "power_units"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1098,6 +1269,7 @@
     tags:
       name: "electric_-_kwh_1"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.METER.Electric_-_W_1"
@@ -1105,6 +1277,7 @@
     tags:
       name: "electric_-_w_1"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.ALARM.Power_Management_1"
@@ -1112,6 +1285,7 @@
     tags:
       name: "power_management_1"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1123,6 +1297,7 @@
     tags:
       name: "powerlevel"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1141,6 +1316,7 @@
     tags:
       name: "timeout"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.SWITCH_BINARY.Switch_1"
@@ -1148,6 +1324,7 @@
     tags:
       name: "switch_1"
       type: "boolean"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.SWITCH_ALL.Switch_All"
@@ -1155,6 +1332,7 @@
     tags:
       name: "switch_all"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1167,6 +1345,7 @@
     tags:
       name: "remember_device_status_after_a_power_failure"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1177,6 +1356,7 @@
     tags:
       name: "overload_safety_switch"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.High_priority_power_report"
@@ -1184,6 +1364,7 @@
     tags:
       name: "high_priority_power_report"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.Standard_power_load_reporting"
@@ -1191,6 +1372,7 @@
     tags:
       name: "standard_power_load_reporting"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.Power_reporting_interval"
@@ -1198,6 +1380,7 @@
     tags:
       name: "power_reporting_interval"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.Power_and_energy_periodic_reports"
@@ -1205,6 +1388,7 @@
     tags:
       name: "power_and_energy_periodic_reports"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.DOWN_value-_On/Off(power)_association_group(3)"
@@ -1212,6 +1396,7 @@
     tags:
       name: "down_value-_on/off(power)_association_group(3)"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.UP_value-_On/Off(power)_association_group(3)"
@@ -1219,6 +1404,7 @@
     tags:
       name: "up_value-_on/off(power)_association_group(3)"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.The_response_after_exceeding_defined_power_values"
@@ -1226,6 +1412,7 @@
     tags:
       name: "the_response_after_exceeding_defined_power_values"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1240,6 +1427,7 @@
     tags:
       name: "switch_on_value_-_on/off_association_groups"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.CONFIGURATION.Power_load_which_when_exceeded_makes_the_LED_ring_flash_violet"
@@ -1247,6 +1435,7 @@
     tags:
       name: "power_load_which_when_exceeded_makes_the_led_ring_flash_violet"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.POWERLEVEL.Set_Powerlevel"
@@ -1254,6 +1443,7 @@
     tags:
       name: "set_powerlevel"
       type: "boolean"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.POWERLEVEL.Test_Node"
@@ -1261,6 +1451,7 @@
     tags:
       name: "test_node"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.POWERLEVEL.Test_Powerlevel"
@@ -1268,6 +1459,7 @@
     tags:
       name: "test_powerlevel"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1286,6 +1478,7 @@
     tags:
       name: "frame_count"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.POWERLEVEL.Test"
@@ -1293,6 +1486,7 @@
     tags:
       name: "test"
       type: "boolean"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.POWERLEVEL.Report"
@@ -1300,6 +1494,7 @@
     tags:
       name: "report"
       type: "boolean"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE4.POWERLEVEL.Test_Status"
@@ -1307,6 +1502,7 @@
     tags:
       name: "test_status"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
     states:
@@ -1318,6 +1514,7 @@
     tags:
       name: "acked_frames"
       type: "number"
+      unit: ""
       setting: false
       room: "TV"
   - id: "zwave.0.NODE6.ready"
@@ -1325,6 +1522,7 @@
     tags:
       name: "ready"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.alive"
@@ -1332,6 +1530,7 @@
     tags:
       name: "alive"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.sleep"
@@ -1339,6 +1538,7 @@
     tags:
       name: "sleep"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.SWITCH_MULTILEVEL.Level_1"
@@ -1346,6 +1546,7 @@
     tags:
       name: "level_1"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.SWITCH_MULTILEVEL.Bright_1"
@@ -1353,6 +1554,7 @@
     tags:
       name: "bright_1"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.SWITCH_MULTILEVEL.Dim_1"
@@ -1360,6 +1562,7 @@
     tags:
       name: "dim_1"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.SWITCH_MULTILEVEL.Ignore_Start_Level"
@@ -1367,6 +1570,7 @@
     tags:
       name: "ignore_start_level"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.SWITCH_MULTILEVEL.Start_Level"
@@ -1374,6 +1578,7 @@
     tags:
       name: "start_level"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.BATTERY.Battery_Level_1"
@@ -1389,6 +1594,7 @@
     tags:
       name: "powerlevel"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
     states:
@@ -1407,6 +1613,7 @@
     tags:
       name: "timeout"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.POWERLEVEL.Set_Powerlevel"
@@ -1414,6 +1621,7 @@
     tags:
       name: "set_powerlevel"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.POWERLEVEL.Test_Node"
@@ -1421,6 +1629,7 @@
     tags:
       name: "test_node"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.POWERLEVEL.Test_Powerlevel"
@@ -1428,6 +1637,7 @@
     tags:
       name: "test_powerlevel"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
     states:
@@ -1446,6 +1656,7 @@
     tags:
       name: "frame_count"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.POWERLEVEL.Test"
@@ -1453,6 +1664,7 @@
     tags:
       name: "test"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.POWERLEVEL.Report"
@@ -1460,6 +1672,7 @@
     tags:
       name: "report"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.POWERLEVEL.Test_Status"
@@ -1467,6 +1680,7 @@
     tags:
       name: "test_status"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
     states:
@@ -1478,6 +1692,7 @@
     tags:
       name: "acked_frames"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.CONFIGURATION.Temperature_Report_Threshold"
@@ -1485,6 +1700,7 @@
     tags:
       name: "temperature_report_threshold"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.CONFIGURATION.Valve_Opening_Percentage_Report"
@@ -1492,6 +1708,7 @@
     tags:
       name: "valve_opening_percentage_report"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.CONFIGURATION.Open_Window_Detection"
@@ -1499,6 +1716,7 @@
     tags:
       name: "open_window_detection"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
     states:
@@ -1511,6 +1729,7 @@
     tags:
       name: "measured_temperature_offset"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.SENSOR_MULTILEVEL.Air_Temperature_1"
@@ -1518,6 +1737,7 @@
     tags:
       name: "air_temperature_1"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE6.SENSOR_MULTILEVEL.Air_Temperature_Units"
@@ -1525,6 +1745,7 @@
     tags:
       name: "air_temperature_units"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
     states:
@@ -1534,6 +1755,7 @@
     tags:
       name: "power_management_1"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
     states:
@@ -1545,6 +1767,7 @@
     tags:
       name: "valve_opening_1"
       type: "number"
+      unit: ""
       setting: false
       room: "Esszimmer"
   - id: "zwave.0.NODE7.ready"
@@ -1552,6 +1775,7 @@
     tags:
       name: "ready"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.alive"
@@ -1559,6 +1783,7 @@
     tags:
       name: "alive"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.sleep"
@@ -1566,6 +1791,7 @@
     tags:
       name: "sleep"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.POWERLEVEL.Powerlevel"
@@ -1573,6 +1799,7 @@
     tags:
       name: "powerlevel"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1591,6 +1818,7 @@
     tags:
       name: "timeout"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.POWERLEVEL.Set_Powerlevel"
@@ -1598,6 +1826,7 @@
     tags:
       name: "set_powerlevel"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.POWERLEVEL.Test_Node"
@@ -1605,6 +1834,7 @@
     tags:
       name: "test_node"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.POWERLEVEL.Test_Powerlevel"
@@ -1612,6 +1842,7 @@
     tags:
       name: "test_powerlevel"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1630,6 +1861,7 @@
     tags:
       name: "frame_count"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.POWERLEVEL.Test"
@@ -1637,6 +1869,7 @@
     tags:
       name: "test"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.POWERLEVEL.Report"
@@ -1644,6 +1877,7 @@
     tags:
       name: "report"
       type: "boolean"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.POWERLEVEL.Test_Status"
@@ -1651,6 +1885,7 @@
     tags:
       name: "test_status"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1662,6 +1897,7 @@
     tags:
       name: "acked_frames"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.BATTERY.Battery_Level_1"
@@ -1677,6 +1913,7 @@
     tags:
       name: "wake_up_10_minutes_on_power_on"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1687,6 +1924,7 @@
     tags:
       name: "current_power_mode"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1699,6 +1937,7 @@
     tags:
       name: "temperature_reporting_threshold"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.CONFIGURATION.Humidity_Reporting_Threshold"
@@ -1714,6 +1953,7 @@
     tags:
       name: "set_the_upper_limit_value_of_temperature_sensor"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.CONFIGURATION.Set_the_lower_limit_value_of_temperature_sensor"
@@ -1721,6 +1961,7 @@
     tags:
       name: "set_the_lower_limit_value_of_temperature_sensor"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.CONFIGURATION.Set_the_upper_limit_value_of_humidity_sensor"
@@ -1744,6 +1985,7 @@
     tags:
       name: "set_the_recover_limit_value_of_temperature_sensor"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.CONFIGURATION.Set_the_recover_limit_value_of_humidity_sensor"
@@ -1759,6 +2001,7 @@
     tags:
       name: "temperature_scale"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1769,6 +2012,7 @@
     tags:
       name: "temperature_calibration"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.CONFIGURATION.Humidity_Calibration"
@@ -1776,6 +2020,7 @@
     tags:
       name: "humidity_calibration"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.SENSOR_MULTILEVEL.Air_Temperature_1"
@@ -1783,6 +2028,7 @@
     tags:
       name: "air_temperature_1"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
   - id: "zwave.0.NODE7.SENSOR_MULTILEVEL.Air_Temperature_Units"
@@ -1790,6 +2036,7 @@
     tags:
       name: "air_temperature_units"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1808,6 +2055,7 @@
     tags:
       name: "humidity_units"
       type: "number"
+      unit: ""
       setting: false
       room: "Wohnzimmer"
     states:
@@ -1817,49 +2065,65 @@
     tags:
       name: "ready"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.alive"
     field: "device_info"
     tags:
       name: "alive"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.sleep"
     field: "device_info"
     tags:
       name: "sleep"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.SWITCH_MULTILEVEL.Level_1"
     field: "switch"
     tags:
       name: "level_1"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.SWITCH_MULTILEVEL.Bright_1"
     field: "switch"
     tags:
       name: "bright_1"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.SWITCH_MULTILEVEL.Dim_1"
     field: "switch"
     tags:
       name: "dim_1"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.SWITCH_MULTILEVEL.Ignore_Start_Level"
     field: "switch"
     tags:
       name: "ignore_start_level"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.SWITCH_MULTILEVEL.Start_Level"
     field: "switch"
     tags:
       name: "start_level"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.BATTERY.Battery_Level_1"
     field: "battery"
     tags:
@@ -1867,12 +2131,15 @@
       type: "number"
       unit: "percentage"
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.POWERLEVEL.Powerlevel"
     field: "power"
     tags:
       name: "powerlevel"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
     states:
       0: "Normal"
       1: "-1dB"
@@ -1889,25 +2156,33 @@
     tags:
       name: "timeout"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.POWERLEVEL.Set_Powerlevel"
     field: "power"
     tags:
       name: "set_powerlevel"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.POWERLEVEL.Test_Node"
     field: "power"
     tags:
       name: "test_node"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.POWERLEVEL.Test_Powerlevel"
     field: "power"
     tags:
       name: "test_powerlevel"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
     states:
       0: "Normal"
       1: "-1dB"
@@ -1924,25 +2199,33 @@
     tags:
       name: "frame_count"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.POWERLEVEL.Test"
     field: "power"
     tags:
       name: "test"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.POWERLEVEL.Report"
     field: "power"
     tags:
       name: "report"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.POWERLEVEL.Test_Status"
     field: "power"
     tags:
       name: "test_status"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
     states:
       0: "Failed"
       1: "Success"
@@ -1952,25 +2235,33 @@
     tags:
       name: "acked_frames"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.CONFIGURATION.Temperature_Report_Threshold"
     field: "temperature"
     tags:
       name: "temperature_report_threshold"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.CONFIGURATION.Valve_Opening_Percentage_Report"
     field: "meta_config"
     tags:
       name: "valve_opening_percentage_report"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.CONFIGURATION.Open_Window_Detection"
     field: "meta_config"
     tags:
       name: "open_window_detection"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
     states:
       0: "Disabled"
       1: "Low sensibility"
@@ -1981,19 +2272,25 @@
     tags:
       name: "measured_temperature_offset"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.SENSOR_MULTILEVEL.Air_Temperature_1"
     field: "temperature"
     tags:
       name: "air_temperature_1"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE8.SENSOR_MULTILEVEL.Air_Temperature_Units"
     field: "temperature"
     tags:
       name: "air_temperature_units"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
     states:
       0: "Celsius"
   - id: "zwave.0.NODE8.ALARM.Power_Management_1"
@@ -2001,7 +2298,9 @@
     tags:
       name: "power_management_1"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
     states:
       0: "Clear"
       1: "Replace Battery Soon"
@@ -2011,46 +2310,62 @@
     tags:
       name: "valve_opening_1"
       type: "number"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE5.ready"
     field: "device_info"
     tags:
       name: "ready"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE5.alive"
     field: "device_info"
     tags:
       name: "alive"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE5.sleep"
     field: "device_info"
     tags:
       name: "sleep"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE9.ready"
     field: "device_info"
     tags:
       name: "ready"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE9.alive"
     field: "device_info"
     tags:
       name: "alive"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "zwave.0.NODE9.sleep"
     field: "device_info"
     tags:
       name: "sleep"
       type: "boolean"
+      unit: ""
       setting: false
+      room: "-"
   - id: "hs100.0.192_168_0_146.power"
     field: "power"
     tags:
       name: "power"
       type: "string"
+      unit: ""
       setting: false
+      room: "Keller"

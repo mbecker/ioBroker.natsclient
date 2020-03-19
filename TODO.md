@@ -1,0 +1,1 @@
+[]- The type "mixed" for tado bateryState does not have any states tado.0.466027.Rooms.1.devices.VA1661671168.info.batteryState

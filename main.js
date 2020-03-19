@@ -317,30 +317,44 @@ class Natsclient extends utils.Adapter {
             obj2[k]["tags"] = {};
             obj2[k]["tags"]["name"] = splitted[splitted.length - 1];
             obj2[k]["tags"]["type"] = obj[k]["common"]["type"];
+            obj2[k]["tags"]["unit"] = "";
+            obj2[k]["tags"]["setting"] = false;
+            obj2[k]["tags"]["room"] = "-";
+            
 
             // An object like "switch.power" has maybe states like "on", "off"
             // These values could be later used as true/false
             // Chekc that that object has these states and the set the type to "onoff"; the original type is maybe "mixed"
 
-
+            const addtionalTags = {};
             if (k.toLowerCase().includes("pushnotifications")) {
-              obj2[k]["tags"]["device_setting"] = "pushnotifications";
+              
+              addtionalTags["shoulduse"] = true;
+              addtionalTags["device_setting"] = "pushnotifications";
 
-              obj2[k]["tags"]["pushnotifications"] = splitted[splitted.length - 1];
-              obj2[k]["tags"]["device"] = splitted[4];
+              addtionalTags["pushnotifications"] = splitted[splitted.length - 1];
+              addtionalTags["device"] = splitted[4];
             }
 
-
-
-
             if (role === "openwindowdetection") {
-              obj2[k]["tags"]["openwindowdetection"] = splitted[splitted.length - 1];
+              if(typeof obj2[k]["additionaltags"] === "undefined") obj2[k]["additionaltags"] = {};
+              addtionalTags["shoulduse"] = true;
+              addtionalTags["openwindowdetection"] = splitted[splitted.length - 1];
               if (splitted[splitted.length - 1] === "enabled") obj2[k]["tags"]["type"] = "boolean";
             }
 
             if (role === "openWindow") {
-              obj2[k]["tags"]["openWindow"] = splitted[splitted.length - 1];
+              
+              addtionalTags["openwindow"] = splitted[splitted.length - 1].toLowerCase();
             }
+
+            if(Object.keys(addtionalTags).length > 0) {
+              if(typeof obj2[k]["additionaltags"] === "undefined") obj2[k]["additionaltags"] = {};
+              obj2[k]["additionaltags"] = addtionalTags;
+            }
+            
+
+
 
             if (k.toLowerCase().includes("detectedtime")) obj2[k]["tags"]["type"] = "datetime";
             if (k.toLowerCase().includes("inseconds")) obj2[k]["tags"]["type"] = "number";

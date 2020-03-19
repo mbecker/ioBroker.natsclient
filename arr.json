@@ -5,6 +5,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Arbeitszimmer"
         }
@@ -15,6 +16,7 @@
         "tags": {
             "name": "dark",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "External"
         }
@@ -25,6 +27,7 @@
         "tags": {
             "name": "daylight",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "External"
         }
@@ -35,6 +38,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -45,6 +49,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Küche"
         }
@@ -66,6 +71,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -76,6 +82,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -97,6 +104,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -107,6 +115,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -117,6 +126,7 @@
         "tags": {
             "name": "pressure",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -127,6 +137,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -137,6 +148,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -158,6 +170,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -168,6 +181,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -189,6 +203,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -199,6 +214,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -209,6 +225,7 @@
         "tags": {
             "name": "pressure",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -219,6 +236,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -229,6 +247,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -250,6 +269,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
         }
@@ -260,6 +280,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
         }
@@ -281,6 +302,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
         }
@@ -291,6 +313,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
         }
@@ -301,6 +324,7 @@
         "tags": {
             "name": "pressure",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
         }
@@ -311,6 +335,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
         }
@@ -321,6 +346,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
         }
@@ -331,6 +357,7 @@
         "tags": {
             "name": "open",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Eingangsbereich"
         }
@@ -341,6 +368,7 @@
         "tags": {
             "name": "battery",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Eingangsbereich"
         }
@@ -351,6 +379,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Eingangsbereich"
         }
@@ -372,6 +401,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Bad"
         }
@@ -382,7 +412,9 @@
         "tags": {
             "name": "power",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -391,7 +423,9 @@
         "tags": {
             "name": "battery",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -400,7 +434,9 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -410,7 +446,8 @@
             "name": "temperature",
             "type": "number",
             "unit": "celcius",
-            "setting": false
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -419,7 +456,9 @@
         "tags": {
             "name": "power",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -428,7 +467,9 @@
         "tags": {
             "name": "battery",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -437,7 +478,9 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -447,7 +490,8 @@
             "name": "temperature",
             "type": "number",
             "unit": "celcius",
-            "setting": false
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -478,6 +522,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Bad"
         }
@@ -488,6 +533,7 @@
         "tags": {
             "name": "buttonpressed",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Bad"
         }
@@ -498,6 +544,7 @@
         "tags": {
             "name": "bri",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -508,6 +555,7 @@
         "tags": {
             "name": "bri",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Eingangsbereich"
         }
@@ -518,6 +566,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Eingangsbereich"
         }
@@ -528,6 +577,7 @@
         "tags": {
             "name": "dark",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -549,6 +599,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -570,6 +621,7 @@
         "tags": {
             "name": "tholddark",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -580,6 +632,7 @@
         "tags": {
             "name": "daylight",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -601,6 +654,7 @@
         "tags": {
             "name": "lightlevel",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -611,6 +665,7 @@
         "tags": {
             "name": "lux",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -643,6 +698,7 @@
         "tags": {
             "name": "duration",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -653,6 +709,7 @@
         "tags": {
             "name": "reachable",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -674,6 +731,7 @@
         "tags": {
             "name": "presence",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -684,7 +742,9 @@
         "tags": {
             "name": "connection",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -704,10 +764,15 @@
         "tags": {
             "name": "openwindowreminder",
             "type": "boolean",
+            "unit": "",
+            "setting": true,
+            "room": "-"
+        },
+        "additionaltags": {
+            "shoulduse": true,
             "device_setting": "pushnotifications",
             "pushnotifications": "openwindowreminder",
-            "device": "1427557",
-            "setting": true
+            "device": "1427557"
         }
     },
     {
@@ -716,10 +781,15 @@
         "tags": {
             "name": "openwindowreminder",
             "type": "boolean",
+            "unit": "",
+            "setting": true,
+            "room": "-"
+        },
+        "additionaltags": {
+            "shoulduse": true,
             "device_setting": "pushnotifications",
             "pushnotifications": "openwindowreminder",
-            "device": "1428071",
-            "setting": true
+            "device": "1428071"
         }
     },
     {
@@ -728,6 +798,7 @@
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "1"
         }
@@ -738,6 +809,7 @@
         "tags": {
             "name": "batterystate",
             "type": "mixed",
+            "unit": "",
             "setting": false,
             "room": "1"
         }
@@ -748,9 +820,13 @@
         "tags": {
             "name": "supported",
             "type": "boolean",
-            "openwindowdetection": "supported",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "supported"
         }
     },
     {
@@ -759,9 +835,13 @@
         "tags": {
             "name": "enabled",
             "type": "boolean",
-            "openwindowdetection": "enabled",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "enabled"
         }
     },
     {
@@ -770,9 +850,13 @@
         "tags": {
             "name": "timeoutinseconds",
             "type": "number",
-            "openwindowdetection": "timeoutinseconds",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "timeoutinseconds"
         }
     },
     {
@@ -781,6 +865,7 @@
         "tags": {
             "name": "power",
             "type": "onoff",
+            "unit": "",
             "setting": true,
             "room": "Esszimmer"
         },
@@ -850,6 +935,7 @@
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "2"
         }
@@ -860,6 +946,7 @@
         "tags": {
             "name": "batterystate",
             "type": "mixed",
+            "unit": "",
             "setting": false,
             "room": "2"
         }
@@ -870,9 +957,13 @@
         "tags": {
             "name": "supported",
             "type": "boolean",
-            "openwindowdetection": "supported",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "supported"
         }
     },
     {
@@ -881,9 +972,13 @@
         "tags": {
             "name": "enabled",
             "type": "boolean",
-            "openwindowdetection": "enabled",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "enabled"
         }
     },
     {
@@ -892,9 +987,13 @@
         "tags": {
             "name": "timeoutinseconds",
             "type": "number",
-            "openwindowdetection": "timeoutinseconds",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "timeoutinseconds"
         }
     },
     {
@@ -903,6 +1002,7 @@
         "tags": {
             "name": "power",
             "type": "onoff",
+            "unit": "",
             "setting": true,
             "room": "Wohnzimmer"
         },
@@ -972,6 +1072,7 @@
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "3"
         }
@@ -982,6 +1083,7 @@
         "tags": {
             "name": "batterystate",
             "type": "mixed",
+            "unit": "",
             "setting": false,
             "room": "3"
         }
@@ -992,9 +1094,13 @@
         "tags": {
             "name": "supported",
             "type": "boolean",
-            "openwindowdetection": "supported",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "supported"
         }
     },
     {
@@ -1003,9 +1109,13 @@
         "tags": {
             "name": "enabled",
             "type": "boolean",
-            "openwindowdetection": "enabled",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "enabled"
         }
     },
     {
@@ -1014,9 +1124,13 @@
         "tags": {
             "name": "timeoutinseconds",
             "type": "number",
-            "openwindowdetection": "timeoutinseconds",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "timeoutinseconds"
         }
     },
     {
@@ -1025,6 +1139,7 @@
         "tags": {
             "name": "power",
             "type": "onoff",
+            "unit": "",
             "setting": true,
             "room": "Schlafzimmer"
         },
@@ -1094,6 +1209,7 @@
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "4"
         }
@@ -1104,6 +1220,7 @@
         "tags": {
             "name": "batterystate",
             "type": "mixed",
+            "unit": "",
             "setting": false,
             "room": "4"
         }
@@ -1114,9 +1231,13 @@
         "tags": {
             "name": "supported",
             "type": "boolean",
-            "openwindowdetection": "supported",
+            "unit": "",
             "setting": false,
             "room": "Flur"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "supported"
         }
     },
     {
@@ -1125,9 +1246,13 @@
         "tags": {
             "name": "enabled",
             "type": "boolean",
-            "openwindowdetection": "enabled",
+            "unit": "",
             "setting": false,
             "room": "Flur"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "enabled"
         }
     },
     {
@@ -1136,9 +1261,13 @@
         "tags": {
             "name": "timeoutinseconds",
             "type": "number",
-            "openwindowdetection": "timeoutinseconds",
+            "unit": "",
             "setting": false,
             "room": "Flur"
+        },
+        "additionaltags": {
+            "shoulduse": true,
+            "openwindowdetection": "timeoutinseconds"
         }
     },
     {
@@ -1147,6 +1276,7 @@
         "tags": {
             "name": "power",
             "type": "onoff",
+            "unit": "",
             "setting": true,
             "room": "Flur"
         },
@@ -1216,10 +1346,15 @@
         "tags": {
             "name": "openwindowreminder",
             "type": "boolean",
+            "unit": "",
+            "setting": true,
+            "room": "-"
+        },
+        "additionaltags": {
+            "shoulduse": true,
             "device_setting": "pushnotifications",
             "pushnotifications": "openwindowreminder",
-            "device": "1430032",
-            "setting": true
+            "device": "1430032"
         }
     },
     {
@@ -1228,9 +1363,12 @@
         "tags": {
             "name": "detectedtime",
             "type": "datetime",
-            "openWindow": "detectedtime",
+            "unit": "",
             "setting": false,
             "room": "Flur"
+        },
+        "additionaltags": {
+            "openwindow": "detectedtime"
         }
     },
     {
@@ -1239,9 +1377,12 @@
         "tags": {
             "name": "durationinseconds",
             "type": "number",
-            "openWindow": "durationinseconds",
+            "unit": "",
             "setting": false,
             "room": "Flur"
+        },
+        "additionaltags": {
+            "openwindow": "durationinseconds"
         }
     },
     {
@@ -1250,9 +1391,12 @@
         "tags": {
             "name": "expiry",
             "type": "number",
-            "openWindow": "expiry",
+            "unit": "",
             "setting": false,
             "room": "Flur"
+        },
+        "additionaltags": {
+            "openwindow": "expiry"
         }
     },
     {
@@ -1261,9 +1405,12 @@
         "tags": {
             "name": "remainingtimeinseconds",
             "type": "number",
-            "openWindow": "remainingtimeinseconds",
+            "unit": "",
             "setting": false,
             "room": "Flur"
+        },
+        "additionaltags": {
+            "openwindow": "remainingtimeinseconds"
         }
     },
     {
@@ -1272,9 +1419,12 @@
         "tags": {
             "name": "detectedtime",
             "type": "datetime",
-            "openWindow": "detectedtime",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
+        },
+        "additionaltags": {
+            "openwindow": "detectedtime"
         }
     },
     {
@@ -1283,9 +1433,12 @@
         "tags": {
             "name": "durationinseconds",
             "type": "number",
-            "openWindow": "durationinseconds",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
+        },
+        "additionaltags": {
+            "openwindow": "durationinseconds"
         }
     },
     {
@@ -1294,9 +1447,12 @@
         "tags": {
             "name": "expiry",
             "type": "number",
-            "openWindow": "expiry",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
+        },
+        "additionaltags": {
+            "openwindow": "expiry"
         }
     },
     {
@@ -1305,9 +1461,12 @@
         "tags": {
             "name": "remainingtimeinseconds",
             "type": "number",
-            "openWindow": "remainingtimeinseconds",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
+        },
+        "additionaltags": {
+            "openwindow": "remainingtimeinseconds"
         }
     },
     {
@@ -1316,9 +1475,12 @@
         "tags": {
             "name": "detectedtime",
             "type": "datetime",
-            "openWindow": "detectedtime",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "detectedtime"
         }
     },
     {
@@ -1327,9 +1489,12 @@
         "tags": {
             "name": "durationinseconds",
             "type": "number",
-            "openWindow": "durationinseconds",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "durationinseconds"
         }
     },
     {
@@ -1338,9 +1503,12 @@
         "tags": {
             "name": "expiry",
             "type": "number",
-            "openWindow": "expiry",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "expiry"
         }
     },
     {
@@ -1349,9 +1517,12 @@
         "tags": {
             "name": "remainingtimeinseconds",
             "type": "number",
-            "openWindow": "remainingtimeinseconds",
+            "unit": "",
             "setting": false,
             "room": "Schlafzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "remainingtimeinseconds"
         }
     },
     {
@@ -1360,9 +1531,12 @@
         "tags": {
             "name": "detectedtime",
             "type": "datetime",
-            "openWindow": "detectedtime",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "detectedtime"
         }
     },
     {
@@ -1371,9 +1545,12 @@
         "tags": {
             "name": "durationinseconds",
             "type": "number",
-            "openWindow": "durationinseconds",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "durationinseconds"
         }
     },
     {
@@ -1382,9 +1559,12 @@
         "tags": {
             "name": "expiry",
             "type": "number",
-            "openWindow": "expiry",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "expiry"
         }
     },
     {
@@ -1393,9 +1573,12 @@
         "tags": {
             "name": "remainingtimeinseconds",
             "type": "number",
-            "openWindow": "remainingtimeinseconds",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
+        },
+        "additionaltags": {
+            "openwindow": "remainingtimeinseconds"
         }
     },
     {
@@ -1404,7 +1587,9 @@
         "tags": {
             "name": "connection",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -1413,6 +1598,7 @@
         "tags": {
             "name": "switch",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Bad"
         }
@@ -1423,6 +1609,7 @@
         "tags": {
             "name": "online",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Bad"
         }
@@ -1433,6 +1620,7 @@
         "tags": {
             "name": "switch",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -1443,6 +1631,7 @@
         "tags": {
             "name": "online",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Flur"
         }
@@ -1453,7 +1642,9 @@
         "tags": {
             "name": "connection",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -1462,7 +1653,9 @@
         "tags": {
             "name": "ready",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -1471,7 +1664,9 @@
         "tags": {
             "name": "alive",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -1480,7 +1675,9 @@
         "tags": {
             "name": "sleep",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -1489,6 +1686,7 @@
         "tags": {
             "name": "ready",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1499,6 +1697,7 @@
         "tags": {
             "name": "alive",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1509,6 +1708,7 @@
         "tags": {
             "name": "sleep",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1519,6 +1719,7 @@
         "tags": {
             "name": "power_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1529,6 +1730,7 @@
         "tags": {
             "name": "power_units",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1542,6 +1744,7 @@
         "tags": {
             "name": "electric_-_kwh_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1552,6 +1755,7 @@
         "tags": {
             "name": "electric_-_w_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1562,6 +1766,7 @@
         "tags": {
             "name": "power_management_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1577,6 +1782,7 @@
         "tags": {
             "name": "powerlevel",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1599,6 +1805,7 @@
         "tags": {
             "name": "timeout",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1609,6 +1816,7 @@
         "tags": {
             "name": "switch_1",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1619,6 +1827,7 @@
         "tags": {
             "name": "switch_all",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1635,6 +1844,7 @@
         "tags": {
             "name": "remember_device_status_after_a_power_failure",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1649,6 +1859,7 @@
         "tags": {
             "name": "overload_safety_switch",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1659,6 +1870,7 @@
         "tags": {
             "name": "high_priority_power_report",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1669,6 +1881,7 @@
         "tags": {
             "name": "standard_power_load_reporting",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1679,6 +1892,7 @@
         "tags": {
             "name": "power_reporting_interval",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1689,6 +1903,7 @@
         "tags": {
             "name": "power_and_energy_periodic_reports",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1699,6 +1914,7 @@
         "tags": {
             "name": "down_value-_on/off(power)_association_group(3)",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1709,6 +1925,7 @@
         "tags": {
             "name": "up_value-_on/off(power)_association_group(3)",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1719,6 +1936,7 @@
         "tags": {
             "name": "the_response_after_exceeding_defined_power_values",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1737,6 +1955,7 @@
         "tags": {
             "name": "switch_on_value_-_on/off_association_groups",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1747,6 +1966,7 @@
         "tags": {
             "name": "power_load_which_when_exceeded_makes_the_led_ring_flash_violet",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1757,6 +1977,7 @@
         "tags": {
             "name": "set_powerlevel",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1767,6 +1988,7 @@
         "tags": {
             "name": "test_node",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1777,6 +1999,7 @@
         "tags": {
             "name": "test_powerlevel",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1799,6 +2022,7 @@
         "tags": {
             "name": "frame_count",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1809,6 +2033,7 @@
         "tags": {
             "name": "test",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1819,6 +2044,7 @@
         "tags": {
             "name": "report",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1829,6 +2055,7 @@
         "tags": {
             "name": "test_status",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         },
@@ -1844,6 +2071,7 @@
         "tags": {
             "name": "acked_frames",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "TV"
         }
@@ -1854,6 +2082,7 @@
         "tags": {
             "name": "ready",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1864,6 +2093,7 @@
         "tags": {
             "name": "alive",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1874,6 +2104,7 @@
         "tags": {
             "name": "sleep",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1884,6 +2115,7 @@
         "tags": {
             "name": "level_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1894,6 +2126,7 @@
         "tags": {
             "name": "bright_1",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1904,6 +2137,7 @@
         "tags": {
             "name": "dim_1",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1914,6 +2148,7 @@
         "tags": {
             "name": "ignore_start_level",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1924,6 +2159,7 @@
         "tags": {
             "name": "start_level",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1945,6 +2181,7 @@
         "tags": {
             "name": "powerlevel",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         },
@@ -1967,6 +2204,7 @@
         "tags": {
             "name": "timeout",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1977,6 +2215,7 @@
         "tags": {
             "name": "set_powerlevel",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1987,6 +2226,7 @@
         "tags": {
             "name": "test_node",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -1997,6 +2237,7 @@
         "tags": {
             "name": "test_powerlevel",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         },
@@ -2019,6 +2260,7 @@
         "tags": {
             "name": "frame_count",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2029,6 +2271,7 @@
         "tags": {
             "name": "test",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2039,6 +2282,7 @@
         "tags": {
             "name": "report",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2049,6 +2293,7 @@
         "tags": {
             "name": "test_status",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         },
@@ -2064,6 +2309,7 @@
         "tags": {
             "name": "acked_frames",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2074,6 +2320,7 @@
         "tags": {
             "name": "temperature_report_threshold",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2084,6 +2331,7 @@
         "tags": {
             "name": "valve_opening_percentage_report",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2094,6 +2342,7 @@
         "tags": {
             "name": "open_window_detection",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         },
@@ -2110,6 +2359,7 @@
         "tags": {
             "name": "measured_temperature_offset",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2120,6 +2370,7 @@
         "tags": {
             "name": "air_temperature_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2130,6 +2381,7 @@
         "tags": {
             "name": "air_temperature_units",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         },
@@ -2143,6 +2395,7 @@
         "tags": {
             "name": "power_management_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         },
@@ -2158,6 +2411,7 @@
         "tags": {
             "name": "valve_opening_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Esszimmer"
         }
@@ -2168,6 +2422,7 @@
         "tags": {
             "name": "ready",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2178,6 +2433,7 @@
         "tags": {
             "name": "alive",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2188,6 +2444,7 @@
         "tags": {
             "name": "sleep",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2198,6 +2455,7 @@
         "tags": {
             "name": "powerlevel",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2220,6 +2478,7 @@
         "tags": {
             "name": "timeout",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2230,6 +2489,7 @@
         "tags": {
             "name": "set_powerlevel",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2240,6 +2500,7 @@
         "tags": {
             "name": "test_node",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2250,6 +2511,7 @@
         "tags": {
             "name": "test_powerlevel",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2272,6 +2534,7 @@
         "tags": {
             "name": "frame_count",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2282,6 +2545,7 @@
         "tags": {
             "name": "test",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2292,6 +2556,7 @@
         "tags": {
             "name": "report",
             "type": "boolean",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2302,6 +2567,7 @@
         "tags": {
             "name": "test_status",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2317,6 +2583,7 @@
         "tags": {
             "name": "acked_frames",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2338,6 +2605,7 @@
         "tags": {
             "name": "wake_up_10_minutes_on_power_on",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2352,6 +2620,7 @@
         "tags": {
             "name": "current_power_mode",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2368,6 +2637,7 @@
         "tags": {
             "name": "temperature_reporting_threshold",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2389,6 +2659,7 @@
         "tags": {
             "name": "set_the_upper_limit_value_of_temperature_sensor",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2399,6 +2670,7 @@
         "tags": {
             "name": "set_the_lower_limit_value_of_temperature_sensor",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2431,6 +2703,7 @@
         "tags": {
             "name": "set_the_recover_limit_value_of_temperature_sensor",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2452,6 +2725,7 @@
         "tags": {
             "name": "temperature_scale",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2466,6 +2740,7 @@
         "tags": {
             "name": "temperature_calibration",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2476,6 +2751,7 @@
         "tags": {
             "name": "humidity_calibration",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2486,6 +2762,7 @@
         "tags": {
             "name": "air_temperature_1",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         }
@@ -2496,6 +2773,7 @@
         "tags": {
             "name": "air_temperature_units",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2521,6 +2799,7 @@
         "tags": {
             "name": "humidity_units",
             "type": "number",
+            "unit": "",
             "setting": false,
             "room": "Wohnzimmer"
         },
@@ -2534,7 +2813,9 @@
         "tags": {
             "name": "ready",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2543,7 +2824,9 @@
         "tags": {
             "name": "alive",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2552,7 +2835,9 @@
         "tags": {
             "name": "sleep",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2561,7 +2846,9 @@
         "tags": {
             "name": "level_1",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2570,7 +2857,9 @@
         "tags": {
             "name": "bright_1",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2579,7 +2868,9 @@
         "tags": {
             "name": "dim_1",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2588,7 +2879,9 @@
         "tags": {
             "name": "ignore_start_level",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2597,7 +2890,9 @@
         "tags": {
             "name": "start_level",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2607,7 +2902,8 @@
             "name": "battery_level_1",
             "type": "number",
             "unit": "percentage",
-            "setting": false
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2616,7 +2912,9 @@
         "tags": {
             "name": "powerlevel",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         },
         "states": {
             "0": "Normal",
@@ -2637,7 +2935,9 @@
         "tags": {
             "name": "timeout",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2646,7 +2946,9 @@
         "tags": {
             "name": "set_powerlevel",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2655,7 +2957,9 @@
         "tags": {
             "name": "test_node",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2664,7 +2968,9 @@
         "tags": {
             "name": "test_powerlevel",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         },
         "states": {
             "0": "Normal",
@@ -2685,7 +2991,9 @@
         "tags": {
             "name": "frame_count",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2694,7 +3002,9 @@
         "tags": {
             "name": "test",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2703,7 +3013,9 @@
         "tags": {
             "name": "report",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2712,7 +3024,9 @@
         "tags": {
             "name": "test_status",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         },
         "states": {
             "0": "Failed",
@@ -2726,7 +3040,9 @@
         "tags": {
             "name": "acked_frames",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2735,7 +3051,9 @@
         "tags": {
             "name": "temperature_report_threshold",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2744,7 +3062,9 @@
         "tags": {
             "name": "valve_opening_percentage_report",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2753,7 +3073,9 @@
         "tags": {
             "name": "open_window_detection",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         },
         "states": {
             "0": "Disabled",
@@ -2768,7 +3090,9 @@
         "tags": {
             "name": "measured_temperature_offset",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2777,7 +3101,9 @@
         "tags": {
             "name": "air_temperature_1",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2786,7 +3112,9 @@
         "tags": {
             "name": "air_temperature_units",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         },
         "states": {
             "0": "Celsius"
@@ -2798,7 +3126,9 @@
         "tags": {
             "name": "power_management_1",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         },
         "states": {
             "0": "Clear",
@@ -2812,7 +3142,9 @@
         "tags": {
             "name": "valve_opening_1",
             "type": "number",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2821,7 +3153,9 @@
         "tags": {
             "name": "ready",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2830,7 +3164,9 @@
         "tags": {
             "name": "alive",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2839,7 +3175,9 @@
         "tags": {
             "name": "sleep",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2848,7 +3186,9 @@
         "tags": {
             "name": "ready",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2857,7 +3197,9 @@
         "tags": {
             "name": "alive",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2866,7 +3208,9 @@
         "tags": {
             "name": "sleep",
             "type": "boolean",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "-"
         }
     },
     {
@@ -2875,7 +3219,9 @@
         "tags": {
             "name": "power",
             "type": "string",
-            "setting": false
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
         }
     }
 ]
