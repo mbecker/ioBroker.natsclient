@@ -807,7 +807,7 @@
                                 "info": {
                                     "connectionstate": {
                                         "id": "tado.0.466027.Rooms.1.devices.VA1661671168.info.connectionState",
-                                        "field": "connected",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "connectionstate",
                                             "type": "boolean",
@@ -817,7 +817,7 @@
                                     },
                                     "batterystate": {
                                         "id": "tado.0.466027.Rooms.1.devices.VA1661671168.info.batteryState",
-                                        "field": "lowbat ",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "batterystate",
                                             "type": "mixed",
@@ -989,7 +989,7 @@
                                 "info": {
                                     "connectionstate": {
                                         "id": "tado.0.466027.Rooms.2.devices.VA0090446080.info.connectionState",
-                                        "field": "connected",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "connectionstate",
                                             "type": "boolean",
@@ -999,7 +999,7 @@
                                     },
                                     "batterystate": {
                                         "id": "tado.0.466027.Rooms.2.devices.VA0090446080.info.batteryState",
-                                        "field": "lowbat ",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "batterystate",
                                             "type": "mixed",
@@ -1117,6 +1117,52 @@
                                     "room": "Wohnzimmer"
                                 }
                             }
+                        },
+                        "openwindow": {
+                            "detectedtime": {
+                                "id": "tado.0.466027.Rooms.2.openWindow.detectedTime",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "detectedtime",
+                                    "type": "datetime",
+                                    "openWindow": "detectedtime",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            },
+                            "durationinseconds": {
+                                "id": "tado.0.466027.Rooms.2.openWindow.durationInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "durationinseconds",
+                                    "type": "number",
+                                    "openWindow": "durationinseconds",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            },
+                            "expiry": {
+                                "id": "tado.0.466027.Rooms.2.openWindow.expiry",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "expiry",
+                                    "type": "number",
+                                    "openWindow": "expiry",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            },
+                            "remainingtimeinseconds": {
+                                "id": "tado.0.466027.Rooms.2.openWindow.remainingTimeInSeconds",
+                                "field": "openWindow",
+                                "tags": {
+                                    "name": "remainingtimeinseconds",
+                                    "type": "number",
+                                    "openWindow": "remainingtimeinseconds",
+                                    "setting": false,
+                                    "room": "Wohnzimmer"
+                                }
+                            }
                         }
                     },
                     "3": {
@@ -1125,7 +1171,7 @@
                                 "info": {
                                     "connectionstate": {
                                         "id": "tado.0.466027.Rooms.3.devices.VA0023337216.info.connectionState",
-                                        "field": "connected",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "connectionstate",
                                             "type": "boolean",
@@ -1135,7 +1181,7 @@
                                     },
                                     "batterystate": {
                                         "id": "tado.0.466027.Rooms.3.devices.VA0023337216.info.batteryState",
-                                        "field": "lowbat ",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "batterystate",
                                             "type": "mixed",
@@ -1307,7 +1353,7 @@
                                 "info": {
                                     "connectionstate": {
                                         "id": "tado.0.466027.Rooms.4.devices.VA2254838016.info.connectionState",
-                                        "field": "connected",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "connectionstate",
                                             "type": "boolean",
@@ -1317,7 +1363,7 @@
                                     },
                                     "batterystate": {
                                         "id": "tado.0.466027.Rooms.4.devices.VA2254838016.info.batteryState",
-                                        "field": "lowbat ",
+                                        "field": "device_info",
                                         "tags": {
                                             "name": "batterystate",
                                             "type": "mixed",
@@ -1488,7 +1534,7 @@
             "info": {
                 "connection": {
                     "id": "tado.0.info.connection",
-                    "field": "connected",
+                    "field": "device_info",
                     "tags": {
                         "name": "connection",
                         "type": "boolean",
@@ -1503,7 +1549,7 @@
             "info": {
                 "connection": {
                     "id": "shelly.0.info.connection",
-                    "field": "connected",
+                    "field": "device_info",
                     "tags": {
                         "name": "connection",
                         "type": "boolean",
@@ -1566,7 +1612,7 @@
             "info": {
                 "connection": {
                     "id": "zwave.0.info.connection",
-                    "field": "connected",
+                    "field": "device_info",
                     "tags": {
                         "name": "connection",
                         "type": "boolean",
@@ -1577,7 +1623,7 @@
             "node1": {
                 "ready": {
                     "id": "zwave.0.NODE1.ready",
-                    "field": "ready",
+                    "field": "device_info",
                     "tags": {
                         "name": "ready",
                         "type": "boolean",
@@ -1586,7 +1632,7 @@
                 },
                 "alive": {
                     "id": "zwave.0.NODE1.alive",
-                    "field": "alive",
+                    "field": "device_info",
                     "tags": {
                         "name": "alive",
                         "type": "boolean",
@@ -1595,7 +1641,7 @@
                 },
                 "sleep": {
                     "id": "zwave.0.NODE1.sleep",
-                    "field": "sleep",
+                    "field": "device_info",
                     "tags": {
                         "name": "sleep",
                         "type": "boolean",
@@ -1606,7 +1652,7 @@
             "node4": {
                 "ready": {
                     "id": "zwave.0.NODE4.ready",
-                    "field": "ready",
+                    "field": "device_info",
                     "tags": {
                         "name": "ready",
                         "type": "boolean",
@@ -1616,7 +1662,7 @@
                 },
                 "alive": {
                     "id": "zwave.0.NODE4.alive",
-                    "field": "alive",
+                    "field": "device_info",
                     "tags": {
                         "name": "alive",
                         "type": "boolean",
@@ -1626,7 +1672,7 @@
                 },
                 "sleep": {
                     "id": "zwave.0.NODE4.sleep",
-                    "field": "sleep",
+                    "field": "device_info",
                     "tags": {
                         "name": "sleep",
                         "type": "boolean",
@@ -1863,7 +1909,7 @@
             "node6": {
                 "ready": {
                     "id": "zwave.0.NODE6.ready",
-                    "field": "ready",
+                    "field": "device_info",
                     "tags": {
                         "name": "ready",
                         "type": "boolean",
@@ -1873,7 +1919,7 @@
                 },
                 "alive": {
                     "id": "zwave.0.NODE6.alive",
-                    "field": "alive",
+                    "field": "device_info",
                     "tags": {
                         "name": "alive",
                         "type": "boolean",
@@ -1883,7 +1929,7 @@
                 },
                 "sleep": {
                     "id": "zwave.0.NODE6.sleep",
-                    "field": "sleep",
+                    "field": "device_info",
                     "tags": {
                         "name": "sleep",
                         "type": "boolean",
@@ -2143,29 +2189,32 @@
             "node7": {
                 "ready": {
                     "id": "zwave.0.NODE7.ready",
-                    "field": "ready",
+                    "field": "device_info",
                     "tags": {
                         "name": "ready",
                         "type": "boolean",
-                        "setting": false
+                        "setting": false,
+                        "room": "Wohnzimmer"
                     }
                 },
                 "alive": {
                     "id": "zwave.0.NODE7.alive",
-                    "field": "alive",
+                    "field": "device_info",
                     "tags": {
                         "name": "alive",
                         "type": "boolean",
-                        "setting": false
+                        "setting": false,
+                        "room": "Wohnzimmer"
                     }
                 },
                 "sleep": {
                     "id": "zwave.0.NODE7.sleep",
-                    "field": "sleep",
+                    "field": "device_info",
                     "tags": {
                         "name": "sleep",
                         "type": "boolean",
-                        "setting": false
+                        "setting": false,
+                        "room": "Wohnzimmer"
                     }
                 },
                 "powerlevel": {
@@ -2175,7 +2224,8 @@
                         "tags": {
                             "name": "powerlevel",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         },
                         "states": {
                             "0": "Normal",
@@ -2196,7 +2246,8 @@
                         "tags": {
                             "name": "timeout",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "set_powerlevel": {
@@ -2205,7 +2256,8 @@
                         "tags": {
                             "name": "set_powerlevel",
                             "type": "boolean",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "test_node": {
@@ -2214,7 +2266,8 @@
                         "tags": {
                             "name": "test_node",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "test_powerlevel": {
@@ -2223,7 +2276,8 @@
                         "tags": {
                             "name": "test_powerlevel",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         },
                         "states": {
                             "0": "Normal",
@@ -2244,7 +2298,8 @@
                         "tags": {
                             "name": "frame_count",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "test": {
@@ -2253,7 +2308,8 @@
                         "tags": {
                             "name": "test",
                             "type": "boolean",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "report": {
@@ -2262,7 +2318,8 @@
                         "tags": {
                             "name": "report",
                             "type": "boolean",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "test_status": {
@@ -2271,7 +2328,8 @@
                         "tags": {
                             "name": "test_status",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         },
                         "states": {
                             "0": "Failed",
@@ -2285,7 +2343,8 @@
                         "tags": {
                             "name": "acked_frames",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     }
                 },
@@ -2297,7 +2356,8 @@
                             "name": "battery_level_1",
                             "type": "number",
                             "unit": "percentage",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     }
                 },
@@ -2308,7 +2368,8 @@
                         "tags": {
                             "name": "air_temperature_1",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "air_temperature_units": {
@@ -2317,7 +2378,8 @@
                         "tags": {
                             "name": "air_temperature_units",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         },
                         "states": {
                             "0": "Celsius",
@@ -2331,7 +2393,8 @@
                             "name": "humidity_1",
                             "type": "number",
                             "unit": "percentage",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         }
                     },
                     "humidity_units": {
@@ -2340,7 +2403,8 @@
                         "tags": {
                             "name": "humidity_units",
                             "type": "number",
-                            "setting": false
+                            "setting": false,
+                            "room": "Wohnzimmer"
                         },
                         "states": {
                             "0": "Percent"
@@ -2351,7 +2415,7 @@
             "node8": {
                 "ready": {
                     "id": "zwave.0.NODE8.ready",
-                    "field": "ready",
+                    "field": "device_info",
                     "tags": {
                         "name": "ready",
                         "type": "boolean",
@@ -2360,7 +2424,7 @@
                 },
                 "alive": {
                     "id": "zwave.0.NODE8.alive",
-                    "field": "alive",
+                    "field": "device_info",
                     "tags": {
                         "name": "alive",
                         "type": "boolean",
@@ -2369,7 +2433,7 @@
                 },
                 "sleep": {
                     "id": "zwave.0.NODE8.sleep",
-                    "field": "sleep",
+                    "field": "device_info",
                     "tags": {
                         "name": "sleep",
                         "type": "boolean",
@@ -2608,7 +2672,7 @@
             "node5": {
                 "ready": {
                     "id": "zwave.0.NODE5.ready",
-                    "field": "ready",
+                    "field": "device_info",
                     "tags": {
                         "name": "ready",
                         "type": "boolean",
@@ -2617,7 +2681,7 @@
                 },
                 "alive": {
                     "id": "zwave.0.NODE5.alive",
-                    "field": "alive",
+                    "field": "device_info",
                     "tags": {
                         "name": "alive",
                         "type": "boolean",
@@ -2626,7 +2690,7 @@
                 },
                 "sleep": {
                     "id": "zwave.0.NODE5.sleep",
-                    "field": "sleep",
+                    "field": "device_info",
                     "tags": {
                         "name": "sleep",
                         "type": "boolean",
@@ -2637,7 +2701,7 @@
             "node9": {
                 "ready": {
                     "id": "zwave.0.NODE9.ready",
-                    "field": "ready",
+                    "field": "device_info",
                     "tags": {
                         "name": "ready",
                         "type": "boolean",
@@ -2646,7 +2710,7 @@
                 },
                 "alive": {
                     "id": "zwave.0.NODE9.alive",
-                    "field": "alive",
+                    "field": "device_info",
                     "tags": {
                         "name": "alive",
                         "type": "boolean",
@@ -2655,10 +2719,25 @@
                 },
                 "sleep": {
                     "id": "zwave.0.NODE9.sleep",
-                    "field": "sleep",
+                    "field": "device_info",
                     "tags": {
                         "name": "sleep",
                         "type": "boolean",
+                        "setting": false
+                    }
+                }
+            }
+        }
+    },
+    "hs100": {
+        "0": {
+            "192_168_0_146": {
+                "power": {
+                    "id": "hs100.0.192_168_0_146.power",
+                    "field": "power",
+                    "tags": {
+                        "name": "power",
+                        "type": "string",
                         "setting": false
                     }
                 }

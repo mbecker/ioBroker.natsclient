@@ -234,237 +234,255 @@ class Natsclient extends utils.Adapter {
     this.log.info("config natsconnection: " + this.config.natsconnection);
 
     const objects = this.config.getobjectsid.split(",");
-    let arr = [];
+    const arr = [];
     let objOrigin = {};
 
-    objects.forEach(el => {
-      this.getForeignObjects(el, (err, obj) => {
-        if (err !== null) return this.log.error(err);
-        this.log.info("--- START GETTING FOREIGNSTATES ---");
-
-        let obj2 = {};
+    const promises = [];
 
 
-        for (const k in obj) {
+    for (let index = 0; index < objects.length; index++) {
+      const el = objects[index];
+      promises.push(this.getForeignObjectsAsync(el)
+        .then(obj => {
+          this.log.info("--- START GETTING FOREIGNSTATES ---");
 
-          if (typeof obj[k]["common"] === "undefined") continue;
-          if (typeof obj[k]["common"]["type"] === "undefined") continue;
-          if (typeof obj[k]["common"]["role"] === "undefined") continue;
-          let role = obj[k]["common"]["role"].toLowerCase();
-
-          if (!role.includes("switch.") && !role.includes("value.") && !role.includes("sensor.") && !role.includes("indicator.")
-            && !k.toLowerCase().includes("temperature")
-            && !k.toLowerCase().includes("humidity")
-            && !k.toLowerCase().includes("pressure")
-            && !k.toLowerCase().includes("open")
-            && !k.toLowerCase().includes("reachable")
-            && !k.toLowerCase().includes("daylight")
-            && !k.toLowerCase().includes("dark")
-            && !k.toLowerCase().includes("lux")
-            && !k.toLowerCase().includes("lightlevel")
-            && !k.toLowerCase().includes("buttonpressed")
-            && !k.toLowerCase().includes("switch")
-            && !k.toLowerCase().includes("electric_-_w") // zwave.0.NODE4.METER.Electric_-_W_1 : Power for zwave power plug
-            && !k.toLowerCase().includes("electric_-_kwh") // zwave.0.NODE4.METER.Electric_-_kWh_1 : Power for zwave power plug
-            && !k.toLowerCase().includes("power") // zwave.0.NODE4.SENSOR_MULTILEVEL.Power_1
-
-            || k.toLowerCase().includes("_info") // tado.0.466027._info
-          ) continue;
-
-          // Tado
+          let obj2 = {};
 
 
-          if (role.includes("switch.")) role = role.split("switch.")[1];
-          if (role.includes("value.")) role = role.split("value.")[1];
-          if (role.includes("sensor.")) role = role.split("sensor.")[1];
-          if (role.includes("indicator.")) role = role.split("indicator.")[1];
-          if (k.toLowerCase().includes("temperature")) role = "temperature";
-          if (k.toLowerCase().includes("humidity")) role = "humidity";
-          if (k.toLowerCase().includes("pressure")) role = "pressure";
-          if (k.toLowerCase().includes("openwindow")) role = "openWindow";
-          if (k.toLowerCase().includes("openwindowdetection")) role = "openwindowdetection";          
-          if (k.toLowerCase().includes("pushnotifications")) role = "device_setting";
-          if (k.toLowerCase().includes("daylight")) role = "daylight";
-          if (k.toLowerCase().includes("dark")) role = "dark";
-          if (k.toLowerCase().includes("lux")) role = "lux";
-          if (k.toLowerCase().includes("lightlevel")) role = "lightlevel";
-          if (k.toLowerCase().includes("lastupdated")) role = "lastupdated";
-          if (k.toLowerCase().includes("datetime")) role = "lastupdated";
-          if (k.toLowerCase().includes("electric_-_w")) role = "electricwatt";
-          if (k.toLowerCase().includes("electric_-_kwh")) role = "electrickwh";
-          if (k.toLowerCase().includes("power")) role = "power";
-          if (k.toLowerCase().includes("buttonpressed")) role = "control";
+          for (const k in obj) {
 
-          if (role.toLowerCase().includes("switch") || k.toLowerCase().includes("switch")) {
-            role = "switch";
-            // shelly.0.SHSW-1#114418#1
-            if (role.toLowerCase().includes("shelley")) role = "light";
-          }
 
-          const splitted = k.toLowerCase().split(".");
-          obj2[k] = {};
-          obj2[k]["id"] = k;
-          obj2[k]["field"] = role.replace(".", "_"); // role
-          obj2[k]["tags"] = {};
-          obj2[k]["tags"]["name"] = splitted[splitted.length - 1];
-          obj2[k]["tags"]["type"] = obj[k]["common"]["type"];
+            if (typeof obj[k]["common"] === "undefined") continue;
+            if (typeof obj[k]["common"]["type"] === "undefined") continue;
+            if (typeof obj[k]["common"]["role"] === "undefined") continue;
+            let role = obj[k]["common"]["role"].toLowerCase();
 
-          // An object like "switch.power" has maybe states like "on", "off"
-          // These values could be later used as true/false
-          // Chekc that that object has these states and the set the type to "onoff"; the original type is maybe "mixed"
-          
-          
-          if (k.toLowerCase().includes("pushnotifications")) {
-            obj2[k]["tags"]["device_setting"] = "pushnotifications";
+            if (!role.includes("switch.") && !role.includes("value.") && !role.includes("sensor.") && !role.includes("indicator.")
+              && !k.toLowerCase().includes("temperature")
+              && !k.toLowerCase().includes("humidity")
+              && !k.toLowerCase().includes("pressure")
+              && !k.toLowerCase().includes("open")
+              && !k.toLowerCase().includes("reachable")
+              && !k.toLowerCase().includes("daylight")
+              && !k.toLowerCase().includes("dark")
+              && !k.toLowerCase().includes("lux")
+              && !k.toLowerCase().includes("lightlevel")
+              && !k.toLowerCase().includes("buttonpressed")
+              && !k.toLowerCase().includes("switch")
+              && !k.toLowerCase().includes("electric_-_w") // zwave.0.NODE4.METER.Electric_-_W_1 : Power for zwave power plug
+              && !k.toLowerCase().includes("electric_-_kwh") // zwave.0.NODE4.METER.Electric_-_kWh_1 : Power for zwave power plug
+              && !k.toLowerCase().includes("power") // zwave.0.NODE4.SENSOR_MULTILEVEL.Power_1
+
+              || k.toLowerCase().includes("_info") // tado.0.466027._info
+            ) continue;
+
+            // Tado
+
+            const splitted = k.toLowerCase().split(".");
+            const lastElementSplited = splitted[splitted.length - 1];
+
+            if (role.includes("switch.")) role = role.split("switch.")[1];
+            if (role.includes("value.")) role = role.split("value.")[1];
+            if (role.includes("sensor.")) role = role.split("sensor.")[1];
+            if (role.includes("indicator.")) role = role.split("indicator.")[1];
+            if (k.toLowerCase().includes("temperature")) role = "temperature";
+            if (k.toLowerCase().includes("humidity")) role = "humidity";
+            if (k.toLowerCase().includes("pressure")) role = "pressure";
+            if (k.toLowerCase().includes("openwindow")) role = "openWindow";
+            if (k.toLowerCase().includes("openwindowdetection")) role = "openwindowdetection";
+            if (k.toLowerCase().includes("pushnotifications")) role = "device_setting";
+            if (k.toLowerCase().includes("daylight")) role = "daylight";
+            if (k.toLowerCase().includes("dark")) role = "dark";
+            if (k.toLowerCase().includes("lux")) role = "lux";
+            if (k.toLowerCase().includes("lightlevel")) role = "lightlevel";
+            if (k.toLowerCase().includes("lastupdated")) role = "lastupdated";
+            if (k.toLowerCase().includes("datetime")) role = "lastupdated";
+            if (k.toLowerCase().includes("electric_-_w")) role = "electricwatt";
+            if (k.toLowerCase().includes("electric_-_kwh")) role = "electrickwh";
+            if (k.toLowerCase().includes("power")) role = "power";
+            if (k.toLowerCase().includes("buttonpressed")) role = "control";
+            if (k.toLowerCase().includes(".info.")) role = "device_info";
+            if (lastElementSplited === "alive" || lastElementSplited === "event" || lastElementSplited === "ready" || lastElementSplited === "sleep") role = "device_info"; // zwave.0.NODE7.alive
+
+            if (role.toLowerCase().includes("switch") || k.toLowerCase().includes("switch")) {
+              role = "switch";
+              // shelly.0.SHSW-1#114418#1
+              if (role.toLowerCase().includes("shelley")) role = "light";
+            }
+
             
-            obj2[k]["tags"]["pushnotifications"] = splitted[splitted.length - 1];
-            obj2[k]["tags"]["device"] = splitted[4];
-          }
+            obj2[k] = {};
+            obj2[k]["id"] = k;
+            obj2[k]["field"] = role.replace(".", "_"); // role
+            obj2[k]["tags"] = {};
+            obj2[k]["tags"]["name"] = splitted[splitted.length - 1];
+            obj2[k]["tags"]["type"] = obj[k]["common"]["type"];
 
-          
+            // An object like "switch.power" has maybe states like "on", "off"
+            // These values could be later used as true/false
+            // Chekc that that object has these states and the set the type to "onoff"; the original type is maybe "mixed"
 
 
-          if(role === "openwindowdetection") {
-            obj2[k]["tags"]["openwindowdetection"] = splitted[splitted.length - 1];
-            if(splitted[splitted.length - 1] === "enabled") obj2[k]["tags"]["type"] = "boolean";
-          }
+            if (k.toLowerCase().includes("pushnotifications")) {
+              obj2[k]["tags"]["device_setting"] = "pushnotifications";
 
-          if(role === "openWindow") {
-            obj2[k]["tags"]["openWindow"] = splitted[splitted.length - 1];
-          }
-
-          if(k.toLowerCase().includes("detectedtime")) obj2[k]["tags"]["type"] = "datetime";
-          if(k.toLowerCase().includes("inseconds")) obj2[k]["tags"]["type"] = "number";
-          if(k.toLowerCase().includes("expiry")) obj2[k]["tags"]["type"] = "number";
-          if(splitted[splitted.length - 1] === "open") obj2[k]["field"] = "windowdoor";
-          if (k.toLowerCase().includes("buttonpressed")) obj2[k]["tags"]["type"] = "number";
-          if (role === "daylight") obj2[k]["tags"]["type"] = "boolean";
-
-          
-          if (typeof obj[k]["common"]["states"] !== "undefined" && obj[k]["common"]["type"] !== "boolean") {
-            const states = obj[k]["common"]["states"];
-            if (typeof obj2[k]["states"] !== "undefined") obj2[k]["states"] = {};
-            obj2[k]["states"] = states;
-
-            const objectKeys = Object.keys(states);
-            if(objectKeys.length === 2 && (objectKeys[0].toLowerCase() === "on" || objectKeys[1].toLowerCase() === "on")) {
-              obj2[k]["tags"]["type"] = "onoff";
+              obj2[k]["tags"]["pushnotifications"] = splitted[splitted.length - 1];
+              obj2[k]["tags"]["device"] = splitted[4];
             }
 
-            // for (const kstates in states) {
-            //   const vstates = states[kstates].toLowerCase();
-            //   if (vstates.includes("on")) {
-            //     obj2[k]["tags"]["type"] = "onoff";
-            //     obj2[k]["tags"]["unit"] = "onoff";
-            //   }
-            // }
-          }
-          if (role === "lastupdated") {
-            obj2[k]["tags"]["type"] = "datetime";
-            obj2[k]["tags"]["unit"] = "datetime";
-          }
 
-          // TAGS
-          if (obj[k]["common"]["unit"] === "°C") obj2[k]["tags"]["unit"] = "celcius";
-          if (obj[k]["common"]["unit"] === "%") obj2[k]["tags"]["unit"] = "percentage";
 
-          if (k.toLowerCase().includes("setting")) {
-            obj2[k]["tags"]["setting"] = true;
-          } else {
-            obj2[k]["tags"]["setting"] = false;
-          }
-          if (k.toLowerCase().includes("rooms")) {
+
+            if (role === "openwindowdetection") {
+              obj2[k]["tags"]["openwindowdetection"] = splitted[splitted.length - 1];
+              if (splitted[splitted.length - 1] === "enabled") obj2[k]["tags"]["type"] = "boolean";
+            }
+
+            if (role === "openWindow") {
+              obj2[k]["tags"]["openWindow"] = splitted[splitted.length - 1];
+            }
+
+            if (k.toLowerCase().includes("detectedtime")) obj2[k]["tags"]["type"] = "datetime";
+            if (k.toLowerCase().includes("inseconds")) obj2[k]["tags"]["type"] = "number";
+            if (k.toLowerCase().includes("expiry")) obj2[k]["tags"]["type"] = "number";
+            if (splitted[splitted.length - 1] === "open") obj2[k]["field"] = "windowdoor";
+            if (k.toLowerCase().includes("buttonpressed")) obj2[k]["tags"]["type"] = "number";
+            if (role === "daylight") obj2[k]["tags"]["type"] = "boolean";
+
+
+            if (typeof obj[k]["common"]["states"] !== "undefined" && obj[k]["common"]["type"] !== "boolean") {
+              const states = obj[k]["common"]["states"];
+              if (typeof obj2[k]["states"] !== "undefined") obj2[k]["states"] = {};
+              obj2[k]["states"] = states;
+
+              const objectKeys = Object.keys(states);
+              if (objectKeys.length === 2 && (objectKeys[0].toLowerCase() === "on" || objectKeys[1].toLowerCase() === "on")) {
+                obj2[k]["tags"]["type"] = "onoff";
+              }
+
+              // for (const kstates in states) {
+              //   const vstates = states[kstates].toLowerCase();
+              //   if (vstates.includes("on")) {
+              //     obj2[k]["tags"]["type"] = "onoff";
+              //     obj2[k]["tags"]["unit"] = "onoff";
+              //   }
+              // }
+            }
+            if (role === "lastupdated") {
+              obj2[k]["tags"]["type"] = "datetime";
+              obj2[k]["tags"]["unit"] = "datetime";
+            }
+
+            // TAGS
+            if (obj[k]["common"]["unit"] === "°C") obj2[k]["tags"]["unit"] = "celcius";
+            if (obj[k]["common"]["unit"] === "%") obj2[k]["tags"]["unit"] = "percentage";
+
+            if (k.toLowerCase().includes("setting")) {
+              obj2[k]["tags"]["setting"] = true;
+            } else {
+              obj2[k]["tags"]["setting"] = false;
+            }
+            if (k.toLowerCase().includes("rooms")) {
+              const ks = k.toLowerCase().split(".");
+              const room = ks[4];
+              obj2[k]["tags"]["room"] = room;
+            }
+            // {"enum.rooms.esszimmer":"Esszimmer"}
+            const enums = obj[k].enums;
+            for (const enumKey in enums) {
+              if (enumKey.toLowerCase().includes("rooms")) obj2[k]["tags"]["room"] = enums[enumKey];
+            }
+            if (typeof obj2[k]["tags"]["room"] === "object") {
+              for (const enumKey in obj2[k]["tags"]["room"]) {
+                if (enumKey.toLowerCase().includes("en")) obj2[k]["tags"]["room"] = obj2[k]["tags"]["room"]["en"];
+              }
+            }
+
+            arr.push(obj2[k]);
+
             const ks = k.toLowerCase().split(".");
-            const room = ks[4];
-            obj2[k]["tags"]["room"] = room;
+            const ksObj = this.createObject(ks, obj2[k]);
+            objOrigin = _.merge(objOrigin, ksObj);
+
+
+
+
+            // this.getForeignStateAsync(k)
+            //   .then((state) => {
+            //     obj2[k]["value"] = state;
+
+
+
+            //     return obj2;
+            //   })
+            //   .then((obj3) => {
+            //     const objs = JSON.stringify(obj3);
+            //     this.setState("info.objs", objs);
+            //     this.log.info("--- WRITE DONE !!! ---");
+            //   })
+            //   .catch((err) => {
+            //     this.log.error(err);
+            //     obj[k]["error"] = err;
+            //   });
+
+
+            // this.getForeignState(k, (err, state) => {
+            //   obj2[k] = obj[k];
+            //   if(err !== null) {
+            //     this.log.error(err);
+            //     obj2[k]["error"] = err;
+            //   } else {
+            //     this.log.info(JSON.stringify(state));
+            //     obj2[k]["value"] = state;
+            //   }
+            //   const objs = JSON.stringify(obj2);
+            //   this.setState("info.objs", objs);
+            //   this.log.info("--- WRITE DONE !!! ---");
+            // });
           }
-          // {"enum.rooms.esszimmer":"Esszimmer"}
-          const enums = obj[k].enums;
-          for (const enumKey in enums) {
-            if (enumKey.toLowerCase().includes("rooms")) obj2[k]["tags"]["room"] = enums[enumKey];
-          }
-          if (typeof obj2[k]["tags"]["room"] === "object") {
-            for (const enumKey in obj2[k]["tags"]["room"]) {
-              if (enumKey.toLowerCase().includes("en")) obj2[k]["tags"]["room"] = obj2[k]["tags"]["room"]["en"];
-            }
-          }
+          this.log.info("--- DONE !!! ---");
+        })
+        .catch(err => {
+          this.log.error(err);
+        }));
+    }
 
-          arr.push(obj2[k]);
-
-          const ks = k.toLowerCase().split(".");
-          const ksObj = this.createObject(ks, obj2[k]);
-          objOrigin = _.merge(objOrigin, ksObj);
-
-          const objs = JSON.stringify(objOrigin);
-          this.setState("info.objs", objs);
-          this.log.info("--- WRITE DONE !!! ---");
-          this.log.info(__dirname);
-          const outputLocation = require("path").resolve(__dirname, "data.json");
-          require("fs").writeFile(outputLocation, JSON.stringify(objOrigin, null, 4), (err) => {
-            if (err) {
-              this.log.error(err);
-            } else {
-              this.log.info("JSON saved to " + outputLocation);
-            }
-          });
-          const outputLocation2 = require("path").resolve(__dirname, "arr.json");
-          require("fs").writeFile(outputLocation2, JSON.stringify(arr, null, 4), (err) => {
-            if (err) {
-              this.log.error(err);
-            } else {
-              this.log.info("JSON saved to " + outputLocation);
-            }
-          });
-          const data = YAML.stringify(arr);
-          const outputLocation3 = require("path").resolve(__dirname, "arr.yaml");
-          require("fs").writeFile(outputLocation3, data, (err) => {
-            if (err) {
-              this.log.error(err);
-            } else {
-              this.log.info("JSON saved to " + outputLocation);
-            }
-          });
-
-
-          // this.getForeignStateAsync(k)
-          //   .then((state) => {
-          //     obj2[k]["value"] = state;
-
-
-
-          //     return obj2;
-          //   })
-          //   .then((obj3) => {
-          //     const objs = JSON.stringify(obj3);
-          //     this.setState("info.objs", objs);
-          //     this.log.info("--- WRITE DONE !!! ---");
-          //   })
-          //   .catch((err) => {
-          //     this.log.error(err);
-          //     obj[k]["error"] = err;
-          //   });
-
-
-          // this.getForeignState(k, (err, state) => {
-          //   obj2[k] = obj[k];
-          //   if(err !== null) {
-          //     this.log.error(err);
-          //     obj2[k]["error"] = err;
-          //   } else {
-          //     this.log.info(JSON.stringify(state));
-          //     obj2[k]["value"] = state;
-          //   }
-          //   const objs = JSON.stringify(obj2);
-          //   this.setState("info.objs", objs);
-          //   this.log.info("--- WRITE DONE !!! ---");
-          // });
+    Promise.all(promises).then(() => {
+      this.log.info("Start writing");
+      const objs = JSON.stringify(objOrigin);
+      this.setState("info.objs", objs);
+      this.log.info("--- WRITE DONE !!! ---");
+      this.log.info(__dirname);
+      const outputLocation = require("path").resolve(__dirname, "data.json");
+      require("fs").writeFile(outputLocation, JSON.stringify(objOrigin, null, 4), (err) => {
+        if (err) {
+          this.log.error(err);
+        } else {
+          this.log.info("JSON saved to " + outputLocation);
         }
-        this.log.info("--- DONE !!! ---");
-
-        // this.log.info(objs);
-        // this.setState("info.objs", objs);
+      });
+      const outputLocation2 = require("path").resolve(__dirname, "arr.json");
+      require("fs").writeFile(outputLocation2, JSON.stringify(arr, null, 4), (err) => {
+        if (err) {
+          this.log.error(err);
+        } else {
+          this.log.info("JSON saved to " + outputLocation);
+        }
+      });
+      const data = YAML.stringify(arr);
+      const outputLocation3 = require("path").resolve(__dirname, "arr.yaml");
+      require("fs").writeFile(outputLocation3, data, (err) => {
+        if (err) {
+          this.log.error(err);
+        } else {
+          this.log.info("JSON saved to " + outputLocation);
+        }
       });
     });
+
+
+
+
 
 
 

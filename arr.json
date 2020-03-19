@@ -680,7 +680,7 @@
     },
     {
         "id": "tado.0.info.connection",
-        "field": "connected",
+        "field": "device_info",
         "tags": {
             "name": "connection",
             "type": "boolean",
@@ -724,7 +724,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.1.devices.VA1661671168.info.connectionState",
-        "field": "connected",
+        "field": "device_info",
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
@@ -734,7 +734,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.1.devices.VA1661671168.info.batteryState",
-        "field": "lowbat ",
+        "field": "device_info",
         "tags": {
             "name": "batterystate",
             "type": "mixed",
@@ -846,7 +846,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.2.devices.VA0090446080.info.connectionState",
-        "field": "connected",
+        "field": "device_info",
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
@@ -856,7 +856,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.2.devices.VA0090446080.info.batteryState",
-        "field": "lowbat ",
+        "field": "device_info",
         "tags": {
             "name": "batterystate",
             "type": "mixed",
@@ -968,7 +968,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.3.devices.VA0023337216.info.connectionState",
-        "field": "connected",
+        "field": "device_info",
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
@@ -978,7 +978,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.3.devices.VA0023337216.info.batteryState",
-        "field": "lowbat ",
+        "field": "device_info",
         "tags": {
             "name": "batterystate",
             "type": "mixed",
@@ -1090,7 +1090,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.4.devices.VA2254838016.info.connectionState",
-        "field": "connected",
+        "field": "device_info",
         "tags": {
             "name": "connectionstate",
             "type": "boolean",
@@ -1100,7 +1100,7 @@
     },
     {
         "id": "tado.0.466027.Rooms.4.devices.VA2254838016.info.batteryState",
-        "field": "lowbat ",
+        "field": "device_info",
         "tags": {
             "name": "batterystate",
             "type": "mixed",
@@ -1355,8 +1355,52 @@
         }
     },
     {
+        "id": "tado.0.466027.Rooms.2.openWindow.detectedTime",
+        "field": "openWindow",
+        "tags": {
+            "name": "detectedtime",
+            "type": "datetime",
+            "openWindow": "detectedtime",
+            "setting": false,
+            "room": "Wohnzimmer"
+        }
+    },
+    {
+        "id": "tado.0.466027.Rooms.2.openWindow.durationInSeconds",
+        "field": "openWindow",
+        "tags": {
+            "name": "durationinseconds",
+            "type": "number",
+            "openWindow": "durationinseconds",
+            "setting": false,
+            "room": "Wohnzimmer"
+        }
+    },
+    {
+        "id": "tado.0.466027.Rooms.2.openWindow.expiry",
+        "field": "openWindow",
+        "tags": {
+            "name": "expiry",
+            "type": "number",
+            "openWindow": "expiry",
+            "setting": false,
+            "room": "Wohnzimmer"
+        }
+    },
+    {
+        "id": "tado.0.466027.Rooms.2.openWindow.remainingTimeInSeconds",
+        "field": "openWindow",
+        "tags": {
+            "name": "remainingtimeinseconds",
+            "type": "number",
+            "openWindow": "remainingtimeinseconds",
+            "setting": false,
+            "room": "Wohnzimmer"
+        }
+    },
+    {
         "id": "shelly.0.info.connection",
-        "field": "connected",
+        "field": "device_info",
         "tags": {
             "name": "connection",
             "type": "boolean",
@@ -1405,7 +1449,7 @@
     },
     {
         "id": "zwave.0.info.connection",
-        "field": "connected",
+        "field": "device_info",
         "tags": {
             "name": "connection",
             "type": "boolean",
@@ -1414,7 +1458,7 @@
     },
     {
         "id": "zwave.0.NODE1.ready",
-        "field": "ready",
+        "field": "device_info",
         "tags": {
             "name": "ready",
             "type": "boolean",
@@ -1423,7 +1467,7 @@
     },
     {
         "id": "zwave.0.NODE1.alive",
-        "field": "alive",
+        "field": "device_info",
         "tags": {
             "name": "alive",
             "type": "boolean",
@@ -1432,7 +1476,7 @@
     },
     {
         "id": "zwave.0.NODE1.sleep",
-        "field": "sleep",
+        "field": "device_info",
         "tags": {
             "name": "sleep",
             "type": "boolean",
@@ -1441,7 +1485,7 @@
     },
     {
         "id": "zwave.0.NODE4.ready",
-        "field": "ready",
+        "field": "device_info",
         "tags": {
             "name": "ready",
             "type": "boolean",
@@ -1451,7 +1495,7 @@
     },
     {
         "id": "zwave.0.NODE4.alive",
-        "field": "alive",
+        "field": "device_info",
         "tags": {
             "name": "alive",
             "type": "boolean",
@@ -1461,7 +1505,7 @@
     },
     {
         "id": "zwave.0.NODE4.sleep",
-        "field": "sleep",
+        "field": "device_info",
         "tags": {
             "name": "sleep",
             "type": "boolean",
@@ -1806,7 +1850,7 @@
     },
     {
         "id": "zwave.0.NODE6.ready",
-        "field": "ready",
+        "field": "device_info",
         "tags": {
             "name": "ready",
             "type": "boolean",
@@ -1816,7 +1860,7 @@
     },
     {
         "id": "zwave.0.NODE6.alive",
-        "field": "alive",
+        "field": "device_info",
         "tags": {
             "name": "alive",
             "type": "boolean",
@@ -1826,7 +1870,7 @@
     },
     {
         "id": "zwave.0.NODE6.sleep",
-        "field": "sleep",
+        "field": "device_info",
         "tags": {
             "name": "sleep",
             "type": "boolean",
@@ -2120,29 +2164,32 @@
     },
     {
         "id": "zwave.0.NODE7.ready",
-        "field": "ready",
+        "field": "device_info",
         "tags": {
             "name": "ready",
             "type": "boolean",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
         "id": "zwave.0.NODE7.alive",
-        "field": "alive",
+        "field": "device_info",
         "tags": {
             "name": "alive",
             "type": "boolean",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
         "id": "zwave.0.NODE7.sleep",
-        "field": "sleep",
+        "field": "device_info",
         "tags": {
             "name": "sleep",
             "type": "boolean",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2151,7 +2198,8 @@
         "tags": {
             "name": "powerlevel",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "Normal",
@@ -2172,7 +2220,8 @@
         "tags": {
             "name": "timeout",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2181,7 +2230,8 @@
         "tags": {
             "name": "set_powerlevel",
             "type": "boolean",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2190,7 +2240,8 @@
         "tags": {
             "name": "test_node",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2199,7 +2250,8 @@
         "tags": {
             "name": "test_powerlevel",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "Normal",
@@ -2220,7 +2272,8 @@
         "tags": {
             "name": "frame_count",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2229,7 +2282,8 @@
         "tags": {
             "name": "test",
             "type": "boolean",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2238,7 +2292,8 @@
         "tags": {
             "name": "report",
             "type": "boolean",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2247,7 +2302,8 @@
         "tags": {
             "name": "test_status",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "Failed",
@@ -2261,7 +2317,8 @@
         "tags": {
             "name": "acked_frames",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2271,7 +2328,8 @@
             "name": "battery_level_1",
             "type": "number",
             "unit": "percentage",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2280,7 +2338,8 @@
         "tags": {
             "name": "wake_up_10_minutes_on_power_on",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "Disable",
@@ -2293,7 +2352,8 @@
         "tags": {
             "name": "current_power_mode",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "USB power, sleeping mode after re-power on",
@@ -2308,7 +2368,8 @@
         "tags": {
             "name": "temperature_reporting_threshold",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2318,7 +2379,8 @@
             "name": "humidity_reporting_threshold",
             "type": "number",
             "unit": "percentage",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2327,7 +2389,8 @@
         "tags": {
             "name": "set_the_upper_limit_value_of_temperature_sensor",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2336,7 +2399,8 @@
         "tags": {
             "name": "set_the_lower_limit_value_of_temperature_sensor",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2346,7 +2410,8 @@
             "name": "set_the_upper_limit_value_of_humidity_sensor",
             "type": "number",
             "unit": "percentage",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2356,7 +2421,8 @@
             "name": "set_the_lower_limit_value_of_humidity_sensor",
             "type": "number",
             "unit": "percentage",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2365,7 +2431,8 @@
         "tags": {
             "name": "set_the_recover_limit_value_of_temperature_sensor",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2375,7 +2442,8 @@
             "name": "set_the_recover_limit_value_of_humidity_sensor",
             "type": "number",
             "unit": "percentage",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2384,7 +2452,8 @@
         "tags": {
             "name": "temperature_scale",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "Celsius",
@@ -2397,7 +2466,8 @@
         "tags": {
             "name": "temperature_calibration",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2406,7 +2476,8 @@
         "tags": {
             "name": "humidity_calibration",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2415,7 +2486,8 @@
         "tags": {
             "name": "air_temperature_1",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2424,7 +2496,8 @@
         "tags": {
             "name": "air_temperature_units",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "Celsius",
@@ -2438,7 +2511,8 @@
             "name": "humidity_1",
             "type": "number",
             "unit": "percentage",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         }
     },
     {
@@ -2447,7 +2521,8 @@
         "tags": {
             "name": "humidity_units",
             "type": "number",
-            "setting": false
+            "setting": false,
+            "room": "Wohnzimmer"
         },
         "states": {
             "0": "Percent"
@@ -2455,7 +2530,7 @@
     },
     {
         "id": "zwave.0.NODE8.ready",
-        "field": "ready",
+        "field": "device_info",
         "tags": {
             "name": "ready",
             "type": "boolean",
@@ -2464,7 +2539,7 @@
     },
     {
         "id": "zwave.0.NODE8.alive",
-        "field": "alive",
+        "field": "device_info",
         "tags": {
             "name": "alive",
             "type": "boolean",
@@ -2473,7 +2548,7 @@
     },
     {
         "id": "zwave.0.NODE8.sleep",
-        "field": "sleep",
+        "field": "device_info",
         "tags": {
             "name": "sleep",
             "type": "boolean",
@@ -2742,7 +2817,7 @@
     },
     {
         "id": "zwave.0.NODE5.ready",
-        "field": "ready",
+        "field": "device_info",
         "tags": {
             "name": "ready",
             "type": "boolean",
@@ -2751,7 +2826,7 @@
     },
     {
         "id": "zwave.0.NODE5.alive",
-        "field": "alive",
+        "field": "device_info",
         "tags": {
             "name": "alive",
             "type": "boolean",
@@ -2760,7 +2835,7 @@
     },
     {
         "id": "zwave.0.NODE5.sleep",
-        "field": "sleep",
+        "field": "device_info",
         "tags": {
             "name": "sleep",
             "type": "boolean",
@@ -2769,7 +2844,7 @@
     },
     {
         "id": "zwave.0.NODE9.ready",
-        "field": "ready",
+        "field": "device_info",
         "tags": {
             "name": "ready",
             "type": "boolean",
@@ -2778,7 +2853,7 @@
     },
     {
         "id": "zwave.0.NODE9.alive",
-        "field": "alive",
+        "field": "device_info",
         "tags": {
             "name": "alive",
             "type": "boolean",
@@ -2787,10 +2862,19 @@
     },
     {
         "id": "zwave.0.NODE9.sleep",
-        "field": "sleep",
+        "field": "device_info",
         "tags": {
             "name": "sleep",
             "type": "boolean",
+            "setting": false
+        }
+    },
+    {
+        "id": "hs100.0.192_168_0_146.power",
+        "field": "power",
+        "tags": {
+            "name": "power",
+            "type": "string",
             "setting": false
         }
     }
