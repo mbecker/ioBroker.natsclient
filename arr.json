@@ -7,7 +7,7 @@
             "type": "boolean",
             "unit": "",
             "setting": false,
-            "room": "Arbeitszimmer"
+            "room": "Bad"
         }
     },
     {
@@ -734,6 +734,138 @@
             "unit": "",
             "setting": false,
             "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.21.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.21.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.21.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.21.temperature",
+        "field": "temperature",
+        "tags": {
+            "name": "temperature",
+            "type": "number",
+            "unit": "celcius",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.21.open",
+        "field": "windowdoor",
+        "tags": {
+            "name": "open",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.22.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.22.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.22.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.22.temperature",
+        "field": "temperature",
+        "tags": {
+            "name": "temperature",
+            "type": "number",
+            "unit": "celcius",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.22.lowbattery",
+        "field": "lowbat",
+        "tags": {
+            "name": "lowbattery",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.22.water",
+        "field": "alarm_flood",
+        "tags": {
+            "name": "water",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Lights.11.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Arbeitszimmer"
         }
     },
     {
