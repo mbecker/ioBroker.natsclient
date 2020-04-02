@@ -414,7 +414,7 @@
             "type": "number",
             "unit": "",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -425,7 +425,7 @@
             "type": "number",
             "unit": "",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -436,7 +436,7 @@
             "type": "boolean",
             "unit": "",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -447,7 +447,7 @@
             "type": "number",
             "unit": "celcius",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -458,7 +458,7 @@
             "type": "number",
             "unit": "",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -469,7 +469,7 @@
             "type": "number",
             "unit": "",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -480,7 +480,7 @@
             "type": "boolean",
             "unit": "",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -491,7 +491,7 @@
             "type": "number",
             "unit": "celcius",
             "setting": false,
-            "room": "-"
+            "room": "Flur"
         }
     },
     {
@@ -569,171 +569,6 @@
             "unit": "",
             "setting": false,
             "room": "Eingangsbereich"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.dark",
-        "field": "dark",
-        "tags": {
-            "name": "dark",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.battery",
-        "field": "battery",
-        "tags": {
-            "name": "battery",
-            "type": "number",
-            "unit": "percentage",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.reachable",
-        "field": "reachable",
-        "tags": {
-            "name": "reachable",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.temperature",
-        "field": "temperature",
-        "tags": {
-            "name": "temperature",
-            "type": "number",
-            "unit": "celcius",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.tholddark",
-        "field": "dark",
-        "tags": {
-            "name": "tholddark",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.daylight",
-        "field": "daylight",
-        "tags": {
-            "name": "daylight",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.lastupdated",
-        "field": "lastupdated",
-        "tags": {
-            "name": "lastupdated",
-            "type": "datetime",
-            "unit": "datetime",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.lightlevel",
-        "field": "lightlevel",
-        "tags": {
-            "name": "lightlevel",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.19.lux",
-        "field": "lux",
-        "tags": {
-            "name": "lux",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.20.lastupdated",
-        "field": "lastupdated",
-        "tags": {
-            "name": "lastupdated",
-            "type": "datetime",
-            "unit": "datetime",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.20.battery",
-        "field": "battery",
-        "tags": {
-            "name": "battery",
-            "type": "number",
-            "unit": "percentage",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.20.duration",
-        "field": "power_consumption",
-        "tags": {
-            "name": "duration",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.20.reachable",
-        "field": "reachable",
-        "tags": {
-            "name": "reachable",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.20.temperature",
-        "field": "temperature",
-        "tags": {
-            "name": "temperature",
-            "type": "number",
-            "unit": "celcius",
-            "setting": false,
-            "room": "Flur"
-        }
-    },
-    {
-        "id": "deconz.0.Sensors.20.presence",
-        "field": "motion",
-        "tags": {
-            "name": "presence",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Flur"
         }
     },
     {
@@ -866,6 +701,567 @@
             "unit": "",
             "setting": false,
             "room": "Arbeitszimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.16.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.16.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.16.duration",
+        "field": "power_consumption",
+        "tags": {
+            "name": "duration",
+            "type": "number",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.16.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.16.temperature",
+        "field": "temperature",
+        "tags": {
+            "name": "temperature",
+            "type": "number",
+            "unit": "celcius",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.16.presence",
+        "field": "motion",
+        "tags": {
+            "name": "presence",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.dark",
+        "field": "dark",
+        "tags": {
+            "name": "dark",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.temperature",
+        "field": "temperature",
+        "tags": {
+            "name": "temperature",
+            "type": "number",
+            "unit": "celcius",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.tholddark",
+        "field": "dark",
+        "tags": {
+            "name": "tholddark",
+            "type": "number",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.daylight",
+        "field": "daylight",
+        "tags": {
+            "name": "daylight",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.lightlevel",
+        "field": "lightlevel",
+        "tags": {
+            "name": "lightlevel",
+            "type": "number",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.17.lux",
+        "field": "lux",
+        "tags": {
+            "name": "lux",
+            "type": "number",
+            "unit": "",
+            "setting": false,
+            "room": "Flur"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.19.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.19.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.19.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.19.temperature",
+        "field": "temperature",
+        "tags": {
+            "name": "temperature",
+            "type": "number",
+            "unit": "celcius",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.20.humidity",
+        "field": "humidity",
+        "tags": {
+            "name": "humidity",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.20.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.20.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.20.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.23.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.23.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.23.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.23.pressure",
+        "field": "pressure",
+        "tags": {
+            "name": "pressure",
+            "type": "number",
+            "unit": "",
+            "setting": false,
+            "room": "Garten"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.24.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.24.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.24.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.24.temperature",
+        "field": "temperature",
+        "tags": {
+            "name": "temperature",
+            "type": "number",
+            "unit": "celcius",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.25.humidity",
+        "field": "humidity",
+        "tags": {
+            "name": "humidity",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.25.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.25.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.25.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.26.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.26.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.26.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.26.pressure",
+        "field": "pressure",
+        "tags": {
+            "name": "pressure",
+            "type": "number",
+            "unit": "",
+            "setting": false,
+            "room": "Sportzimmer"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.27.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.27.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.27.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.27.temperature",
+        "field": "temperature",
+        "tags": {
+            "name": "temperature",
+            "type": "number",
+            "unit": "celcius",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.28.humidity",
+        "field": "humidity",
+        "tags": {
+            "name": "humidity",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.28.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.28.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.28.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.29.lastupdated",
+        "field": "lastupdated",
+        "tags": {
+            "name": "lastupdated",
+            "type": "datetime",
+            "unit": "datetime",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.29.battery",
+        "field": "battery",
+        "tags": {
+            "name": "battery",
+            "type": "number",
+            "unit": "percentage",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.29.reachable",
+        "field": "reachable",
+        "tags": {
+            "name": "reachable",
+            "type": "boolean",
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
+        }
+    },
+    {
+        "id": "deconz.0.Sensors.29.pressure",
+        "field": "pressure",
+        "tags": {
+            "name": "pressure",
+            "type": "number",
+            "unit": "",
+            "setting": false,
+            "room": "Keller"
         }
     },
     {
@@ -2209,346 +2605,6 @@
         }
     },
     {
-        "id": "zwave.0.NODE6.ready",
-        "field": "device_info",
-        "tags": {
-            "name": "ready",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.alive",
-        "field": "device_info",
-        "tags": {
-            "name": "alive",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.sleep",
-        "field": "device_info",
-        "tags": {
-            "name": "sleep",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Level_1",
-        "field": "switch",
-        "tags": {
-            "name": "level_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Bright_1",
-        "field": "switch",
-        "tags": {
-            "name": "bright_1",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Dim_1",
-        "field": "switch",
-        "tags": {
-            "name": "dim_1",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Ignore_Start_Level",
-        "field": "switch",
-        "tags": {
-            "name": "ignore_start_level",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Start_Level",
-        "field": "switch",
-        "tags": {
-            "name": "start_level",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.BATTERY.Battery_Level_1",
-        "field": "battery",
-        "tags": {
-            "name": "battery_level_1",
-            "type": "number",
-            "unit": "percentage",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Powerlevel",
-        "field": "power",
-        "tags": {
-            "name": "powerlevel",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        },
-        "states": {
-            "0": "Normal",
-            "1": "-1dB",
-            "2": "-2dB",
-            "3": "-3dB",
-            "4": "-4dB",
-            "5": "-5dB",
-            "6": "-6dB",
-            "7": "-7dB",
-            "8": "-8dB",
-            "9": "-9dB"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Timeout",
-        "field": "power",
-        "tags": {
-            "name": "timeout",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Set_Powerlevel",
-        "field": "power",
-        "tags": {
-            "name": "set_powerlevel",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Test_Node",
-        "field": "power",
-        "tags": {
-            "name": "test_node",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Test_Powerlevel",
-        "field": "power",
-        "tags": {
-            "name": "test_powerlevel",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        },
-        "states": {
-            "0": "Normal",
-            "1": "-1dB",
-            "2": "-2dB",
-            "3": "-3dB",
-            "4": "-4dB",
-            "5": "-5dB",
-            "6": "-6dB",
-            "7": "-7dB",
-            "8": "-8dB",
-            "9": "-9dB"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Frame_Count",
-        "field": "power",
-        "tags": {
-            "name": "frame_count",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Test",
-        "field": "power",
-        "tags": {
-            "name": "test",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Report",
-        "field": "power",
-        "tags": {
-            "name": "report",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Test_Status",
-        "field": "power",
-        "tags": {
-            "name": "test_status",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        },
-        "states": {
-            "0": "Failed",
-            "1": "Success",
-            "2": "In Progress"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.POWERLEVEL.Acked_Frames",
-        "field": "power",
-        "tags": {
-            "name": "acked_frames",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.CONFIGURATION.Temperature_Report_Threshold",
-        "field": "temperature",
-        "tags": {
-            "name": "temperature_report_threshold",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.CONFIGURATION.Valve_Opening_Percentage_Report",
-        "field": "meta_config",
-        "tags": {
-            "name": "valve_opening_percentage_report",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.CONFIGURATION.Open_Window_Detection",
-        "field": "meta_config",
-        "tags": {
-            "name": "open_window_detection",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        },
-        "states": {
-            "0": "Disabled",
-            "1": "Low sensibility",
-            "2": "Medium sensibility",
-            "3": "High sensibility"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.CONFIGURATION.Measured_Temperature_Offset",
-        "field": "temperature",
-        "tags": {
-            "name": "measured_temperature_offset",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SENSOR_MULTILEVEL.Air_Temperature_1",
-        "field": "temperature",
-        "tags": {
-            "name": "air_temperature_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SENSOR_MULTILEVEL.Air_Temperature_Units",
-        "field": "temperature",
-        "tags": {
-            "name": "air_temperature_units",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        },
-        "states": {
-            "0": "Celsius"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.ALARM.Power_Management_1",
-        "field": "power",
-        "tags": {
-            "name": "power_management_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        },
-        "states": {
-            "0": "Clear",
-            "1": "Replace Battery Soon",
-            "2": "Replace Battery Now"
-        }
-    },
-    {
-        "id": "zwave.0.NODE6.SWITCH_MULTILEVEL.Valve_Opening_1",
-        "field": "switch",
-        "tags": {
-            "name": "valve_opening_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "Esszimmer"
-        }
-    },
-    {
         "id": "zwave.0.NODE7.ready",
         "field": "device_info",
         "tags": {
@@ -2937,412 +2993,6 @@
         },
         "states": {
             "0": "Percent"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.ready",
-        "field": "device_info",
-        "tags": {
-            "name": "ready",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.alive",
-        "field": "device_info",
-        "tags": {
-            "name": "alive",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.sleep",
-        "field": "device_info",
-        "tags": {
-            "name": "sleep",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Level_1",
-        "field": "switch",
-        "tags": {
-            "name": "level_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Bright_1",
-        "field": "switch",
-        "tags": {
-            "name": "bright_1",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Dim_1",
-        "field": "switch",
-        "tags": {
-            "name": "dim_1",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Ignore_Start_Level",
-        "field": "switch",
-        "tags": {
-            "name": "ignore_start_level",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Start_Level",
-        "field": "switch",
-        "tags": {
-            "name": "start_level",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.BATTERY.Battery_Level_1",
-        "field": "battery",
-        "tags": {
-            "name": "battery_level_1",
-            "type": "number",
-            "unit": "percentage",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Powerlevel",
-        "field": "power",
-        "tags": {
-            "name": "powerlevel",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        },
-        "states": {
-            "0": "Normal",
-            "1": "-1dB",
-            "2": "-2dB",
-            "3": "-3dB",
-            "4": "-4dB",
-            "5": "-5dB",
-            "6": "-6dB",
-            "7": "-7dB",
-            "8": "-8dB",
-            "9": "-9dB"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Timeout",
-        "field": "power",
-        "tags": {
-            "name": "timeout",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Set_Powerlevel",
-        "field": "power",
-        "tags": {
-            "name": "set_powerlevel",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Test_Node",
-        "field": "power",
-        "tags": {
-            "name": "test_node",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Test_Powerlevel",
-        "field": "power",
-        "tags": {
-            "name": "test_powerlevel",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        },
-        "states": {
-            "0": "Normal",
-            "1": "-1dB",
-            "2": "-2dB",
-            "3": "-3dB",
-            "4": "-4dB",
-            "5": "-5dB",
-            "6": "-6dB",
-            "7": "-7dB",
-            "8": "-8dB",
-            "9": "-9dB"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Frame_Count",
-        "field": "power",
-        "tags": {
-            "name": "frame_count",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Test",
-        "field": "power",
-        "tags": {
-            "name": "test",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Report",
-        "field": "power",
-        "tags": {
-            "name": "report",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Test_Status",
-        "field": "power",
-        "tags": {
-            "name": "test_status",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        },
-        "states": {
-            "0": "Failed",
-            "1": "Success",
-            "2": "In Progress"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.POWERLEVEL.Acked_Frames",
-        "field": "power",
-        "tags": {
-            "name": "acked_frames",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.CONFIGURATION.Temperature_Report_Threshold",
-        "field": "temperature",
-        "tags": {
-            "name": "temperature_report_threshold",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.CONFIGURATION.Valve_Opening_Percentage_Report",
-        "field": "meta_config",
-        "tags": {
-            "name": "valve_opening_percentage_report",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.CONFIGURATION.Open_Window_Detection",
-        "field": "meta_config",
-        "tags": {
-            "name": "open_window_detection",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        },
-        "states": {
-            "0": "Disabled",
-            "1": "Low sensibility",
-            "2": "Medium sensibility",
-            "3": "High sensibility"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.CONFIGURATION.Measured_Temperature_Offset",
-        "field": "temperature",
-        "tags": {
-            "name": "measured_temperature_offset",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SENSOR_MULTILEVEL.Air_Temperature_1",
-        "field": "temperature",
-        "tags": {
-            "name": "air_temperature_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SENSOR_MULTILEVEL.Air_Temperature_Units",
-        "field": "temperature",
-        "tags": {
-            "name": "air_temperature_units",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        },
-        "states": {
-            "0": "Celsius"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.ALARM.Power_Management_1",
-        "field": "power",
-        "tags": {
-            "name": "power_management_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        },
-        "states": {
-            "0": "Clear",
-            "1": "Replace Battery Soon",
-            "2": "Replace Battery Now"
-        }
-    },
-    {
-        "id": "zwave.0.NODE8.SWITCH_MULTILEVEL.Valve_Opening_1",
-        "field": "switch",
-        "tags": {
-            "name": "valve_opening_1",
-            "type": "number",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE5.ready",
-        "field": "device_info",
-        "tags": {
-            "name": "ready",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE5.alive",
-        "field": "device_info",
-        "tags": {
-            "name": "alive",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE5.sleep",
-        "field": "device_info",
-        "tags": {
-            "name": "sleep",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE9.ready",
-        "field": "device_info",
-        "tags": {
-            "name": "ready",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE9.alive",
-        "field": "device_info",
-        "tags": {
-            "name": "alive",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
-        }
-    },
-    {
-        "id": "zwave.0.NODE9.sleep",
-        "field": "device_info",
-        "tags": {
-            "name": "sleep",
-            "type": "boolean",
-            "unit": "",
-            "setting": false,
-            "room": "-"
         }
     },
     {

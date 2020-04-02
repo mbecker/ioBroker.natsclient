@@ -274,6 +274,7 @@ class Natsclient extends utils.Adapter {
               && !k.toLowerCase().includes("power") // zwave.0.NODE4.SENSOR_MULTILEVEL.Power_1
 
               || k.toLowerCase().includes("_info") // tado.0.466027._info
+              || k.toLocaleLowerCase().includes("javascript")
             ) continue;
 
             // Tado
